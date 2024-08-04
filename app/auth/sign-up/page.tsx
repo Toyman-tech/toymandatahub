@@ -1,7 +1,7 @@
 
 import { Suspense } from "react";
 import LoadingPage from "@/components/LoadingPage";
-import PageWrap from "./pageWrap";
+import PageWrap from "./PageWrap";
 
 export default function Home() {
   return (
