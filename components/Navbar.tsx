@@ -35,7 +35,7 @@ const Navbar = () => {
               </Link>
             </Stack>
           </Box>
-          <Link href="#" underline="none" color='black'>
+          <Link href="/auth/sign-in" underline="none" color='black'>
             Sign-in
           </Link>
         </Stack>
