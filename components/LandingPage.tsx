@@ -99,6 +99,10 @@ const LandingPage = () => {
                 fontSize: "13px",
                 fontWeight: 700,
                 backgroundColor: "#ababab",
+                ":hover":{
+                  backgroundColor: "#ababab",
+                  color:'#3f2828'
+                },
               }}
               variant="contained"
             >
@@ -115,7 +119,10 @@ const LandingPage = () => {
                 fontSize: "15px",
                 color:'#643406fa',
                 fontWeight: 700,
-                backgroundColor: "#ababab",
+                ":hover":{
+                  backgroundColor: "#ababab",
+                  color:'#3f2828'
+                },                backgroundColor: "#ababab",
               }}
               variant="contained"
             >

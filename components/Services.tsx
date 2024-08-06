@@ -26,24 +26,23 @@ const Services = () => {
           />
         </Stack>
         <Stack
-          direction={{ md: "column", xs: "row" }}
-          sx={{ overflowY:"auto"}}
+          direction='column'
           justifyContent={"center"}
           alignItems={"center"}
           textAlign={"center"}
           spacing={1}
-          pl='55px'
+          // pl='55px'
           
         >
           <Stack
           // direction={{ md: "row", xs: "column" }}
-          direction={'row'}
+          direction={{md:'row', xs:'column'}}
           // sx={{ overflowY:"auto"}}
           justifyContent={"center"}
           alignItems={"center"}
           textAlign={"center"}
           spacing={3}
-          pl='20px'
+          
           
         >
           {/* Box beginning */}
@@ -59,7 +58,7 @@ const Services = () => {
             display="flex"
             alignItems={"center"}
           >
-            <Stack direction="column" justifyContent={"space-between"}
+            <Stack direction="column" justifyContent={"space-around"}
             height='100%'
             padding='10px'
             >
@@ -73,8 +72,8 @@ const Services = () => {
                 <Box
                   
                   component={"img"}
-                    width='120px'
-                    height='120px'
+                    width='100px'
+                    height='100px'
                   src="/smt2.svg"
                   sx={
                     {
@@ -103,7 +102,7 @@ const Services = () => {
             display="flex"
             alignItems={"center"}
           >
-            <Stack direction="column" justifyContent={"space-between"}
+            <Stack direction="column" justifyContent={"space-around"}
             height='100%'
             padding='10px'
             >
@@ -117,8 +116,8 @@ const Services = () => {
                 <Box
                   
                   component={"img"}
-                    width='120px'
-                    height='120px'
+                    width='100px'
+                    height='100px'
                   src="/smt3.svg"
                   sx={
                     {
@@ -147,7 +146,7 @@ const Services = () => {
             display="flex"
             alignItems={"center"}
           >
-            <Stack direction="column" justifyContent={"space-between"}
+            <Stack direction="column" justifyContent={"space-around"}
             height='100%'
             padding='10px'
             >
@@ -161,8 +160,8 @@ const Services = () => {
                 <Box
                   
                   component={"img"}
-                    width='120px'
-                    height='120px'
+                    width='100px'
+                    height='100px'
                   src="/smt4.svg"
                   sx={
                     {
@@ -191,7 +190,7 @@ const Services = () => {
             display="flex"
             alignItems={"center"}
           >
-            <Stack direction="column" justifyContent={"space-between"}
+            <Stack direction="column" justifyContent={"space-around"}
             height='100%'
             padding='10px'
             >
@@ -205,8 +204,8 @@ const Services = () => {
                 <Box
                   
                   component={"img"}
-                    width='120px'
-                    height='120px'
+                    width='100px'
+                    height='100px'
                   src="/smt.svg"
                   sx={
                     {
@@ -224,12 +223,12 @@ const Services = () => {
           {/* box ending */}
           </Stack>
           <Stack
-          direction={'row'}
+          direction={{md:'row', xs:'column'}}
           justifyContent={"center"}
           alignItems={"center"}
           textAlign={"center"}
           spacing={3}
-          pl='20px'
+          // pl='20px'
           
         >
           {/* Box beginning */}
@@ -245,7 +244,7 @@ const Services = () => {
             display="flex"
             alignItems={"center"}
           >
-            <Stack direction="column" justifyContent={"space-between"}
+            <Stack direction="column" justifyContent={"space-around"}
             height='100%'
             padding='10px'
             >
@@ -259,8 +258,8 @@ const Services = () => {
                 <Box
                   
                   component={"img"}
-                    width='120px'
-                    height='120px'
+                    width='100px'
+                    height='100px'
                   src="/smt5.svg"
                   sx={
                     {
@@ -289,7 +288,7 @@ const Services = () => {
             display="flex"
             alignItems={"center"}
           >
-            <Stack direction="column" justifyContent={"space-between"}
+            <Stack direction="column" justifyContent={"space-around"}
             height='100%'
             padding='10px'
             >
@@ -303,8 +302,8 @@ const Services = () => {
                 <Box
                   
                   component={"img"}
-                    width='120px'
-                    height='120px'
+                    width='100px'
+                    height='100px'
                   src="/smt7.svg"
                   sx={
                     {
@@ -333,7 +332,7 @@ const Services = () => {
             display="flex"
             alignItems={"center"}
           >
-            <Stack direction="column" justifyContent={"space-between"}
+            <Stack direction="column" justifyContent={"space-around"}
             height='100%'
             padding='10px'
             >
@@ -347,8 +346,8 @@ const Services = () => {
                 <Box
                   
                   component={"img"}
-                    width='120px'
-                    height='120px'
+                    width='100px'
+                    height='100px'
                   src="/smt1.svg"
                   sx={
                     {
@@ -377,7 +376,7 @@ const Services = () => {
             display="flex"
             alignItems={"center"}
           >
-            <Stack direction="column" justifyContent={"space-between"}
+            <Stack direction="column" justifyContent={"space-around"}
             height='100%'
             padding='10px'
             >
@@ -391,8 +390,8 @@ const Services = () => {
                 <Box
                   
                   component={"img"}
-                    width='120px'
-                    height='120px'
+                    width='100px'
+                    height='100px'
                   src="/smt6.svg"
                   sx={
                     {

@@ -141,7 +141,7 @@ const SignIn = () => {
               fullWidth
               sx={{
                 height: "100%", // Custom height
-
+                color:'black',
                 fontSize: "13px",
                 fontWeight: 200,
               }}

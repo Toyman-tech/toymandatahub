@@ -47,7 +47,8 @@ input::selection {
 .MuiInputBase-root .MuiOutlinedInput-notchedOutline {
   border: 1px solid  #5b3a3a96;
   border-radius: 8px;
-  background-color:#f5f5fa !important;
+  background-color:#f5f5fa50 ;
+  
 }
 .subscribe-sec .MuiInputBase-root {
   padding-right: 0;

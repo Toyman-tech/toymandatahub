@@ -12,7 +12,7 @@ const socials=
 
 const Footer = () => {
   return (
-    <Box sx={{ backgroundColor:' #664526', color:'#ffff' }} 
+    <Box sx={{ backgroundColor:' #331a03', color:'#ffff' }} 
     padding={'20px'}>
       <Stack direction='column' spacing={3}>
          <Box component='h2'>
@@ -37,19 +37,19 @@ const Footer = () => {
                     Useful Links
                   </Box>
                   <Stack direction='column'>
-                  <Link href="#" underline="none"  color='#ffff'>
+                  <Link href="#" underline="none"  color='#f79333'>
                 Home
               </Link>
-              <Link href="#" underline="none"  color='#ffff'>
+              <Link href="#" underline="none"  color='#f79333'>
                 About Us
               </Link>
-              <Link href="#" underline="none"  color='#ffff'>
+              <Link href="#" underline="none"  color='#f79333'>
                 Services
               </Link>
-              <Link href="#" underline="none"  color='#ffff'>
+              <Link href="#" underline="none"  color='#f79333'>
                 Login
               </Link>
-              <Link href="#" underline="none"  color='#ffff'>
+              <Link href="#" underline="none"  color='#f79333'>
                 Register
               </Link>
                   </Stack>
@@ -60,7 +60,7 @@ const Footer = () => {
                   </Box>
                   <Stack direction='column'>
                   {socials.map((social)=>(
-                <Link href={social.href} key={social.key} underline="none"  color='#ffff'>
+                <Link href={social.href} key={social.key} underline="none"  color='#f79333'>
                   {social.key}
                 </Link>
               ))}
@@ -78,7 +78,7 @@ const Footer = () => {
                    Address: University Road, Tanke, Ilorin, Kwara State.
                 </Box>
                 <Box component={'p'}>
-                  Whatsapp: +2349039242601
+                  Phone Number: +2349039242601
                 </Box>
                 <Box component={'p'}>
                   Email: habeebthedev@gmail.com
