@@ -46,6 +46,7 @@ const SignIn = () => {
         alignItems="center"
         justifyContent="center"
         width='100%'
+        
       >
         <Stack
         mt='50px'
@@ -113,7 +114,8 @@ const SignIn = () => {
               fullWidth
               sx={{
                 height: "100%", // Custom height
-
+                borderColor:' #5b3a3acc',
+                borderRadius: '8px',
                 fontSize: "13px",
                 fontWeight: 200,
               }}
@@ -186,10 +188,10 @@ const SignIn = () => {
               paddingBottom="3px"
               width={'100%'}
             >
-              <Box component="p">Remember me</Box>
+              <Box component="p" >Remember me</Box>
               <Link
                 href="/auth/recover-password"
-                color="#0177AB"
+                color='#5b3a3acc'
                 underline="none"
               >
                 Forgot Password?
@@ -199,6 +201,7 @@ const SignIn = () => {
               type="submit"
               // disabled={isLoading || googleLoading}
               fullWidth
+            
               sx={{
                 height: 45.7, // Custom height
 
@@ -207,7 +210,10 @@ const SignIn = () => {
                 textTransform: "initial",
                 fontSize: "13px",
                 fontWeight: 200,
-                backgroundColor: "#0177AB",
+                backgroundColor: "#5b3a3acc",
+                ":hover":{
+                  backgroundColor: "#5b3a3a",
+                }
               }}
               variant="contained"
            
@@ -220,7 +226,7 @@ const SignIn = () => {
               <Box component="p" sx={{ fontSize: "15px", mt: 1 }}>
                 Don&apos;t have an account?
                 <Box component="span" p={1}>
-                  <Link href="/auth/sign-up" color="#0177AB" underline="none">
+                  <Link href="/auth/sign-up" color='#5b3a3acc' underline="none">
                     Sign up
                   </Link>
                 </Box>

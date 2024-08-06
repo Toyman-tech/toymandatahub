@@ -306,12 +306,18 @@ const SignUp = () => {
             sx={{
               height: 45.7, // Custom height
               width: "100%",
+              justifyContent:'center',
+              display:'flex',
               borderRadius: "8px",
               boxShadow: "none",
               textTransform: "initial",
               fontSize: "13px",
               fontWeight: 200,
-              backgroundColor: "#0177AB",
+              backgroundColor: "#5b3a3acc",
+              ":hover":{
+                backgroundColor: "#5b3a3a",
+              }
+
             }}
             variant="contained"
             type="submit"
@@ -320,10 +326,10 @@ const SignUp = () => {
             Sign up
           </Button>
           <Box component="div">
-            <Box component="p" sx={{ fontSize: "13px", mt: 1 }}>
+            <Box component="p" sx={{ fontSize: "13px", mt: 1}}>
               Already have an account?
               <Box component="span" p={1}>
-                <Link href="/auth/sign-in" color="#0177AB" underline="none">
+                <Link href="/auth/sign-in" color='#5b3a3acc' underline="none">
                   Login
                 </Link>
               </Box>

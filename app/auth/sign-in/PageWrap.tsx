@@ -7,7 +7,9 @@ import SignIn from "@/components/SignIn";
 const PageWrap = () => {
   return (
     <>
-      <Stack direction="row" display="flex" spacing={0}>
+      <Stack direction="row" display="flex" spacing={0}
+      sx={{backgroundColor:"#f5f5fa"}}
+      >
         <Box
           component="div"
           ml={30}

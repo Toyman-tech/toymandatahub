@@ -41,10 +41,13 @@ input::selection {
   transform: none !important;
 }
 
+
+
 /* Searchbar styling */
 .MuiInputBase-root .MuiOutlinedInput-notchedOutline {
-  border: 1px solid #0177ab57;
+  border: 1px solid  #5b3a3a96;
   border-radius: 8px;
+  background-color:#f5f5fa !important;
 }
 .subscribe-sec .MuiInputBase-root {
   padding-right: 0;
