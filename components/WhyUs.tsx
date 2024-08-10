@@ -4,6 +4,7 @@ import React from "react";
 const WhyUs = () => {
   return (
     <Box
+     id='#about-us'
       sx={{
         backgroundColor: "#664526",
         color: "#ffffff",

@@ -30,6 +30,7 @@ export default function Error({
       direction={{ sm: "row", xs: "column" }}
       spacing={{ sm: 40, xs: 5 }}
       display="flex"
+      
       alignItems="center"
       justifyContent="center"
       sx={{ height: "100vh", padding: "35px" }}
@@ -98,7 +99,6 @@ export default function Error({
             fontSize: {md:'15px', xs:'11px'},
             fontWeight: 600,
             color:'#ffffff',
-            backgroundColor: "#0177AB",
           }}
           variant="contained"
           onClick={

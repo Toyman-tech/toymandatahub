@@ -1,8 +1,19 @@
+"use client"
 import { Box, Button, Stack } from "@mui/material";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const LandingPage = () => {
+   const router = useRouter();
+  const handleLogin = (e: React.MouseEvent) => {
+    e.preventDefault();
+     router.push('/auth/sign-in')
+  };
+  const handleReg = (e: React.MouseEvent) => {
+    e.preventDefault();
+     router.push('/auth/sign-up')
+  };
   return (
     <>
       <Stack direction="column" display="flex" spacing={0}>
@@ -105,6 +116,7 @@ const LandingPage = () => {
                 },
               }}
               variant="contained"
+              onClick={handleLogin}
             >
               Sign-In
             </Button>
@@ -125,6 +137,7 @@ const LandingPage = () => {
                 },                backgroundColor: "#ababab",
               }}
               variant="contained"
+              onClick={handleReg}
             >
               Register
             </Button>

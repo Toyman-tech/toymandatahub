@@ -27,6 +27,7 @@ const Services = () => {
         </Stack>
         <Stack
           direction='column'
+          
           justifyContent={"center"}
           alignItems={"center"}
           textAlign={"center"}

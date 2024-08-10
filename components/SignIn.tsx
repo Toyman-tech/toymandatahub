@@ -19,10 +19,16 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import SnackbarComp from "@/components/Toast";
 import LoadingPage from "@/components/LoadingPage";
 import GoogleIcon from "@mui/icons-material/Google";
+import { useRouter } from "next/navigation";
 
 const SignIn = () => {
   const [pwdVisible, setPwdVisible] = useState(false);
+  const router = useRouter();
 
+  const handleLogin = (e: React.MouseEvent) => {
+    e.preventDefault();
+     router.push('/')
+  };
   // const {
   //   handleSnack,
   //   snackBarOpen,
@@ -216,7 +222,7 @@ const SignIn = () => {
                 }
               }}
               variant="contained"
-           
+            onClick={handleLogin}
             >
               {/* {isLoading ? 'Loading...' : 'Login'} */}
               Login
