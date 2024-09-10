@@ -6,7 +6,7 @@ const WhyUs = () => {
     <Box
      id='#about-us'
       sx={{
-        backgroundColor: "#664526",
+        backgroundColor: "#457b83",
         color: "#ffffff",
       }}
       display={"flex"}

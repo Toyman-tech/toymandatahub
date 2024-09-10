@@ -15,14 +15,20 @@ const Navbar = () => {
     <React.Fragment>
       <Box
         component="header"
-        sx={{ padding: "15px", backgroundColor: "#fffffff", color: "black" }}
-        position={"relative"}
+        sx={{ padding: "15px", backgroundColor: "#ffff", color: "black", 
+        position: 'sticky',
+        top:0,
+        zIndex:5,
+      }}
+        
+      
       >
         <Stack
           direction="row"
           justifyContent={"space-between"}
           sx={{ padding: "1px" }}
           alignItems={"center"}
+          
         >
           <Link
             href="#"
@@ -35,7 +41,20 @@ const Navbar = () => {
               },
             }}
           >
-            TOYMANDATA
+            <Box
+                  
+                  component={"img"}
+                    width='70px'
+                    height='40px'
+                  src="/logo.svg"
+                  sx={
+                    {
+                      // width: { xs: "50vw", md: "100vw" },
+                      // opacity: "0.3",
+                    }
+                  }
+                />
+            
           </Link>
           <Box sx={{ fontSize: "13px" }}>
             <Stack
@@ -142,11 +161,11 @@ const Navbar = () => {
               fontSize: "35px",
               padding: "5px",
               justifyContent: "center",
-              color: "#643406fa",
+              color: "#2A4F55",
               fontWeight: 700,
               ":hover": {
                 backgroundColor: "#ababab",
-                color: "#3f2828",
+                color: "#2A4F55",
               },
               backgroundColor: "#ffff",
             }}
@@ -170,7 +189,6 @@ const Navbar = () => {
             sx={{
               justifyContent: "center",
               alignItems: "center",
-              py: "20px",
               color: "#3f2828",
               backgroundColor: "#ffff",
             }}

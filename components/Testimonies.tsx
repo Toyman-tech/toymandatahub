@@ -4,7 +4,7 @@ import React from 'react'
 const Testimonies = () => {
   return (
     <Box
-    sx={{ backgroundColor: "#f5f5fa" }} 
+    // sx={{ backgroundColor: "#f5f5fa" }} 
     padding={'20px'}
     >
       <Stack direction='column'
@@ -13,7 +13,8 @@ const Testimonies = () => {
       textAlign={'center'}
       spacing={5}
       >
-      <Box component='h2' padding={'20px'}>
+      <Box component='h2' padding={'20px'} color='#457b83'
+      fontSize={"32px"}>
             Users Testimonials
         </Box>
          <Stack direction={{md:'row', xs:'column'}}

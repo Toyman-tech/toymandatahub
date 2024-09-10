@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import Wrapper from "@/client/wrapper";
+import { Box, Container } from "@mui/material";
+import Navbar from "@/components/Navbar";
 
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
@@ -11,7 +13,7 @@ export const metadata: Metadata = {
     default: "TOYMAN DATAHUB",
   },
   description: "TOYMAN DATAHUB IS A VTU PLATFORM FOR ALL NETWORKS",
-  icons: "/next.svg",
+  icons: "/logo.svg",
 };
 
 export default function RootLayout({
@@ -23,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={dmSans.className} suppressHydrationWarning={true}>
         <Wrapper>
-          {children}
+         {children}
           </Wrapper>
       </body>
     </html>

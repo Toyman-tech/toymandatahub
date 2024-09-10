@@ -18,7 +18,8 @@ declare module "@mui/material/styles" {
 export const customTheme = createTheme({
   palette: {
     primary: {
-      main: "#5b3a3a",
+      main: "#457B83",
+      // #5b3a3a
     },
     secondary: {
       main: "#ffff",

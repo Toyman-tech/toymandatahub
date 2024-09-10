@@ -13,37 +13,65 @@ import {
   CircularProgress,
   Divider,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 // import { useAdminSigninHook } from "@/lib/signin-hook"; // Adjust the import path as necessary
 import SnackbarComp from "@/components/Toast";
 import LoadingPage from "@/components/LoadingPage";
 import GoogleIcon from "@mui/icons-material/Google";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
+// import { account, ID } from "./appwrite";
+
+import { setsession} from "../app/cong/action";
+import Cookies from "js-cookie";
+import { createAdminClient } from "@/appwrite/config";
 
 const SignIn = () => {
   const [pwdVisible, setPwdVisible] = useState(false);
   const router = useRouter();
 
-  const handleLogin = (e: React.MouseEvent) => {
-    e.preventDefault();
-     router.push('/')
-  };
-  // const {
-  //   handleSnack,
-  //   snackBarOpen,
-  //   setSnackBarOpen,
-  //   register,
-  //   errors,
-  //   isLoading,
-  //   handleSubmit,
-  //   onSubmit,
-  //   handleGoogleSignup,
-  //   googleLoading,
-  // } = useAdminSigninHook();
-   const handleSubmit=()=>{
+  // const handleLogin = (e: React.MouseEvent) => {
+  //   e.preventDefault();
+  //    router.push('/')
+  // };
+  const [loggedInUser, setLoggedInUser] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [session, setSession] = useState (null);
 
-   }
+useEffect( ()=>{
+  const sessionCookie = Cookies.get('session');
+  if (sessionCookie){
+    setSession(sessionCookie)
+  }
+}, []);
+
+  const handleLogin = async(e: React.MouseEvent) => {
+    e.preventDefault();
+   
+     try {
+      // const {account} = await createAdminClient()
+      // // console.log(account)
+      // const sesion = await account.createEmailPasswordSession(
+      //   email,
+      //   password
+      //  )
+      // console.log(sesion)
+      // console.log(email, password)
+      // Cookies.set('session', sesion.secret, {
+      //   expires: new Date(sesion.expire)
+      // });
+      // setSession(sesion)
+      //  await setsession(session)
+       router.push('/dashboard');   
+      // return account;
+     } catch (error) {
+      console.error(error)
+      console.log('error')
+     }
+  }
+  
   return (
     <>
       <Box
@@ -62,7 +90,6 @@ const SignIn = () => {
           alignItems="center"
           justifyContent="center"
           component="form"
-          onSubmit={handleSubmit}
           width="100%"
         >
           <Box
@@ -115,12 +142,14 @@ const SignIn = () => {
               id="outlined-basic"
               type="email"
               label="Email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               variant="outlined"
               // disabled={isLoading || googleLoading}
               fullWidth
               sx={{
                 height: "100%", // Custom height
-                borderColor:' #5b3a3acc',
+                // borderColor:' #5b3a3acc',
                 borderRadius: '8px',
                 fontSize: "13px",
                 fontWeight: 200,
@@ -144,6 +173,8 @@ const SignIn = () => {
               id="outlined-basic"
               label="Password"
               variant="outlined"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               fullWidth
               sx={{
                 height: "100%", // Custom height
@@ -197,7 +228,7 @@ const SignIn = () => {
               <Box component="p" >Remember me</Box>
               <Link
                 href="/auth/recover-password"
-                color='#5b3a3acc'
+                color='#457B83'
                 underline="none"
               >
                 Forgot Password?
@@ -216,13 +247,19 @@ const SignIn = () => {
                 textTransform: "initial",
                 fontSize: "13px",
                 fontWeight: 200,
-                backgroundColor: "#5b3a3acc",
+                backgroundColor: "#2A4F55",
                 ":hover":{
-                  backgroundColor: "#5b3a3a",
+                  backgroundColor: "#457B83",
                 }
               }}
               variant="contained"
-            onClick={handleLogin}
+              // onClick={() => login(email, password)}
+              // onClick = {()=> 
+              //   handleLogin(email, password)
+              // }
+              onClick = { 
+                 handleLogin
+              }
             >
               {/* {isLoading ? 'Loading...' : 'Login'} */}
               Login
@@ -232,7 +269,7 @@ const SignIn = () => {
               <Box component="p" sx={{ fontSize: "15px", mt: 1 }}>
                 Don&apos;t have an account?
                 <Box component="span" p={1}>
-                  <Link href="/auth/sign-up" color='#5b3a3acc' underline="none">
+                  <Link href="/auth/sign-up" color='#457B83' underline="none">
                     Sign up
                   </Link>
                 </Box>

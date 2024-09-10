@@ -19,49 +19,45 @@ import SnackbarComp from "@/components/Toast";
 import LoadingPage from "@/components/LoadingPage";
 import GoogleIcon from "@mui/icons-material/Google";
 import Image from "next/image";
+// import { account, ID } from "./appwrite";
+
 
 const SignUp = () => {
   const [googleLoading, setgoogleLoading] = useState(false)
   const [pwdVisible, setPwdVisible] = useState(false);
   const [pwdVisible2, setPwdVisible2] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [loggedInUser, setLoggedInUser] = useState(null);
 
-  // const {
-  //   handleSnack,
-  //   snackBarOpen,
-  //   setSnackBarOpen,
-  //   register,
-  //   errors,
-  //   isLoading,
-  //   handleSubmit,
-  //   onSubmit,
-  //   googleLoading,
-  //   handleGoogleSignup,
-  // } = useUserSignupHook();
-  const handleSubmit =() =>{
 
-  }
+  const login = async (email, password) => {
+    // const session = await account.createEmailPasswordSession(email, password);
+    // setLoggedInUser(await account.get());
+  };
   // Function to handle form submission
-  const handleFormSubmit = (data) => {
-    // Check if password and confirm password match
-    if (data.password !== confirmPassword) {
-      // Show alert if passwords don't match
-      alert("Passwords do not match!");
-      //handleMessage("Passwords do not match!");
-      return; // Stop form submission
-    }
-    // Proceed with form submission if passwords match
+  const register = async () => {
+
+    // if (data.password !== confirmPassword) {
+    //   // Show alert if passwords don't match
+    //   alert("Passwords do not match!");
+    //   //handleMessage("Passwords do not match!");
+    //   return; // Stop form submission
+    // }
+    // await account.create(ID.unique(), email, password, name);
+    // login(email, password);
   };
 
   return (
     <>
 
       <Box
-        component="form"
+        // component="form"
         display="flex"
         alignItems="center"
         justifyContent="center"
-        onSubmit={handleSubmit}
       >
         <Stack
           direction="column"
@@ -110,10 +106,9 @@ const SignUp = () => {
             container
             spacing={1}
             component={"form"}
-            onSubmit={handleSubmit}
           >
             <Grid item lg={6} md={6} sm={12} xs={12}>
-              <TextField
+              <TextField 
                 id="outlined-basic"
                 type="firstname"
                 label="Firstname"
@@ -153,6 +148,8 @@ const SignUp = () => {
                   fontSize: "13px",
                   fontWeight: 200,
                 }}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 // {...register("lastname", {
                 //   required: "Lastname is required",
                 // })}
@@ -181,6 +178,9 @@ const SignUp = () => {
                   fontSize: "13px",
                   fontWeight: 200,
                 }}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+               
                 // {...register("email", {
                 //   required: "Email is required",
                 // })}
@@ -237,6 +237,8 @@ const SignUp = () => {
                   fontWeight: 200,
                 }}
                 type={!pwdVisible ? "password" : "text"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 // {...register("password", {
                 //   required: "Password is required",
                 //   minLength: {
@@ -313,14 +315,15 @@ const SignUp = () => {
               textTransform: "initial",
               fontSize: "13px",
               fontWeight: 200,
-              backgroundColor: "#5b3a3acc",
+              backgroundColor: "#2A4F55",
               ":hover":{
-                backgroundColor: "#5b3a3a",
+                backgroundColor: "#457b83",
               }
 
             }}
             variant="contained"
             type="submit"
+            onClick={() => login(email, password)}
           >
             {/* {isLoading ? <CircularProgress size={"20px"} /> : "Sign up"} */}
             Sign up
@@ -329,7 +332,7 @@ const SignUp = () => {
             <Box component="p" sx={{ fontSize: "13px", mt: 1}}>
               Already have an account?
               <Box component="span" p={1}>
-                <Link href="/auth/sign-in" color='#5b3a3acc' underline="none">
+                <Link href="/auth/sign-in" color='#457B83' underline="none">
                   Login
                 </Link>
               </Box>

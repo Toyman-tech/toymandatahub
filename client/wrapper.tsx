@@ -13,7 +13,7 @@ import NextTopLoader from "nextjs-toploader";
 export default function Wrapper({ children }: { children: ReactNode }) {
   return (
         <ThemeProvider theme={customTheme}>
-              <NextTopLoader color="#5b3a3a" showSpinner={false} />
+              <NextTopLoader color="#457B83" showSpinner={false} />
           {children}
           </ThemeProvider>
   );

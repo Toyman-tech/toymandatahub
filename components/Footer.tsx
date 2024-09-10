@@ -12,10 +12,10 @@ const socials=
 
 const Footer = () => {
   return (
-    <Box sx={{ backgroundColor:' #331a03', color:'#ffff' }} 
+    <Box sx={{ backgroundColor:'#457b83', color:'#ffff' }} 
     padding={'20px'}>
       <Stack direction='column' spacing={3}>
-         <Box component='h2'>
+         <Box component='h2' fontSize={"32px"}>
            TOYMAN DATA
          </Box>
          <Box component='p'>
@@ -29,38 +29,47 @@ const Footer = () => {
           <Box>
              <Stack direction={'row'}
               justifyContent={'space-between'}
-              spacing={5}
-              
+              spacing={10}
+              px="23px"
              >
                 <Stack direction='column'>
-                  <Box component='h3'>
+                  <Box component='h3'
+                  fontSize={'22px'}
+                  >
                     Useful Links
                   </Box>
-                  <Stack direction='column'>
-                  <Link href="#" underline="none"  color='#f79333'>
+                  <Stack direction='column' 
+                  spacing={2}
+                  fontSize={'22px'}
+                  >
+                  <Link href="#" underline="always"  color='#ffff'>
                 Home
               </Link>
-              <Link href="#" underline="none"  color='#f79333'>
+              <Link href="#" underline="always"  color='#ffff'>
                 About Us
               </Link>
-              <Link href="#" underline="none"  color='#f79333'>
+              <Link href="#" underline="always"  color='#ffff'>
                 Services
               </Link>
-              <Link href="#" underline="none"  color='#f79333'>
+              <Link href="#" underline="always"  color='#ffff'>
                 Login
               </Link>
-              <Link href="#" underline="none"  color='#f79333'>
+              <Link href="#" underline="always"  color='#ffff'>
                 Register
               </Link>
                   </Stack>
                 </Stack>
                 <Stack direction='column'>
-                  <Box component='h3'>
+                  <Box component='h3'
+                  fontSize={'22px'}>
                     Socials
                   </Box>
-                  <Stack direction='column'>
+                  <Stack direction='column'
+                  spacing={2}
+                  fontSize={'22px'}
+                  >
                   {socials.map((social)=>(
-                <Link href={social.href} key={social.key} underline="none"  color='#f79333'>
+                <Link href={social.href} key={social.key} underline="always"  color='#ffff'>
                   {social.key}
                 </Link>
               ))}
@@ -70,18 +79,22 @@ const Footer = () => {
           </Box>
           <Box>
             <Stack direction={'column'}>
-              <Box component='h3'>
+              <Box component='h3'
+              fontSize={'22px'}>
                 Contact Information
               </Box>
-              <Stack direction='column'>
+              <Stack direction='column'
+              fontSize={"18px"}
+              px="23px"
+              >
                 <Box component={'p'}>
-                   Address: University Road, Tanke, Ilorin, Kwara State.
+                   Address : University Road, Tanke, Ilorin, Kwara State.
                 </Box>
                 <Box component={'p'}>
-                  Phone Number: +2349039242601
+                  Phone Number : +2349039242601
                 </Box>
                 <Box component={'p'}>
-                  Email: habeebthedev@gmail.com
+                  Email : habeebthedev@gmail.com
                 </Box>
               </Stack>
             </Stack>
@@ -91,6 +104,7 @@ const Footer = () => {
            display={'flex'}
            justifyContent={'center'}
            alignItems={'center'}
+           fontSize={'22px'}
          >
           &copy; <Box component='span' 
           fontWeight={700} pr='4px'>Toymantech Data Hub.</Box> {/*  */} All rights reserved.

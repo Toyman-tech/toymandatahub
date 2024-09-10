@@ -45,9 +45,10 @@ input::selection {
 
 /* Searchbar styling */
 .MuiInputBase-root .MuiOutlinedInput-notchedOutline {
-  border: 1px solid  #5b3a3a96;
+  border: 1px solid  #457B83;
   border-radius: 8px;
   background-color:#f5f5fa50 ;
+  /* #f5f5fa50  #5b3a3a96*/
   
 }
 .subscribe-sec .MuiInputBase-root {
@@ -65,7 +66,7 @@ input::selection {
   background-color: #ffffff33;
 }
 .MuiSelect-icon {
-  color: #a2a6b0;
+  color: #457B83;
 }
 .MuiSelect-nativeInput {
   top: 0;

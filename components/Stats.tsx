@@ -7,7 +7,7 @@ const Stats = () => {
     // mt='5p'
      sx={{
         backgroundColor:"#f5f5fa"}}
-        color='#2f4546'
+        color='#2A4F55'
     >
         <Stack direction={{md:'row', xs:'column'}}
         justifyContent={'center'}

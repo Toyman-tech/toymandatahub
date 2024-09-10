@@ -53,7 +53,7 @@ const LandingPage = () => {
                 direction="column"
                 justifyContent={"center"} 
                 alignItems={"center"}
-                spacing={1}
+                spacing={4}
                 width={"100vw"}
                 // padding={"30px"}
                 display={"flex"}
@@ -83,7 +83,7 @@ const LandingPage = () => {
                   compromisung quality.
                 </Box>
                 <Box
-                  component="h5"
+                  component="h4"
                   display={{ md: "none", xs: "flex" }}
                   justifyContent={"center"}
                   alignItems={"center"}
@@ -97,30 +97,34 @@ const LandingPage = () => {
                 </Box>
               </Stack>
             </Box>
-            <Stack direction={'row'} spacing={5}>
+            <Stack direction={'row'} spacing={5}
+            justifyContent={'center'}
+            alignItems={'center'}
+            paddingTop='33px'
+            >
             <Button
               type="submit"
               sx={{
-                width: {xs:"40vw", md:'20vw'},
+                width: {xs:"80vw", md:'20vw'},
                 height: 45.7, // Custom height
                 borderRadius: "8px",
                 boxShadow: "none",
                 textTransform: "initial",
-                color:'#643406fa',
-                fontSize: "13px",
-                fontWeight: 700,
-                backgroundColor: "#ababab",
+                color:'#ffff',
+                fontSize: "18px",
+                fontWeight: 600,
+                backgroundColor: "#457B83",
                 ":hover":{
-                  backgroundColor: "#ababab",
-                  color:'#3f2828'
+                  backgroundColor: "#457B83c4",
+                  color:'#ffff'
                 },
               }}
               variant="contained"
               onClick={handleLogin}
             >
-              Sign-In
+              Buy Data
             </Button>
-            <Button
+            {/* <Button
               type="submit"
               sx={{
                 width: {xs:"40vw", md:'20vw'},
@@ -140,7 +144,7 @@ const LandingPage = () => {
               onClick={handleReg}
             >
               Register
-            </Button>
+            </Button> */}
             </Stack>
           </Stack>
         </Box>
