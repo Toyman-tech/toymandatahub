@@ -6,10 +6,11 @@ const Topbar = () => {
   return (
     <React.Fragment>
         <Box sx={{display:'flex',
-          padding:'20px',
+          py:'20px',
           backgroundColor:'#457B83',
           color:'#ffff', 
           alignItems:'center',
+          // width:'100vw'
           
         }}>
          <Stack 
