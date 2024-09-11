@@ -10,7 +10,7 @@ const Topbar = () => {
           backgroundColor:'#457B83',
           color:'#ffff', 
           alignItems:'center',
-          width:'100vw'
+          
         }}>
          <Stack 
           direction={'row'} 

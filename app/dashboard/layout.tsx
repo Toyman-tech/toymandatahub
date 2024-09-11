@@ -27,7 +27,7 @@ export default function layout({ children }: { children: ReactNode }) {
           <Stack direction={'row'}>
             <Sidebar />
             <section >
-              <Box sx={{width:'full', 
+              <Box sx={{
              backgroundColor:'#E3E3E3'
             }}>{children }</Box>
             </section>

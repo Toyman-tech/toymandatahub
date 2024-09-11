@@ -12,7 +12,7 @@ const Features = () => {
                 borderRadius:'12px',
              }}
            >
-              hellop
+              Hello world
            </Box>
         </Stack>
     </Box>
