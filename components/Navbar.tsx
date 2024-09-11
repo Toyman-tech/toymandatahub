@@ -15,7 +15,7 @@ const Navbar = () => {
     <React.Fragment>
       <Box
         component="header"
-        sx={{ padding: "15px", backgroundColor: "#ffff", color: "black", 
+        sx={{ padding: "10px", backgroundColor: "#ffff", color: "black", 
         position: 'sticky',
         top:0,
         zIndex:5,
@@ -45,7 +45,7 @@ const Navbar = () => {
                   
                   component={"img"}
                     width='70px'
-                    height='40px'
+                    height='35px'
                   src="/logo.svg"
                   sx={
                     {

@@ -14,8 +14,8 @@ const Footer = () => {
   return (
     <Box sx={{ backgroundColor:'#457b83', color:'#ffff' }} 
     padding={'20px'}>
-      <Stack direction='column' spacing={3}>
-         <Box component='h2' fontSize={"32px"}>
+      <Stack direction='column' spacing={2}>
+         <Box component='h2' fontSize={"25px"}>
            TOYMAN DATA
          </Box>
          <Box component='p'>
@@ -32,15 +32,15 @@ const Footer = () => {
               spacing={10}
               px="23px"
              >
-                <Stack direction='column'>
+                <Stack direction='column' spacing={1}>
                   <Box component='h3'
-                  fontSize={'22px'}
+                  fontSize={'18px'}
                   >
                     Useful Links
                   </Box>
                   <Stack direction='column' 
                   spacing={2}
-                  fontSize={'22px'}
+                  
                   >
                   <Link href="#" underline="always"  color='#ffff'>
                 Home
@@ -59,14 +59,13 @@ const Footer = () => {
               </Link>
                   </Stack>
                 </Stack>
-                <Stack direction='column'>
-                  <Box component='h3'
-                  fontSize={'22px'}>
+                <Stack direction='column' spacing={1}>
+                  <Box component='h3' fontSize={'18px'}>
                     Socials
                   </Box>
                   <Stack direction='column'
                   spacing={2}
-                  fontSize={'22px'}
+                  
                   >
                   {socials.map((social)=>(
                 <Link href={social.href} key={social.key} underline="always"  color='#ffff'>
@@ -78,13 +77,13 @@ const Footer = () => {
              </Stack>
           </Box>
           <Box>
-            <Stack direction={'column'}>
+            <Stack direction={'column'} spacing={1}>
               <Box component='h3'
-              fontSize={'22px'}>
+              fontSize={'18px'}>
                 Contact Information
               </Box>
               <Stack direction='column'
-              fontSize={"18px"}
+              // fontSize={"10px"}
               px="23px"
               >
                 <Box component={'p'}>
@@ -104,7 +103,6 @@ const Footer = () => {
            display={'flex'}
            justifyContent={'center'}
            alignItems={'center'}
-           fontSize={'22px'}
          >
           &copy; <Box component='span' 
           fontWeight={700} pr='4px'>Toymantech Data Hub.</Box> {/*  */} All rights reserved.
