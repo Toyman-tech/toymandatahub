@@ -11,7 +11,9 @@ const Topbar = () => {
           color:'#ffff', 
           alignItems:'center',
           // width:'100vw'
-          
+          position: 'sticky',
+        top:0,
+        zIndex:5,
         }}>
          <Stack 
           direction={'row'} 

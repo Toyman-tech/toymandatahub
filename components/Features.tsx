@@ -1,4 +1,4 @@
-import { Box, Stack } from '@mui/material'
+import { Box, Stack, Typography } from '@mui/material'
 import React from 'react'
 
 const Features = () => {
@@ -12,7 +12,12 @@ const Features = () => {
                 borderRadius:'12px',
              }}
            >
-              Hello world
+            <Stack direction='row'>
+              <Box>image</Box>
+              <Typography>
+
+              </Typography>
+            </Stack>
            </Box>
         </Stack>
     </Box>
