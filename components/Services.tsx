@@ -15,7 +15,7 @@ const Services = () => {
           alignItems={"center"}
         >
           <Box component={"h2"}
-          fontSize={'32px'}
+          fontSize={'30px'}
           sx={{color:"#2A4F55"}}
           >Our Services</Box>
           <Box

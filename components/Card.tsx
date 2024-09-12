@@ -59,7 +59,7 @@ const Card = () => {
               <Box component="h3" display="flex" justifyContent={"start"}>
                 Wallet Balance
               </Box>
-              <Typography  fontSize={"45px"}>
+              <Typography  fontSize={"35px"}>
                 N 50,000.00
               </Typography>
               <Box component="h3">Refer to Earn</Box>

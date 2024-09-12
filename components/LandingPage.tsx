@@ -80,7 +80,7 @@ const LandingPage = () => {
                 >
                   Welcome to a technology platform that provides instant and
                   smooth services at the best possible price without
-                  compromisung quality.
+                  compromising quality.
                 </Box>
                 <Box
                   component="h4"

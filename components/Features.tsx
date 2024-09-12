@@ -1,27 +1,75 @@
-import { Box, Stack, Typography } from '@mui/material'
-import React from 'react'
+import { Box, Stack, Typography } from "@mui/material";
+import React from "react";
+
+const stats = [
+  {
+    title: "Total Fund",
+    amount: "22,000.00",
+    img: "/dashboardassets/arrowdown.svg",
+    col:"#21AE95"
+  },
+  {
+    title: "Total Spent",
+    amount: "10,000.00",
+    img: "/dashboardassets/arrowdown.svg",
+    col:"#FFAB23"
+  },
+  {
+    title: "Total Referral Earned",
+    amount: "120,000.00",
+    img: "/dashboardassets/arrowdown.svg",
+    col:"#5C23FF"
+  },
+];
 
 const Features = () => {
   return (
     <Box>
-        <Stack direction='column'>
-           <Box 
-             sx={{
-                backgroundColor:'#ffff',
-                padding:'20px',
-                borderRadius:'12px',
-             }}
-           >
-            <Stack direction='row'>
-              <Box>image</Box>
-              <Typography>
-
-              </Typography>
-            </Stack>
-           </Box>
-        </Stack>
+      <Stack direction={{ md: "row", xs: "column" }}
+      spacing={2}>
+        {stats.map((stat) => (
+          <Box key={stat.title}>
+            <Box
+              sx={{
+                backgroundColor: "#ffff",
+                // padding:'20px',
+                borderRadius: "6px",
+              }}
+            >
+              <Stack
+                direction="row"
+                spacing={2}
+                justifyContent={"start"}
+                alignItems={"center"}
+                py="10px"
+              >
+                <Box
+               
+                  sx={{
+                    backgroundColor:`${stat.col}`,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                  borderRadius={"6px"}
+                >
+                  <Box
+                    component={"img"}
+                    // ml={{ xs: "10px", md: "55px" }}
+                    src={stat.img}
+                    padding={"7px"}
+                  />
+                </Box>
+                <Stack direction={"column"}>
+                  <Typography>{stat.title}</Typography>
+                  <Typography>N {stat.amount}</Typography>
+                </Stack>
+              </Stack>
+            </Box>
+          </Box>
+        ))}
+      </Stack>
     </Box>
-  )
-}
+  );
+};
 
-export default Features
+export default Features;

@@ -2,6 +2,8 @@ import React from 'react'
 import {Box, Stack} from '@mui/material';
 import Card from '@/components/Card';
 import Features from '@/components/Features';
+import AfiiliateCard from '@/components/AfiiliateCard';
+import Serv from '@/components/Serv';
 
 
 export default function Home() {
@@ -21,6 +23,8 @@ export default function Home() {
       </Box>
       <Card/>
       <Features/>
+      <AfiiliateCard/>
+      <Serv/>
       </Box>
     </main>
   );
