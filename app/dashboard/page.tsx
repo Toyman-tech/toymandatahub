@@ -4,6 +4,7 @@ import Card from '@/components/Card';
 import Features from '@/components/Features';
 import AfiiliateCard from '@/components/AfiiliateCard';
 import Serv from '@/components/Serv';
+import Transactions from '@/components/Transactions';
 
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
       <Features/>
       <AfiiliateCard/>
       <Serv/>
+      <Transactions/>
       </Box>
     </main>
   );
