@@ -2,9 +2,9 @@ import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
 
 const transacts = [
-  { title: "My Orders", img: "/dashboardassets/wifi.svg" },
-  { title: "Payments", img: "/dashboardassets/phone.svg" },
-  { title: "Wallet Summary", img: "/dashboardassets/lucidecheck-big.svg" },
+  { title: "My Orders", img: "/dashboardassets/shopping.svg" },
+  { title: "Payments", img: "/dashboardassets/list.svg" },
+  { title: "Wallet Summary", img: "/dashboardassets/list.svg" },
 ];
 
 const Trasactions = () => {
