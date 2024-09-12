@@ -16,7 +16,7 @@ const Trasactions = () => {
       spacing={2}
       >
         <Box component={"h2"} fontSize={"25px"} sx={{ color: "#2A4F55" }}>
-          Our Trasactionsices
+           Transactions
         </Box>
         <Stack direction={{ md: "row", xs: "column" }} spacing={2}>
           {transacts.map((transact) => (
