@@ -37,7 +37,7 @@ const Navbar = () => {
             p="5px"
             sx={{
               ":hover": {
-                color: "#3f2828",
+                color: "#000000",
               },
             }}
           >
@@ -71,7 +71,7 @@ const Navbar = () => {
                 sx={{
                   ":hover": {
                     backgroundColor: "#ababab",
-                    color: "#3f2828",
+                    color: "#000000",
                   },
                 }}
               >
@@ -85,7 +85,7 @@ const Navbar = () => {
                 sx={{
                   ":hover": {
                     backgroundColor: "#ababab",
-                    color: "#3f2828",
+                    color: "#000000",
                   },
                 }}
               >
@@ -99,7 +99,7 @@ const Navbar = () => {
                 sx={{
                   ":hover": {
                     backgroundColor: "#ababab",
-                    color: "#3f2828",
+                    color: "#000000",
                   },
                 }}
               >
@@ -113,7 +113,7 @@ const Navbar = () => {
                 sx={{
                   ":hover": {
                     backgroundColor: "#ababab",
-                    color: "#3f2828",
+                    color: "#000000",
                   },
                 }}
               >
@@ -127,7 +127,7 @@ const Navbar = () => {
                 sx={{
                   ":hover": {
                     backgroundColor: "#ababab",
-                    color: "#3f2828",
+                    color: "#000000",
                   },
                 }}
               >
@@ -144,7 +144,7 @@ const Navbar = () => {
             sx={{
               ":hover": {
                 backgroundColor: "#ababab",
-                color: "#3f2828",
+                color: "#000000",
               },
             }}
           >
@@ -189,8 +189,9 @@ const Navbar = () => {
             sx={{
               justifyContent: "center",
               alignItems: "center",
-              color: "#3f2828",
+              color: "#000000",
               backgroundColor: "#ffff",
+              scrollbarWidth:"none"
             }}
           >
             <Stack
@@ -200,19 +201,22 @@ const Navbar = () => {
               alignItems={"center"}
               textAlign={"center"}
               fontWeight={700}
+              sx={{
+                scrollbarWidth:"none"
+              }}
             >
               <Box sx={{ fontSize: "25px" }}>
                 <Stack direction="column" spacing={3} px="3px">
                   <Link
                     href="/"
                     underline="none"
-                    color="#643406fa"
+                    color="#2A4F55"
                     p="10px"
                     sx={{
                       width: "100vw",
                       ":hover": {
                         backgroundColor: "#ababab",
-                        color: "#3f2828",
+                        color: "#000000",
                       },
                     }}
                   >
@@ -221,13 +225,13 @@ const Navbar = () => {
                   <Link
                     href="/"
                     underline="none"
-                    color="#643406fa"
+                    color="#2A4F55"
                     p="10px"
                     sx={{
                       ":hover": {
                         width: "100vw",
                         backgroundColor: "#ababab",
-                        color: "#3f2828",
+                        color: "#000000",
                       },
                     }}
                   >
@@ -236,13 +240,13 @@ const Navbar = () => {
                   <Link
                     href="/"
                     underline="none"
-                    color="#643406fa"
+                    color="#2A4F55"
                     p="10px"
                     sx={{
                       ":hover": {
                         width: "100vw",
                         backgroundColor: "#ababab",
-                        color: "#3f2828",
+                        color: "#000000",
                       },
                     }}
                   >
@@ -251,7 +255,7 @@ const Navbar = () => {
                   <Link
                     href="/"
                     underline="none"
-                    color="#643406fa"
+                    color="#2A4F55"
                     p="10px"
                     sx={{
                       ":hover": {
@@ -265,13 +269,13 @@ const Navbar = () => {
                   <Link
                     href="/"
                     underline="none"
-                    color="#643406fa"
+                    color="#2A4F55"
                     p="10px"
                     sx={{
                       ":hover": {
                         width: "100vw",
                         backgroundColor: "#ababab",
-                        color: "#3f2828",
+                        color: "#000000",
                       },
                     }}
                   >
