@@ -52,7 +52,7 @@ const Topbar = () => {
            sx={{display:'flex',
            fontSize:'22px',
           }}>
-            <Link href='/'>
+            <Link href='/' underline='none' color={'#ffff'}>
               TOYMANDATAHUB
             </Link>
            </Box>

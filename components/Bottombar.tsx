@@ -15,12 +15,17 @@ const bottoms = [
 const Bottombar = () => {
   return (
     <Box
-      sx={{ backgroundColor: "#2A4F55", color: "#ffff" }}
+      sx={{ backgroundColor: "#2A4F55", color: "#ffff",
+      position: 'sticky',
+      bottom:0,
+      zIndex:5, 
+
+    }}
       
        width={'100%'}
       position="relative"
     >
-      <Box display={"flex"} padding="20px">
+      <Box display={"flex"} padding="15px">
         <Stack
           direction={"row"}
           justifyContent={"space-between"}
