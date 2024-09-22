@@ -36,10 +36,11 @@ const Topbar = () => {
               color: "#ffff",
               fontWeight: 700,
               ":hover": {
-                backgroundColor: "#457B83",
-                color: "#3f2828",
+                backgroundColor: "transparent",
+                color: "#000000",
+                boxShadow:'none'
               },
-              backgroundColor: '#457B83',
+              // backgroundColor: '#000000',
             }}
             variant="contained"
           >
@@ -71,7 +72,8 @@ const Topbar = () => {
               fontWeight: 700,
               ":hover": {
                 // backgroundColor: "#ababab",
-                color: "#3f2828",
+                color: "#000000",
+                boxShadow:'none',
               },
               backgroundColor: '#457B83',
             }}
