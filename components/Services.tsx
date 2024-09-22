@@ -52,7 +52,7 @@ const Services = () => {
                   borderRadius: "15px",
                   justifyContent: "center",
                   height: { md: "220px", xs: "201px" },
-                  width: { md: "200px", xs: "180px" },
+                  width: { md: "200px", xs: "150px" },
                   backgroundColor: "#ffff",
                 }}
                 display="flex"
@@ -66,7 +66,7 @@ const Services = () => {
                 >
                   <Box
                     sx={{ backgroundColor: "#f5f5fa" }}
-                    padding={"20px"}
+                    padding={{md:"20px", xs:'12px'}}
                     borderRadius={"15px"}
                     justifyContent={"center"}
                     alignItems={"center"}
@@ -95,7 +95,7 @@ const Services = () => {
                   borderRadius: "15px",
                   justifyContent: "center",
                   height: { md: "220px", xs: "201px" },
-                  width: { md: "200px", xs: "180px" },
+                  width: { md: "200px", xs: "150px" },
                   backgroundColor: "#ffff",
                 }}
                 display="flex"
@@ -109,7 +109,7 @@ const Services = () => {
                 >
                   <Box
                     sx={{ backgroundColor: "#f5f5fa" }}
-                    padding={"20px"}
+                    padding={{md:"20px", xs:'12px'}}
                     borderRadius={"15px"}
                     justifyContent={"center"}
                     alignItems={"center"}
@@ -142,7 +142,7 @@ const Services = () => {
                   borderRadius: "15px",
                   justifyContent: "center",
                   height: { md: "220px", xs: "201px" },
-                  width: { md: "200px", xs: "180px" },
+                  width: { md: "200px", xs: "150px" },
                   backgroundColor: "#ffff",
                 }}
                 display="flex"
@@ -156,7 +156,7 @@ const Services = () => {
                 >
                   <Box
                     sx={{ backgroundColor: "#f5f5fa" }}
-                    padding={"20px"}
+                    padding={{md:"20px", xs:'12px'}}
                     borderRadius={"15px"}
                     justifyContent={"center"}
                     alignItems={"center"}
@@ -185,7 +185,7 @@ const Services = () => {
                   borderRadius: "15px",
                   justifyContent: "center",
                   height: { md: "220px", xs: "201px" },
-                  width: { md: "200px", xs: "180px" },
+                  width: { md: "200px", xs: "150px" },
                   backgroundColor: "#ffff",
                 }}
                 display="flex"
@@ -199,7 +199,7 @@ const Services = () => {
                 >
                   <Box
                     sx={{ backgroundColor: "#f5f5fa" }}
-                    padding={"20px"}
+                    padding={{md:"20px", xs:'12px'}}
                     borderRadius={"15px"}
                     justifyContent={"center"}
                     alignItems={"center"}
@@ -238,7 +238,7 @@ const Services = () => {
                   borderRadius: "15px",
                   justifyContent: "center",
                   height: { md: "220px", xs: "201px" },
-                  width: { md: "200px", xs: "180px" },
+                  width: { md: "200px", xs: "150px" },
                   backgroundColor: "#ffff",
                 }}
                 display="flex"
@@ -252,7 +252,7 @@ const Services = () => {
                 >
                   <Box
                     sx={{ backgroundColor: "#f5f5fa" }}
-                    padding={"20px"}
+                    padding={{md:"20px", xs:'12px'}}
                     borderRadius={"15px"}
                     justifyContent={"center"}
                     alignItems={"center"}
@@ -281,7 +281,7 @@ const Services = () => {
                   borderRadius: "15px",
                   justifyContent: "center",
                   height: { md: "220px", xs: "201px" },
-                  width: { md: "200px", xs: "180px" },
+                  width: { md: "200px", xs: "150px" },
                   backgroundColor: "#ffff",
                 }}
                 display="flex"
@@ -295,7 +295,7 @@ const Services = () => {
                 >
                   <Box
                     sx={{ backgroundColor: "#f5f5fa" }}
-                    padding={"20px"}
+                    padding={{md:"20px", xs:'12px'}}
                     borderRadius={"15px"}
                     justifyContent={"center"}
                     alignItems={"center"}
@@ -328,7 +328,7 @@ const Services = () => {
                   borderRadius: "15px",
                   justifyContent: "center",
                   height: { md: "220px", xs: "201px" },
-                  width: { md: "200px", xs: "180px" },
+                  width: { md: "200px", xs: "150px" },
                   backgroundColor: "#ffff",
                 }}
                 display="flex"
@@ -342,7 +342,7 @@ const Services = () => {
                 >
                   <Box
                     sx={{ backgroundColor: "#f5f5fa" }}
-                    padding={"20px"}
+                    padding={{md:"20px", xs:'12px'}}
                     borderRadius={"15px"}
                     justifyContent={"center"}
                     alignItems={"center"}
@@ -371,7 +371,7 @@ const Services = () => {
                   borderRadius: "15px",
                   justifyContent: "center",
                   height: { md: "220px", xs: "201px" },
-                  width: { md: "200px", xs: "180px" },
+                  width: { md: "200px", xs: "150px" },
                   backgroundColor: "#ffff",
                 }}
                 display="flex"
@@ -385,7 +385,7 @@ const Services = () => {
                 >
                   <Box
                     sx={{ backgroundColor: "#f5f5fa" }}
-                    padding={"20px"}
+                    padding={{md:"20px", xs:'12px'}}
                     borderRadius={"15px"}
                     justifyContent={"center"}
                     alignItems={"center"}

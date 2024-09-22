@@ -1,4 +1,4 @@
-import { Box, Button, Stack } from '@mui/material'
+import { Box, Button, Link, Stack } from '@mui/material'
 import React from 'react'
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { CiMenuKebab } from "react-icons/ci";
@@ -52,7 +52,9 @@ const Topbar = () => {
            sx={{display:'flex',
            fontSize:'22px',
           }}>
-             TOYMANDATAHUB
+            <Link href='/'>
+              TOYMANDATAHUB
+            </Link>
            </Box>
            <Button
             type="submit"
