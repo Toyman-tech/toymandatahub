@@ -6,13 +6,19 @@ const AfiiliateCard = () => {
     <Box
       display="flex"
       mt="30px"
+      justifyContent='center'
+      
+    >
+      <Stack direction="column" 
+      padding="15px" 
+      spacing={1}
       sx={{
         backgroundColor: "#457B83",
         borderRadius: "12px",
         color: "#ffff",
+       
       }}
-    >
-      <Stack direction="column" padding="15px" spacing={1}>
+      >
         <Typography>Affiliate link</Typography>
         <Typography>
           Earn a 5% commission on the first service purchased by friends you
@@ -24,8 +30,9 @@ const AfiiliateCard = () => {
         alignItems={'center'}
         >
           <Stack direction={"row"}
-          justifyContent={'center'}
+          justifyContent={'space-between'}
           alignItems={'center'}
+          width='90%'
           >
             <Typography color="black">
               https://toymandatahub.vercel.app

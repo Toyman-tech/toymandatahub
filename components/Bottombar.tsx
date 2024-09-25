@@ -15,6 +15,7 @@ const bottoms = [
 const Bottombar = () => {
   return (
     <Box
+    display={{md:'none', xs:'block'}}
       sx={{ backgroundColor: "#2A4F55", color: "#ffff",
       position: 'sticky',
       bottom:0,

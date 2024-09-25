@@ -5,23 +5,26 @@ import Atm from "./Atm";
 const Card = () => {
   return (
     <Box
-      padding="30px"
+      // padding="30px"
       sx={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         color: "#ffff",
-        // width:"100vw"
+        width:"100%"
       }}
     >
-      <Stack direction={"column"} spacing={3}>
+      <Stack direction={"column"} spacing={3}
+      width={'100%'}
+      alignItems="center"
+      >
         <Box
           sx={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "#457B83",
-            width: { xs: "90vw", md: "50vw" },
+            width: { xs: "90vw", md: "100%" },
             height: "220px",
             borderBottomRightRadius: "30px",
             borderBottomLeftRadius: "30px",
@@ -31,6 +34,7 @@ const Card = () => {
             direction="column"
             display="flex"
             height="100%"
+            width={'100%'}
             //  position={'relative'}
             justifyContent={"space-between"}
             alignItems="center"
@@ -39,7 +43,7 @@ const Card = () => {
             <Box
               component="div"
               sx={{
-                width: { xs: "90vw", md: "50vw" },
+                width: { xs: "90vw", md: "100%" },
                 backgroundColor: "#ffff",
                 color: "#ffff",
               }}
@@ -53,16 +57,26 @@ const Card = () => {
               height="100%"
               //  position={'relative'}
               justifyContent={"space-between"}
-              alignItems="center"
+              // alignItems="center"
               padding={'15px'}
+              width={'80%'}
             >
               <Box component="h3" display="flex" justifyContent={"start"}>
                 Wallet Balance
               </Box>
-              <Typography  fontSize={"35px"}>
-                N 50,000.00
+              <Typography  fontSize={"35px"}
+              sx={{display:'flex', 
+              justifyContent:"center",
+            }}
+              >
+                ₦ 50,000.00
               </Typography>
-              <Box component="h3">Refer to Earn</Box>
+              <Box component="h3"
+                sx={{display:'flex', 
+                justifyContent:"end",
+                
+              }}
+              >Refer to Earn</Box>
             </Stack>
           </Stack>
         </Box>

@@ -24,12 +24,18 @@ const stats = [
 
 const Features = () => {
   return (
-    <Box>
+    <Box
+     width='100%'
+    >
       <Stack direction={{ md: "row", xs: "column" }}
+      justifyContent={'space-between'}
+      // alignItems={'center'}
+      // width={'550px'}
       spacing={2}>
         {stats.map((stat) => (
           <Box key={stat.title}>
             <Box
+            width={{md:'300px', xs:'100%'}}
               sx={{
                 backgroundColor: "#ffff",
                 // padding:'20px',
@@ -61,7 +67,7 @@ const Features = () => {
                 </Box>
                 <Stack direction={"column"}>
                   <Typography>{stat.title}</Typography>
-                  <Typography>N {stat.amount}</Typography>
+                  <Typography>₦ {stat.amount}</Typography>
                 </Stack>
               </Stack>
             </Box>

@@ -57,8 +57,8 @@ const Testimonies = () => {
               src="/dp2.png"
             />
             <Box component={"p"}>
-              ToymanDataHub has been the best VTU platform I have ever used and
-              i can recommend it to anyone so they can enjoy there services
+            ToymanDataHub has been the best VTU platform I have ever used and
+              I can recommend it to anyone so they can enjoy their services
               also.
             </Box>
             <Box component="h3">Fatimah Maliki</Box>
@@ -78,8 +78,8 @@ const Testimonies = () => {
               src="/dp1.png"
             />
             <Box component={"p"}>
-              ToymanDataHub has been the best VTU platform I have ever used and
-              i can recommend it to anyone so they can enjoy there services
+            ToymanDataHub has been the best VTU platform I have ever used and
+              I can recommend it to anyone so they can enjoy their services
               also.
             </Box>
             <Box component="h3">Boluwatife Ibitayo</Box>

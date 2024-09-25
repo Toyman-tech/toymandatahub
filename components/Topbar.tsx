@@ -5,21 +5,34 @@ import { CiMenuKebab } from "react-icons/ci";
 const Topbar = () => {
   return (
     <React.Fragment>
-        <Box sx={{display:'flex',
-          py:'20px',
-          backgroundColor:'#457B83',
-          color:'#ffff', 
-          alignItems:'center',
-          // width:'100vw'
-          position: 'sticky',
-        top:0,
-        zIndex:5,
-        }}>
+        <Box 
+        // sx={{
+        //   py:'20px',
+        //   backgroundColor:'#457B83',
+        //   color:'#ffff', 
+        //   alignItems:'center',
+        //   // width:'100vw',
+        //   // height:'30px',
+        //   position: 'sticky',
+        // top:0,
+        // zIndex:5,
+        // }}
+        component="header"
+        sx={{
+          // py:'60px',
+          backgroundColor: "#457B83",
+          position: "sticky",
+          top: 0,
+          zIndex: 20,
+          py: {md:3, xs:2},
+          borderBottom: "1px solid #c5c5c5",
+        }}
+        >
          <Stack 
           direction={'row'} 
           alignItems={'center'}
           justifyContent={'space-between'}
-          width='100vw'
+          // width='100vw'
          >
           <Box sx={{display:'flex'}}>
           <Button

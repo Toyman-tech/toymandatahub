@@ -18,22 +18,42 @@ export const metadata: Metadata = {
 };
 
 export default function layout({ children }: { children: ReactNode }) {
-    return (
-    <html lang='en'>
-        <body className={dmSans.className}
-        suppressHydrationWarning={true}
+  return (
+    // <Stack direction="column">
+    <Box 
+    sx={{
+      display: "flex",
+      flexDirection: "column",
+      position: "relative",
+    minHeight: "100vh",
+      backgroundColor: '#F9F9F9',
+      "&::-webkit-scrollbar":{
+        width: 0
+      }
+    }}>
+     
+        <Sidebar />
+        {/* <Topbar /> */}
+      
+        <Box
+          sx={{
+            display: "flex",
+            flex: "1 1 auto",
+            flexDirection: "column",
+            pl: { lg: "280px", md: '280px', sm: '280px' },
+          }}
         >
           <Topbar />
-          <Stack direction={'row'}>
-            <Sidebar />
-            <section >
-              <Box sx={{
-             backgroundColor:'#E3E3E3'
-            }}>{children }</Box>
-            </section>
-          </Stack>
-          <Bottombar />
-        </body>
-      </html>
-  )
+          <Box
+           sx={{ p: {md:"1em", xs:'0px'},
+           width:'100%'
+        }}
+        >
+            {children}
+          </Box>
+        </Box>
+      <Bottombar />
+      </Box>
+    // </Stack>
+  );
 }
