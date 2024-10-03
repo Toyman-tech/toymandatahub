@@ -40,7 +40,7 @@ export default function layout({ children }: { children: ReactNode }) {
             display: "flex",
             flex: "1 1 auto",
             flexDirection: "column",
-            pl: { lg: "280px", md: '280px', sm: '280px' },
+            pl: { lg: "280px", md: '280px', sm: '0px' },
           }}
         >
           <Topbar />

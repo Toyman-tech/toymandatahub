@@ -11,7 +11,7 @@ const Sidebar = () => {
     sx={{
       backgroundColor: "#457B83",
       color: "#fff",
-      display: { lg: "flex", md: "flex", sm: "flex", xs: "none" },
+      display: { lg: "flex", md: "flex", sm: "none", xs: "none" },
       flexDirection: "column",
       height: "100%",
       left: 0,

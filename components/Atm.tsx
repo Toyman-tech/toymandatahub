@@ -7,10 +7,10 @@ const Atm = () => {
     <Box sx={{ color: "#ffff" }}
       width={'100%'}
     >
-      <Stack direction={{md:'row', sx:'column'}}
+      <Stack direction={{md:'row', sm:'row', xs:'column'}}
        justifyContent={{md:'space-between', xs:'center'}}
        alignItems={'center'}
-       spacing={3}
+       spacing={2}
        width={{md:'100%', xs:'100%'}}
       >
         <Box
@@ -39,7 +39,7 @@ const Atm = () => {
           <Stack
             direction="column"
             justifyContent={"space-between"}
-            spacing={5}
+            spacing={{sm:1, xs:5, md:5}}
             zIndex={2}
             position={'relative'}
          >
@@ -95,7 +95,7 @@ const Atm = () => {
           <Stack
             direction="column"
             justifyContent={"space-between"}
-            spacing={5}
+            spacing={{sm:1, xs:5, md:5}}
             zIndex={2}
             position={'relative'}
          >
@@ -151,7 +151,7 @@ const Atm = () => {
           <Stack
             direction="column"
             justifyContent={"space-between"}
-            spacing={5}
+            spacing={{sm:1, xs:5, md:5}}
             zIndex={2}
             position={'relative'}
          >
