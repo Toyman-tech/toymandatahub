@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Box } from "@mui/material";
+import WhatsappChat from "@/components/Whatsapp";
 
 const UserLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -15,6 +16,7 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
       >
         <Navbar />
         <main>{children}</main>
+        <WhatsappChat />
       </Box>
 
       <Footer />

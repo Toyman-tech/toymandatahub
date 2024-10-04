@@ -12,6 +12,11 @@ const Topbar = () => {
           md: "none",
           xs: "flex",
         }}
+        sx={{
+          position: "sticky",
+          top: 0,
+          zIndex: 20,
+        }}
         width="100vw"
       >
         <MobileTopbar/>
@@ -20,6 +25,11 @@ const Topbar = () => {
         display={{
           md: "flex",
           xs: "none",
+        }}
+        sx={{
+          position: "sticky",
+          top: 0,
+          zIndex: 20,
         }}
         // width="100vw"
       >

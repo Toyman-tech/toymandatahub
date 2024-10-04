@@ -43,7 +43,11 @@ export default function layout({ children }: { children: ReactNode }) {
             pl: { lg: "280px", md: '280px', sm: '0px' },
           }}
         >
-          <Topbar />
+          <Box sx={{ position: "sticky",
+          top: 0,
+          zIndex: 20,}}>
+             <Topbar />
+          </Box>
           <Box
            sx={{ p: {md:"1em", xs:'0px'},
            width:'100%'
