@@ -150,5 +150,5 @@ input::selection {
   background-color: #00000014 !important;
 }
 .dashboard-nav[data-active="true"]:hover {
-  background-color: #000000 !important;
+  background-color: #ffff !important;
 }

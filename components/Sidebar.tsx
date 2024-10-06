@@ -27,7 +27,7 @@ const Sidebar = () => {
     <Box
     sx={{
       backgroundColor: "#457B83",
-      color: "#ffff",
+      // color: "#ffff",
       display: { lg: "flex", md: "flex", sm: "none", xs: "none" },
       flexDirection: "column",
       height: "100%",
@@ -37,7 +37,7 @@ const Sidebar = () => {
       scrollbarWidth: "none",
       top: 0,
       width: "280px",
-
+     color:'#000000',
       "&::-webkit-scrollbar": { display: "none" },
     }}
     >
@@ -80,7 +80,7 @@ const Sidebar = () => {
               key={item.name}
               data-active={pathname === item.url || undefined}
               style={{
-                backgroundColor: pathname === item.url ? "#000000" : "",
+                backgroundColor: pathname === item.url ? "#ffff" : "",
                 borderRadius: "8px",
                 display: "flex",
                 justifyContent: "flex-start",
@@ -89,12 +89,18 @@ const Sidebar = () => {
                 fontWeight: 600,
                 padding: "15px",
                 gap: "15px",
+                color:'#ffff',
+                // &hover:{
+                //   backgroundColor: "#457B83c4",
+                //   color:'#ffff',
+                //   boxShadow:'black'
+                // }
               }}
             >
               <item.icon style={{ color: "#ffff" }} />
               <Typography
                 sx={{
-                  color: pathname === item.url ? "#ffff" : "#ffff",
+                  color: pathname === item.url ? "#000000" : "#ffff",
                 }}
               >
                 {item.name}
@@ -109,7 +115,7 @@ const Sidebar = () => {
               key={item.name}
               data-active={pathname === item.url || undefined}
               style={{
-                backgroundColor: pathname === item.url ? "#000000" : "",
+                backgroundColor: pathname === item.url ? "#ffff" : "",
                 borderRadius: "8px",
                 display: "flex",
                 justifyContent: "flex-start",
@@ -133,7 +139,7 @@ const Sidebar = () => {
           <Button
             sx={{
               
-                backgroundColor: pathname === '/dashboard/logout' ? "#000000" : "",
+                backgroundColor: pathname === '/dashboard/logout' ? "#ffff" : "",
                 borderRadius: "8px",
                 display: "flex",
                 justifyContent: "flex-start",
@@ -152,7 +158,7 @@ const Sidebar = () => {
             }}
           >
             <LogoutIcon />
-            <Typography sx={{ color: "#ffff" }}>Logout</Typography>
+            <Typography sx={{  color: pathname === 'dashboard/logout' ? "#000000" : "#ffff", }}>Logout</Typography>
           </Button>
         </Stack>
       </Box>

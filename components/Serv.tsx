@@ -1,14 +1,15 @@
 import { Box, Stack, Typography } from "@mui/material";
+import Link from "next/link";
 import React from "react";
 
 const availables = [
-  { title: "Data", img: "/dashboardassets/wifi.svg" },
-  { title: "Airtime", img: "/dashboardassets/phone.svg" },
-  { title: "Result Checker", img: "/dashboardassets/lucidecheck-big.svg" },
-  { title: "Cable", img: "/dashboardassets/lucidetv.svg" },
-  { title: "Electricity", img: "/dashboardassets/lucidebulb.svg" },
-  { title: "Data Card Printing", img: "/dashboardassets/creditcard.svg" },
-  { title: "Bulk SMS", img: "/dashboardassets/messagetext.svg" },
+  { title: "Data", img: "/dashboardassets/wifi.svg", link: "/dashboard/data" },
+  { title: "Airtime", img: "/dashboardassets/phone.svg", link: "/dashboard/airtime" },
+  { title: "Result Checker", img: "/dashboardassets/lucidecheck-big.svg", link: "/dashboard/result-checker" },
+  { title: "Cable", img: "/dashboardassets/lucidetv.svg", link: "/dashboard/cable" },
+  { title: "Electricity", img: "/dashboardassets/lucidebulb.svg", link: "/dashboard/electricity" },
+  { title: "Data Card Printing", img: "/dashboardassets/creditcard.svg", link: "/dashboard/coupon" },
+  { title: "Bulk SMS", img: "/dashboardassets/messagetext.svg", link: "/dashboard/sms" },
 ];
 
 const Serv = () => {
@@ -24,13 +25,20 @@ const Serv = () => {
         </Box>
         <Stack direction={{ md: "row", xs: "column" }} spacing={2}>
           {availables.map((available) => (
-            <Box key={available.title}>
+            <Box key={available.title} 
+            >
+              <Link href={available.link}>
               <Box
                 sx={{
                   backgroundColor: "#ffff",
                   // padding:'20px',
                   borderRadius: "6px",
                 //   boxShadow:'black'
+                 ":hover":{
+                  backgroundColor: "#457B83c4",
+                  color:'#ffff',
+                  boxShadow:'black'
+                },
                 }}
               >
                 <Stack
@@ -61,6 +69,7 @@ const Serv = () => {
                   </Typography>
                 </Stack>
               </Box>
+              </Link>
             </Box>
           ))}
         </Stack>

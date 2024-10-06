@@ -6,6 +6,7 @@ import { Box, Container, Stack } from "@mui/material";
 import Sidebar from "@/components/Sidebar";
 import Topbar from "@/components/Topbar";
 import Bottombar from "@/components/Bottombar";
+import WhatsappChat from "@/components/Whatsapp";
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -57,6 +58,7 @@ export default function layout({ children }: { children: ReactNode }) {
           </Box>
         </Box>
       <Bottombar />
+      <WhatsappChat />
       </Box>
     // </Stack>
   );

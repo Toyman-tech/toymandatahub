@@ -1,29 +1,48 @@
 import { Box, Stack, Typography } from "@mui/material";
+import Link from "next/link";
 import React from "react";
 const bottom1 = [
-  { title: "Home", img: "/dashboardassets/lucidehome.svg" },
-  { title: "Orders", img: "/dashboardassets/shopping.svg", mid: true },
+  { title: "Home", img: "/dashboardassets/lucidehome.svg", link: "/dashboard" },
+  {
+    title: "Orders",
+    img: "/dashboardassets/shopping.svg",
+    mid: true,
+    link: "/dashboard/orders",
+  },
 ];
 const bottom2 = [
-  { title: "Payments", img: "/dashboardassets/luciderepeat.svg" },
-  { title: "Settings", img: "/dashboardassets/lucidesettings.svg" },
+  {
+    title: "Payments",
+    img: "/dashboardassets/luciderepeat.svg",
+    link: "/dashboard/payments",
+  },
+  {
+    title: "Settings",
+    img: "/dashboardassets/lucidesettings.svg",
+    link: "/dashboard/settings",
+  },
 ];
 const bottoms = [
-  { title: "", img: "/dashboardassets/creditcard.svg", mid: true },
+  {
+    title: "",
+    img: "/dashboardassets/creditcard.svg",
+    mid: true,
+    link: "/dashboard/coupon",
+  },
 ];
 
 const Bottombar = () => {
   return (
     <Box
-    display={{md:'none', xs:'block'}}
-      sx={{ backgroundColor: "#2A4F55", color: "#ffff",
-      position: 'sticky',
-      bottom:0,
-      zIndex:5, 
-
-    }}
-      
-       width={'100%'}
+      display={{ md: "none", xs: "block" }}
+      sx={{
+        backgroundColor: "#2A4F55",
+        color: "#ffff",
+        position: "sticky",
+        bottom: 0,
+        zIndex: 5,
+      }}
+      width={"100%"}
       position="relative"
     >
       <Box display={"flex"} padding="15px">
@@ -33,56 +52,89 @@ const Bottombar = () => {
           alignItems={"center"}
           width="100%"
         >
-          <Stack direction="column"
-          alignItems='center'
-          >
-            <Box component={"img"} src={"/dashboardassets/lucidehome.svg"}
-            sx={{width:'20px', height:'20px', justifyContent:'center', }}
-             />
+          <Link href={"/dashboard"}>
+            <Stack direction="column" alignItems="center">
+              <Box
+                component={"img"}
+                src={"/dashboardassets/lucidehome.svg"}
+                sx={{ width: "20px", height: "20px", justifyContent: "center" }}
+              />
 
-            <Box
-              color="#ffff"
-              display={"flex"}
-              justifyContent={"space-between"}
-              alignItems={"center"}
-              textAlign={"center"}
-              fontSize={'12px'}
-            >
-              Home
-            </Box>
-          </Stack>
-          <Stack direction="column"
-          alignItems={'center'}>
-            <Box component={"img"} src={"/dashboardassets/shopping.svg"} 
-             sx={{width:'20px', height:'20px', justifyContent:'center', }}/>
+              <Box
+                color="#ffff"
+                display={"flex"}
+                justifyContent={"space-between"}
+                alignItems={"center"}
+                textAlign={"center"}
+                fontSize={"12px"}
+              >
+                Home
+              </Box>
+            </Stack>
+          </Link>
+          <Link href={"/dashboard/orders"}>
+            <Stack direction="column" alignItems={"center"}>
+              <Box
+                component={"img"}
+                src={"/dashboardassets/shopping.svg"}
+                sx={{ width: "20px", height: "20px", justifyContent: "center" }}
+              />
 
-            <Box
-              color="#ffff"
-              display={"flex"}
-              justifyContent={"space-between"}
-              alignItems={"center"}
-              textAlign={"center"}
-              fontSize={'12px'}
-            >
-              Orders
-            </Box>
-          </Stack>
-          <Stack direction="column"
-          sx={{
-            backgroundColor:'#7fffd4a6', borderRadius:'50%',
-            padding:'15px',
-            // position:'absolute',
-            // top:0,
-            // left:'43%',
-          }}
+              <Box
+                color="#ffff"
+                display={"flex"}
+                justifyContent={"space-between"}
+                alignItems={"center"}
+                textAlign={"center"}
+                fontSize={"12px"}
+              >
+                Orders
+              </Box>
+            </Stack>
+          </Link>
+
+          <Stack
+            direction="column"
+            sx={{
+              backgroundColor: "#7fffd4a6",
+              borderRadius: "50%",
+              padding: "15px",
+              // position:'absolute',
+              // top:0,
+              // left:'43%',
+            }}
           >
             <Box component={"img"} src={"/dashboardassets/creditcard.svg"} />
           </Stack>
-          <Stack direction="column"
-          alignItems={'center'}
-          >
-            <Box component={"img"} src={"/dashboardassets/luciderepeat.svg"}
-             sx={{width:'20px', height:'20px', justifyContent:'center', }} />
+
+          <Link href={"/dashboard/payments"}>
+            <Stack direction="column" alignItems={"center"}>
+              <Box
+                component={"img"}
+                src={"/dashboardassets/luciderepeat.svg"}
+                sx={{ width: "20px", height: "20px", justifyContent: "center" }}
+              />
+
+              <Box
+                color="#ffff"
+                display={"flex"}
+                justifyContent={"space-between"}
+                alignItems={"center"}
+                textAlign={"center"}
+                fontSize={"12px"}
+              >
+                Payments
+              </Box>
+            </Stack>
+          </Link>
+
+          <Link href={"/dashboard/settings"}>
+          <Stack  direction="column" alignItems={"center"}>
+            <Box
+              component={"img"}
+              src={"/dashboardassets/lucidesettings.svg"}
+              sx={{ width: "20px", height: "20px", justifyContent: "center" }}
+            />
 
             <Box
               color="#ffff"
@@ -90,27 +142,12 @@ const Bottombar = () => {
               justifyContent={"space-between"}
               alignItems={"center"}
               textAlign={"center"}
-              fontSize={'12px'}
-            >
-              Payments
-            </Box>
-          </Stack>
-          <Stack direction="column"
-          alignItems={'center'}>
-            <Box component={"img"} src={"/dashboardassets/lucidesettings.svg"}
-             sx={{width:'20px', height:'20px', justifyContent:'center', }} />
-
-            <Box
-              color="#ffff"
-              display={"flex"}
-              justifyContent={"space-between"}
-              alignItems={"center"}
-              textAlign={"center"}
-              fontSize={'12px'}
+              fontSize={"12px"}
             >
               Settings
             </Box>
           </Stack>
+          </Link>
         </Stack>
       </Box>
     </Box>

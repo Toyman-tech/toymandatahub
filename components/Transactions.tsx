@@ -1,10 +1,11 @@
 import { Box, Stack, Typography } from "@mui/material";
+import Link from "next/link";
 import React from "react";
 
 const transacts = [
-  { title: "My Orders", img: "/dashboardassets/shopping.svg" },
-  { title: "Payments", img: "/dashboardassets/list.svg" },
-  { title: "Wallet Summary", img: "/dashboardassets/list.svg" },
+  { title: "My Orders", img: "/dashboardassets/shopping.svg", link: "/dashboard/orders" },
+  { title: "Payments", img: "/dashboardassets/list.svg", link: "/dashboard/payments" },
+  { title: "Wallet Summary", img: "/dashboardassets/list.svg", link: "/dashboard/summary" },
 ];
 
 const Trasactions = () => {
@@ -21,12 +22,19 @@ const Trasactions = () => {
         <Stack direction={{ md: "row", xs: "column" }} spacing={2}>
           {transacts.map((transact) => (
             <Box key={transact.title}>
+              <Link href={transact.link}>
               <Box
                 sx={{
                   backgroundColor: "#ffff",
                   // padding:'20px',
                   borderRadius: "6px",
                 //   boxShadow:'black'
+                 //   boxShadow:'black'
+                 ":hover":{
+                  backgroundColor: "#457B83c4",
+                  color:'#ffff',
+                  boxShadow:'black'
+                 }
                 }}
               >
                 <Stack
@@ -57,6 +65,7 @@ const Trasactions = () => {
                   </Typography>
                 </Stack>
               </Box>
+              </Link>
             </Box>
           ))}
         </Stack>

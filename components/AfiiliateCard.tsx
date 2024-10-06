@@ -1,7 +1,22 @@
+"use client"
 import { Box, Stack, Typography } from "@mui/material";
-import React from "react";
+import {useRef, useState} from 'react';
 
 const AfiiliateCard = () => {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const handleCopy = () =>{
+    if (contentRef.current){
+        const content = contentRef.current.innerText;
+
+        navigator.clipboard.writeText(content)
+        .then(()=>{
+            alert('Content copied to clipboard!');
+        })
+        .catch(err=>{
+           console.error('Could not copy text: ', err);
+        })
+    }
+}
   return (
     <Box
       display="flex"
@@ -37,12 +52,14 @@ const AfiiliateCard = () => {
             <Typography color="black">
               https://toymandatahub.vercel.app
             </Typography>
+            {/* <button onClick={handleCopy} > */}
             <Box
               component={"img"}
               // ml={{ xs: "10px", md: "55px" }}
               src="/dashboardassets/copy.svg"
               padding={"7px"}
             />
+            {/* </button> */}
           </Stack>
         </Box>
       </Stack>

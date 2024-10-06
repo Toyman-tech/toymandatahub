@@ -10,49 +10,49 @@ export const clientSideBarLinks1 = [
   {
     name: "Dashboard",
     icon: ApplicationIcon,
-    url: "/dashboard/home",
+    url: "/dashboard",
   },
   {
     name: "Buy Data",
     icon: BookingsIcon,
-    url: "/dashboard/orders",
+    url: "/dashboard/data",
   },
   {
     name: "Buy Data Coupon",
     icon: ApplicationIcon,
-    url: "/dashboard/transactions",
+    url: "/dashboard/coupon",
   },
   {
     name: "Buy Airtime",
     icon: ApplicationIcon,
-    url: "/dashboard/transactions",
+    url: "/dashboard/airtime",
   },
   {
     name: "Fund Wallet",
     icon: ApplicationIcon,
-    url: "/dashboard/transactions",
+    url: "/dashboard/wallet",
   },
   {
     name: "Utilities Payment",
     icon: ApplicationIcon,
-    url: "/dashboard/transactions",
+    url: "/dashboard/utilities",
   },
   {
     name: "Change Pin",
     icon: ApplicationIcon,
-    url: "/dashboard/transactions",
+    url: "/dashboard/pin",
   },
 ];
 export const clientSideBarLinks2 = [
   {
-    name: "Help and Support",
+    name: "Pricing",
     icon: CustomerIcon,
-    url: "/dashboard/support",
+    url: "/dashboard/pricing",
   },
   {
-    name: "Refer and Earn",
+    name: "Developers Api </>",
     icon: ReferAndEarnIcon,
-    url: "/dashboard/refer",
+    url: "/dashboard/api",
   },
   {
     name: "Settings",
@@ -178,20 +178,4 @@ export const faqs = [
     question: "How do I buy a billboard space?",
     answer: "That’s why we are here! Click How to book a billboard ",
   },
-];
-
-// Yes, we provide an end-to-end implementation of an outdoor advertising campaign as follows,
-
-// Campaign Planning: This phase involves defining campaign objectives, identifying the target audience, determining key messaging, and setting a budget. It's crucial to decide on the type of outdoor advertising (billboards, transit ads, etc.) that best suits your goals.
-
-// Creative Development: Designing the visual and messaging elements of the ad. This includes creating eye-catching graphics, compelling copy, and ensuring brand consistency.
-
-// Location Selection: Choosing strategic locations for placing the ads based on factors like high foot traffic, target demographics, visibility, and budget constraints.
-
-// Production: Production of large format print materials for billboards.
-
-// Installation: Our operation team ensures campaign materials deployed in chosen locations are well-tensioned and in line with regulatory-approved specifications and requirements. or permits required.
-
-// Monitoring and Optimization: Tracking the performance of the campaign through metrics like foot traffic, brand awareness, and engagement.
-
-// Reporting and Analysis: Evaluating the success of the campaign against the initial objectives, measuring ROI, and gathering insights for future campaigns.
+]
