@@ -139,7 +139,7 @@ const Sidebar = () => {
           <Button
             sx={{
               
-                backgroundColor: pathname === '/dashboard/logout' ? "#ffff" : "",
+              backgroundColor: pathname === '/dashboard/logout' ? "#000000" : "",
                 borderRadius: "8px",
                 display: "flex",
                 justifyContent: "flex-start",

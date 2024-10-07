@@ -10,7 +10,7 @@ const Data = () => {
     // display='flex'
     // justifyContent={'center'}
     px='10px'
-    py='30px'
+    pt={{md:'40px'}}
     >
     <Stack direction={'column'}
     justifyContent={'center'}
@@ -30,9 +30,10 @@ const Data = () => {
         backgroundColor:'#ffff',
         padding:'10px',
       }}
+      
       >
         <Stack direction={'column'} spacing={1}
-        
+         width={{xs:'100%', md:'45%'}}
         >
            <Typography 
             sx={{display:'flex',
@@ -62,7 +63,9 @@ const Data = () => {
            </Stack>
         </Stack>
         {/* second stack */}
-        <Stack direction={'column'}>
+        <Stack direction={'column'}
+         width={{xs:'100%', md:'50%'}}
+        >
             <Dataui/>
         </Stack>
       </Stack>

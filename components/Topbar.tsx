@@ -7,7 +7,7 @@ import MainTopbar from "./MainTopbar";
 const Topbar = () => {
   return (
     <React.Fragment>
-      <Box
+      {/* <Box
         display={{
           md: "none",
           xs: "flex",
@@ -20,12 +20,12 @@ const Topbar = () => {
         width="100vw"
       >
         <MobileTopbar/>
-      </Box>
+      </Box> */}
       <Box
-        display={{
-          md: "flex",
-          xs: "none",
-        }}
+        // display={{
+        //   md: "flex",
+        //   xs: "none",
+        // }}
         sx={{
           position: "sticky",
           top: 0,
