@@ -10,7 +10,7 @@ const Data = () => {
     // display='flex'
     // justifyContent={'center'}
     px='10px'
-    pt={{md:'40px'}}
+    pt={{md:'40px', xs:'30px'}}
     >
     <Stack direction={'column'}
     justifyContent={'center'}

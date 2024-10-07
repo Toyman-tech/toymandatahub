@@ -4,8 +4,8 @@ import React from "react";
 const bottom1 = [
   { title: "Home", img: "/dashboardassets/lucidehome.svg", link: "/dashboard" },
   {
-    title: "Orders",
-    img: "/dashboardassets/shopping.svg",
+    title: "Data",
+    img: "/dashboardassets/wifi.svg",
     mid: true,
     link: "/dashboard/orders",
   },
@@ -72,12 +72,13 @@ const Bottombar = () => {
               </Box>
             </Stack>
           </Link>
-          <Link href={"/dashboard/orders"}>
+          <Link href={"/dashboard/data"}>
             <Stack direction="column" alignItems={"center"}>
               <Box
                 component={"img"}
-                src={"/dashboardassets/shopping.svg"}
+                src={"/dashboardassets/wifi.svg"}
                 sx={{ width: "20px", height: "20px", justifyContent: "center" }}
+                pt='1px'
               />
 
               <Box
@@ -88,11 +89,11 @@ const Bottombar = () => {
                 textAlign={"center"}
                 fontSize={"12px"}
               >
-                Orders
+                Data
               </Box>
             </Stack>
           </Link>
-
+          <Link  href={"/dashboard/wallet"}>
           <Stack
             direction="column"
             sx={{
@@ -106,12 +107,12 @@ const Bottombar = () => {
           >
             <Box component={"img"} src={"/dashboardassets/creditcard.svg"} />
           </Stack>
-
-          <Link href={"/dashboard/payments"}>
+          </Link>
+          <Link href={"/dashboard/airtime"}>
             <Stack direction="column" alignItems={"center"}>
               <Box
                 component={"img"}
-                src={"/dashboardassets/luciderepeat.svg"}
+                src={"/dashboardassets/phone.svg"}
                 sx={{ width: "20px", height: "20px", justifyContent: "center" }}
               />
 
@@ -123,7 +124,7 @@ const Bottombar = () => {
                 textAlign={"center"}
                 fontSize={"12px"}
               >
-                Payments
+                Airtime
               </Box>
             </Stack>
           </Link>

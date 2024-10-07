@@ -49,7 +49,7 @@ const MainTopbar = () => {
         component="header"
         width={"100%"}
         sx={{
-          backgroundColor: "#457B83",
+          backgroundColor: "#2A4F55",
           position: "sticky",
           top: 0,
           zIndex: 20,
@@ -165,7 +165,7 @@ const MainTopbar = () => {
               >
                 <Avatar
                   sx={{
-                    bgcolor: { md:"#457B83",  sm:"#457B83", xs:"#fff"},
+                    bgcolor: { md:"#457B83",  sm:"#457B83", xs:"#457B83"},
                     marginRight: "15px",
                     width: 34,
                     height: 34,
@@ -223,7 +223,7 @@ const MainTopbar = () => {
                 </MenuItem>
               </Menu>
             </Box>
-            <Avatar
+            {/* <Avatar
               src={"/"}
               sx={{
                 bgcolor: "#0177AB",
@@ -233,13 +233,17 @@ const MainTopbar = () => {
               }}
               alt="john doe"
               onClick={handleMenuOpen(setAnchorEl)}
-            />
+            /> */}
           </Box>
           <IconButton
             onClick={() => setOpenNav(true)}
-            sx={{ display: { lg: "none", md: "none", sm: "none" } }}
+            sx={{ display: { lg: "none", md: "none", sm: "flex" } }}
           >
+            <Box color='#ffff' 
+            display='flex'
+            >
             <HiOutlineMenuAlt1 />
+            </Box>
           </IconButton>
         </Box>
       </Box>

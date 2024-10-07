@@ -10,6 +10,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import LogoutModal from "./logout-modal";
+import UserCard from "./ui/UserCard";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -26,7 +27,7 @@ const Sidebar = () => {
   return (
     <Box
     sx={{
-      backgroundColor: "#457B83",
+      backgroundColor: "#2A4F55",
       // color: "#ffff",
       display: { lg: "flex", md: "flex", sm: "none", xs: "none" },
       flexDirection: "column",
@@ -49,14 +50,7 @@ const Sidebar = () => {
             alinItems: "center",
           }}
         >
-          <Box width={"110px"} height={"40px"} sx={{ position: "relative" }}>
-            <Image
-              src={"/assets/brand-sidebar.png"}
-              alt="vaad"
-              fill
-              objectFit="contain"
-            />
-          </Box>
+         <UserCard />
         </Box>
       </Stack>
       <Divider sx={{ m: "27px", backgroundColor: "#EDF2F7" }} />

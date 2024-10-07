@@ -32,7 +32,7 @@ export default function layout({ children }: { children: ReactNode }) {
         width: 0
       }
     }}>
-     
+     <WhatsappChat />
         <Sidebar />
         {/* <Topbar /> */}
       
@@ -58,7 +58,7 @@ export default function layout({ children }: { children: ReactNode }) {
           </Box>
         </Box>
       <Bottombar />
-      <WhatsappChat />
+      
       </Box>
     // </Stack>
   );

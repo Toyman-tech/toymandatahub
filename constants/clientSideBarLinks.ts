@@ -27,11 +27,11 @@ export const clientSideBarLinks1 = [
     icon: ApplicationIcon,
     url: "/dashboard/airtime",
   },
-  {
-    name: "Fund Wallet",
-    icon: ApplicationIcon,
-    url: "/dashboard/wallet",
-  },
+  // {
+  //   name: "Fund Wallet",
+  //   icon: ApplicationIcon,
+  //   url: "/dashboard/wallet",
+  // },
   {
     name: "Utilities Payment",
     icon: ApplicationIcon,

@@ -11,10 +11,11 @@ export default function WhatsappChat() {
         <Stack
           component={Button}
           position={"fixed"}
-          bottom={"2%"}
+          bottom={"12%"}
           right={"2%"}
           bgcolor={"#25D366"}
           p={1}
+          zIndex={50}
           minWidth={{ xs: 45, md: 50 }}
           width={{ xs: 45, md: 50 }}
           height={{ xs: 45, md: 50 }}

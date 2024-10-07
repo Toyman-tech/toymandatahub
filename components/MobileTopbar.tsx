@@ -1,184 +1,185 @@
-"use client"
-import { Box, Button, Divider, Drawer, Stack, Typography } from '@mui/material'
-import React, { useState } from 'react'
+"use client";
+import { Box, Button, Divider, Drawer, Stack, Typography } from "@mui/material";
+import React, { useState } from "react";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { CiMenuKebab } from "react-icons/ci";
-import { LogoutIcon } from '@/client/svgs';
-import { usePathname } from 'next/navigation';
-import LogoutModal from './logout-modal';
-import Image from 'next/image';
-import Link from 'next/link';
-import { clientSideBarLinks1, clientSideBarLinks2 } from '@/constants/clientSideBarLinks';
+import { LogoutIcon } from "@/client/svgs";
+import { usePathname } from "next/navigation";
+import LogoutModal from "./logout-modal";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  clientSideBarLinks1,
+  clientSideBarLinks2,
+} from "@/constants/clientSideBarLinks";
+import UserCard from "./ui/UserCard";
 
 interface MobileNavProps {
   onClose: () => void;
   open: boolean;
-
 }
 
-const MobileTopbar =  ({onClose, open, }: MobileNavProps) => {
+const MobileTopbar = ({ onClose, open }: MobileNavProps) => {
   const pathname = usePathname();
   const [openLogoutMod, setOpenLogoutMod] = useState(false);
 
-const handleOpenLogoutMod = () => setOpenLogoutMod(true);
-const handleCloseLogoutMod = () => {
-  setOpenLogoutMod(false);
-};
-return (
-  <Drawer
-  PaperProps={{
-    sx: {
-      backgroundColor:'#457B83',
-      color:'#000000',
-      display: "flex",
-      flexDirection: "column",
-      maxWidth: "100%",
-      scrollbarWidth: "none",
-      width: "80%",
+  const handleOpenLogoutMod = () => setOpenLogoutMod(true);
+  const handleCloseLogoutMod = () => {
+    setOpenLogoutMod(false);
+  };
+  return (
+    <Drawer
+      PaperProps={{
+        sx: {
+          backgroundColor: "#2A4F55",
+          color: "#000000",
+          display: "flex",
+          flexDirection: "column",
+          maxWidth: "100%",
+          scrollbarWidth: "none",
+          width: "80%",
 
-      "&::-webkit-scrollbar": { display: "none" },
-    },
-  }}
-  onClose={onClose}
-  open={open}
->
-       <Stack spacing={2} sx={{ px: 2, pt: 2 }}>
-    <Box
-      sx={{
-        display: "inline-flex",
-        justifyContent: "center",
-        alinItems: "center",
+          "&::-webkit-scrollbar": { display: "none" },
+        },
       }}
+      onClose={onClose}
+      open={open}
     >
-      <Box width={"110px"} height={"40px"} sx={{ position: "relative" }}>
-        <Image
-          src={"/assets/brand-sidebar.png"}
-          alt="vaad"
-          fill
-          objectFit="contain"
-        />
-      </Box>
-    </Box>
-  </Stack>
-  <Divider sx={{ m: "20px", backgroundColor: "#EDF2F7" }} />
-<Box
-    component="nav"
-    sx={{
-      flex: "1 1 auto",
-      p: "12px",
-      overflowY: "auto",
-      "&::-webkit-scrollbar": {
-        width: "0",
-      },
-    }}
-  >
-    <Stack sx={{ height: "100%", gap: "15px" }}>
-      {clientSideBarLinks1.map((item) => (
-        <Link
-          className="dashboard-nav"
-          href={item.url}
-          key={item.name}
-          data-active={pathname === item.url || undefined}
-          style={{
-            backgroundColor: pathname === item.url ? "#ffff" : "",
-            borderRadius: "8px",
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            fontSize: "15px",
-            fontWeight: 600,
-            padding: "15px",
-            gap: "15px",
-           
-          }}
-          onClick={onClose}
-        >
-          <item.icon style={{ color: "#FFF" }} />
-          <Typography
-            sx={{
-              color: pathname === item.url ? "#000000" : "#ffff",
-            }}
-          >
-            {item.name}
-          </Typography>
-        </Link>
-      ))}
-      <Divider/>
-      {
-        clientSideBarLinks2.map((item) => (
-        <Link
-           className="dashboard-nav"
-          href={item.url}
-          key={item.name}
-          data-active={pathname === item.url || undefined}
-          style={{
-            backgroundColor: pathname === item.url ? "#ffff" : "",
-            borderRadius: "8px",
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            fontSize: "15px",
-            fontWeight: 600,
-            padding: "15px",
-            gap: "15px",
-           
+      <Stack spacing={2} sx={{ px: 2, pt: 2 }}>
+        <Box
+          sx={{
+            display: "inline-flex",
+            justifyContent: "center",
+            alinItems: "center",
           }}
         >
-          <item.icon style={{ color: "#FFF" }} />
-          <Typography
-            sx={{
-              color: pathname === item.url ? "#000000" : "#ffff",
-            }}
+          <Box
+            display="flex"
+            width={"100%"}
+            // height={"70px"}
+            borderRadius={'8px'}
+            // sx={{ position: "relative", backgroundColor: "#ffff" }}
           >
-            {item.name}
-          </Typography>
-        </Link>
-      ))
-      }
-       <Button
+            <UserCard />
+          </Box>
+        </Box>
+      </Stack>
+      <Divider sx={{ m: "10px", backgroundColor: "#EDF2F7" }} />
+      <Box
+        component="nav"
         sx={{
-          
-            backgroundColor: pathname === '/dashboard/logout' ? "#000000" : "",
-            borderRadius: "8px",
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            fontSize: "15px",
-            fontWeight: 600,
-            padding: "20px",
-            paddingLeft:'-1px',
-            // paddingLeft:'1px',
-            gap: "15px",
-          
-        }}
-        onClick={() => {
-          onClose()
-          handleOpenLogoutMod();
+          flex: "1 1 auto",
+          p: "12px",
+          overflowY: "auto",
+          "&::-webkit-scrollbar": {
+            width: "0",
+          },
         }}
       >
-        <LogoutIcon />
-        <Typography sx={{ color: pathname === 'dashboard/logout' ? "#000000" : "#ffff", }}>Logout</Typography>
-      </Button>
-    </Stack>
-    <LogoutModal open={openLogoutMod} handleClose={handleCloseLogoutMod} />
-  </Box>
-</Drawer>
-)
-}
+        <Stack sx={{ height: "100%", gap: "15px" }}>
+          {clientSideBarLinks1.map((item) => (
+            <Link
+              className="dashboard-nav"
+              href={item.url}
+              key={item.name}
+              data-active={pathname === item.url || undefined}
+              style={{
+                backgroundColor: pathname === item.url ? "#ffff" : "",
+                borderRadius: "8px",
+                display: "flex",
+                justifyContent: "flex-start",
+                alignItems: "center",
+                fontSize: "15px",
+                fontWeight: 600,
+                padding: "15px",
+                gap: "15px",
+              }}
+              onClick={onClose}
+            >
+              <item.icon style={{ color: "#FFF" }} />
+              <Typography
+                sx={{
+                  color: pathname === item.url ? "#000000" : "#ffff",
+                }}
+              >
+                {item.name}
+              </Typography>
+            </Link>
+          ))}
+          <Divider />
+          {clientSideBarLinks2.map((item) => (
+            <Link
+              className="dashboard-nav"
+              href={item.url}
+              key={item.name}
+              data-active={pathname === item.url || undefined}
+              style={{
+                backgroundColor: pathname === item.url ? "#ffff" : "",
+                borderRadius: "8px",
+                display: "flex",
+                justifyContent: "flex-start",
+                alignItems: "center",
+                fontSize: "15px",
+                fontWeight: 600,
+                padding: "15px",
+                gap: "15px",
+              }}
+            >
+              <item.icon style={{ color: "#FFF" }} />
+              <Typography
+                sx={{
+                  color: pathname === item.url ? "#000000" : "#ffff",
+                }}
+              >
+                {item.name}
+              </Typography>
+            </Link>
+          ))}
+          <Button
+            sx={{
+              backgroundColor:
+                pathname === "/dashboard/logout" ? "#000000" : "",
+              borderRadius: "8px",
+              display: "flex",
+              justifyContent: "flex-start",
+              alignItems: "center",
+              fontSize: "15px",
+              fontWeight: 600,
+              padding: "20px",
+              paddingLeft: "-1px",
+              // paddingLeft:'1px',
+              gap: "15px",
+            }}
+            onClick={() => {
+              onClose();
+              handleOpenLogoutMod();
+            }}
+          >
+            <LogoutIcon />
+            <Typography
+              sx={{
+                color: pathname === "dashboard/logout" ? "#000000" : "#ffff",
+              }}
+            >
+              Logout
+            </Typography>
+          </Button>
+        </Stack>
+        <LogoutModal open={openLogoutMod} handleClose={handleCloseLogoutMod} />
+      </Box>
+    </Drawer>
+  );
+};
 
-export default MobileTopbar
-
-
-
-
+export default MobileTopbar;
 
 // return (
 //   <React.Fragment>
-//       <Box 
+//       <Box
 //       // sx={{
 //       //   py:'20px',
 //       //   backgroundColor:'#457B83',
-//       //   color:'#ffff', 
+//       //   color:'#ffff',
 //       //   alignItems:'center',
 //       //   // width:'100vw',
 //       //   // height:'30px',
@@ -199,8 +200,8 @@ export default MobileTopbar
 //         borderBottom: "1px solid #c5c5c5",
 //       }}
 //       >
-//        <Stack 
-//         direction={'row'} 
+//        <Stack
+//         direction={'row'}
 //         alignItems={'center'}
 //         justifyContent={'space-between'}
 //         width='100%'
@@ -232,7 +233,7 @@ export default MobileTopbar
 //           {/* {toggle ? <IoCloseSharp /> : <HiMenuAlt3 />} */}
 //         </Button>
 //         </Box>
-//          <Box 
+//          <Box
 //          fontWeight={700}
 //          sx={{display:'flex',
 //          fontSize:'22px',
@@ -263,7 +264,7 @@ export default MobileTopbar
 //           }}
 //           variant="contained"
 //         >
-//                     <HiOutlineMenuAlt1 /> 
+//                     <HiOutlineMenuAlt1 />
 //         </Button>
 //        </Stack>
 //     </Box>
