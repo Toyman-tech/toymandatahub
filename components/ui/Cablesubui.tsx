@@ -1,12 +1,19 @@
 "use client"
-import { Box, Button, FormControl, InputLabel, MenuItem, Select, Stack } from "@mui/material";
+import { Box, Button, FormControl, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
 import React, { useState } from "react";
 
 const Cablesubui = () => {
-    const [network, setNetwork] = useState("");
+    const [cable, setCable] = useState("");
+    const [cardNumber, setCardNumber] = useState("");
+    const [plan, setPlan] = useState("");
+    const [amountToPay, setAmountToPay] = useState("");
+    
     const handleChange=(e)=>{
        e.preventDefault();
-       setNetwork(e.target.value)
+       setCable(e.target.value);
+       setCardNumber(e.target.value)
+       setPlan(e.target.value)
+       setAmountToPay("N 3000")
     }
   
     return (
@@ -25,8 +32,8 @@ const Cablesubui = () => {
             <Select
             labelId="select-label"
             id="sel"
-            value={network}
-            label='Network'
+            value={cable}
+            label='Cable'
             onChange={handleChange}
           >
               <MenuItem value={"GOTV"}>GOTV</MenuItem>
@@ -40,8 +47,8 @@ const Cablesubui = () => {
             <Select
             labelId="select-label"
             id="sel"
-            value={network}
-            label='Network'
+            value={cardNumber}
+            label='Cardnumber'
             onChange={handleChange}
           >
           </Select>
@@ -52,25 +59,28 @@ const Cablesubui = () => {
             <Select
             labelId="select-label"
             id="sel"
-            value={network}
-            label='Network'
+            value={plan}
+            label='Plan'
             onChange={handleChange}
           >
               <MenuItem value={"1gb"}>1gb </MenuItem>
           </Select>
           </FormControl>
           <FormControl>
-            <InputLabel id='sel'>Amount to pay</InputLabel>
-            <Select
-            labelId="select-label"
-            id="sel"
-            value={network}
-            label='Network'
-            onChange={handleChange}
-          >
-              <MenuItem value={"N200"}>N 200</MenuItem>
-          </Select>
-          </FormControl>
+          <TextField
+            id="outlined-basic"
+            label="Amount to pay"
+            variant="outlined"
+            sx={{
+              height: "100%", // Custom height
+              width: "100%",
+              fontSize: "13px",
+              fontWeight: 600,
+            }}
+            value={amountToPay}
+            disabled
+          />
+        </FormControl>
           <Button
               // disabled={isLoading || googleLoading}
               sx={{
