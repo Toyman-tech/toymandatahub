@@ -46,6 +46,7 @@ const Couponui = () => {
           <TextField
             id="outlined-basic"
             label="Quantity"
+            type='number'
             variant="outlined"
             sx={{
               height: "100%", // Custom height

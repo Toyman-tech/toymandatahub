@@ -68,6 +68,7 @@ const Cablesubui = () => {
               fontWeight: 600,
             }}
             value={cardNumber}
+            type='number'
             onChange={handleChange1}
           />
         </FormControl>

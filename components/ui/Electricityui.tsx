@@ -82,6 +82,7 @@ const Electricityui = () => {
               fontWeight: 200,
             }}
             value={phone}
+            type='tel'
             onChange={handleChange2}
           />
         </FormControl>

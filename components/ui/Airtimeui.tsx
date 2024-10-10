@@ -62,6 +62,7 @@ const Airtimeui = () => {
             }}
             value={phoneNumber}
             onChange={handleChange1}
+            type='tel'
           />
         </FormControl>
           {/* 3 */}
@@ -69,6 +70,7 @@ const Airtimeui = () => {
           <TextField
             id="outlined-basic"
             label="Amount"
+          
             variant="outlined"
             sx={{
               height: "100%", // Custom height
@@ -84,6 +86,7 @@ const Airtimeui = () => {
         <FormControl>
           <TextField
             id="outlined-basic"
+            type='number'
             label="Amount to pay"
             variant="outlined"
             sx={{

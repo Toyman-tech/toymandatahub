@@ -75,7 +75,7 @@ const Dataui = () => {
             label="Plan"
             onChange={handleChange2}
           >
-            <MenuItem value={"1gb"}>1gb </MenuItem>
+            <MenuItem value={"1gb--N300"}>1gb--N 300 </MenuItem>
           </Select>
         </FormControl>
         <FormControl>
