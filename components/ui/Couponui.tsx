@@ -1,13 +1,26 @@
 "use client"
-import { Box, Button, FormControl, InputLabel, MenuItem, Select, Stack, Typography } from "@mui/material";
+import { Box, Button, FormControl, InputLabel, MenuItem, Select, Stack, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 
 const Couponui = () => {
     const [network, setNetwork] = useState("");
+    const [name, setName] = useState("");
+    const [quantity, setQuant] = useState("1");
     const handleChange=(e)=>{
        e.preventDefault();
        setNetwork(e.target.value)
+       
+      
     }
+    const handleChange1=(e)=>{
+      e.preventDefault();
+      setName(e.target.value) 
+    }
+    const handleChange2=(e)=>{
+      e.preventDefault();
+      setQuant(e.target.value)
+    }
+    
   
     return (
       
@@ -23,38 +36,47 @@ const Couponui = () => {
             label='Network'
             onChange={handleChange}
           >
-              <MenuItem value={"MTN"}>MTN</MenuItem>
-              <MenuItem value={"Airtel"}>Airtel</MenuItem>
-              <MenuItem value={"9mobile"}>9mobile</MenuItem>
-              <MenuItem value={"Glo"}>Glo</MenuItem>
+              <MenuItem value={"1.5GB--N308"}>1.5GB--N308</MenuItem>
+              <MenuItem value={"1.0GB--N245"}>1.0GB--N245</MenuItem>
+              
           </Select>
           </FormControl>
           {/* 2 */}
           <FormControl>
-            <InputLabel id='sel'>Quantity</InputLabel>
-            <Select
-            labelId="select-label"
-            id="sel"
-            value={network}
-            label='Network'
-            onChange={handleChange}
-          >
-          </Select>
-          </FormControl>
+          <TextField
+            id="outlined-basic"
+            label="Quantity"
+            variant="outlined"
+            sx={{
+              height: "100%", // Custom height
+              width: "100%",
+              fontSize: "13px",
+              fontWeight: 600,
+            }}
+            value={quantity}
+           onChange={handleChange2}  
+          />
+        </FormControl>
           {/* 3 */}
-          <FormControl>
-            <InputLabel id='sel'>Name on card</InputLabel>
-            <Select
-            labelId="select-label"
-            id="sel"
-            value={network}
-            label='Network'
-            onChange={handleChange}
-          >
-              <MenuItem value={"1gb"}>1gb </MenuItem>
-          </Select>
-          <Typography>Your Company name to show on generated pin</Typography>
-          </FormControl>
+         <FormControl>
+          <TextField
+            id="outlined-basic"
+            label="Name on card"
+            variant="outlined"
+            sx={{
+              height: "100%", // Custom height
+              width: "100%",
+              fontSize: "13px",
+              fontWeight: 600,
+            }}
+            value={name}
+            onChange={handleChange1}
+            
+          />
+           <Box>
+           <Typography>Your Company name to show on generated pin</Typography>
+         </Box>
+        </FormControl>
          <Box>
          <Typography>HOW TO LOAD PIN</Typography>
           <Typography>*460*6*1#</Typography>

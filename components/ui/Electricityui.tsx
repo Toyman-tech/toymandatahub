@@ -1,13 +1,32 @@
 "use client"
-import { Box, Button, FormControl, InputLabel, MenuItem, Select, Stack } from "@mui/material";
+import { Box, Button, FormControl, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
 import React, { useState } from "react";
 
 const Electricityui = () => {
     const [network, setNetwork] = useState("");
+    const [amount, setAmount] = useState("");
+    const [meter, setMeter] = useState("");
+    const [type, setType] = useState("");
+    const [phone, setPhone] = useState("");
+
     const handleChange=(e)=>{
        e.preventDefault();
        setNetwork(e.target.value)
     }
+    
+    const handleChange1=(e)=>{
+      e.preventDefault();
+      setMeter(e.target.value)
+   }
+   const handleChange2=(e)=>{
+    e.preventDefault();
+    setPhone(e.target.value)
+ }
+ const handleChange3=(e)=>{
+  e.preventDefault();
+  setType(e.target.value)
+  setAmount('N 10000')
+}
   
     return (
       
@@ -36,53 +55,65 @@ const Electricityui = () => {
           </FormControl>
           {/* 2 */}
           <FormControl>
-            <InputLabel id='sel'>Meter number</InputLabel>
-            <Select
-            labelId="select-label"
-            id="sel"
-            value={network}
-            label='Network'
-            onChange={handleChange}
-          >
-          </Select>
-          </FormControl>
+          <TextField
+            id="outlined-basic"
+            label="Meter number"
+            variant="outlined"
+            sx={{
+              height: "100%", // Custom height
+              width: "100%",
+              fontSize: "13px",
+              fontWeight: 200,
+            }}
+            value={meter}
+            onChange={handleChange1}
+          />
+        </FormControl>
           {/* extra */}
           <FormControl>
-            <InputLabel id='sel'>Customer Phone Number</InputLabel>
-            <Select
-            labelId="select-label"
-            id="sel"
-            value={network}
-            label='Network'
-            onChange={handleChange}
-          >
-          </Select>
-          </FormControl>
+          <TextField
+            id="outlined-basic"
+            label="Customer Phone Number"
+            variant="outlined"
+            sx={{
+              height: "100%", // Custom height
+              width: "100%",
+              fontSize: "13px",
+              fontWeight: 200,
+            }}
+            value={phone}
+            onChange={handleChange2}
+          />
+        </FormControl>
           {/* 3 */}
           <FormControl>
             <InputLabel id='sel'>Meter Type</InputLabel>
             <Select
             labelId="select-label"
             id="sel"
-            value={network}
-            label='Network'
-            onChange={handleChange}
+            value={type}
+            label='type'
+            onChange={handleChange3}
           >
-              <MenuItem value={"1gb"}>1gb </MenuItem>
+              <MenuItem value={"Post Paid"}>Post Paid </MenuItem>
           </Select>
           </FormControl>
           <FormControl>
-            <InputLabel id='sel'>Amount to pay</InputLabel>
-            <Select
-            labelId="select-label"
-            id="sel"
-            value={network}
-            label='Network'
-            onChange={handleChange}
-          >
-              <MenuItem value={"N200"}>N 200</MenuItem>
-          </Select>
-          </FormControl>
+          <TextField
+            id="outlined-basic"
+            label="Amount to pay"
+            variant="outlined"
+            sx={{
+              height: "100%", // Custom height
+              width: "100%",
+              fontSize: "13px",
+              fontWeight: 200,
+            }}
+            disabled
+            value={amount}
+            onChange={handleChange3}
+          />
+        </FormControl>
           <Button
               // disabled={isLoading || googleLoading}
               sx={{

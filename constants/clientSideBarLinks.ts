@@ -52,7 +52,7 @@ export const clientSideBarLinks2 = [
   {
     name: "Developers Api </>",
     icon: ReferAndEarnIcon,
-    url: "/dashboard/api",
+    url: "/dashboard/devApi",
   },
   {
     name: "Settings",

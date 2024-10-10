@@ -8,58 +8,51 @@ import {
   Select,
   Stack,
   TextField,
+  Typography,
 } from "@mui/material";
 import React, { useState } from "react";
 
-const Cablesubui = () => {
-  const [cable, setCable] = useState("");
-  const [cardNumber, setCardNumber] = useState("");
-  const [plan, setPlan] = useState("");
+const Resultui = () => {
+  const [network, setNetwork] = useState("");
   const [amountToPay, setAmountToPay] = useState("");
-
+  const [quantity, setQuant] = useState("1");
   const handleChange = (e) => {
     e.preventDefault();
-    setCable(e.target.value);
+    setNetwork(e.target.value);
   };
-  const handleChange1 = (e) => {
-    e.preventDefault();
-    setCardNumber(e.target.value);
-  };
+
   const handleChange2 = (e) => {
     e.preventDefault();
-    setPlan(e.target.value);
-    setAmountToPay("N 3000");
+    setQuant(e.target.value);
+    setAmountToPay("N 5000");
   };
 
   return (
-    <Box
-      component="div"
-      width={{ xs: "100%", md: "50%" }}
-      sx={{
-        backgroundColor: "#ffff",
-        padding: "30px",
-      }}
-    >
+    <Box component="div"
+    width={{xs:'100%', md:'50%'}}
+    sx={{
+      backgroundColor:'#ffff',
+      padding:'30px',
+    }}>
       <Stack direction="column" spacing={2}>
         <FormControl>
-          <InputLabel id="sel">Cablename</InputLabel>
+          <InputLabel id="sel">Exam name</InputLabel>
           <Select
             labelId="select-label"
             id="sel"
-            value={cable}
-            label="Cable"
+            value={network}
+            label="Network"
             onChange={handleChange}
           >
-            <MenuItem value={"GOTV"}>GOTV</MenuItem>
-            <MenuItem value={"DSTV"}>DSTV</MenuItem>
-            <MenuItem value={"Startimes"}>Startimes</MenuItem>
+            <MenuItem value={"WAEC"}>WAEC</MenuItem>
+            <MenuItem value={"NECO"}>NECO</MenuItem>
           </Select>
         </FormControl>
         {/* 2 */}
         <FormControl>
           <TextField
             id="outlined-basic"
-            label="Smart Card number / IUC number"
+            label="Quantity"
             variant="outlined"
             sx={{
               height: "100%", // Custom height
@@ -67,23 +60,11 @@ const Cablesubui = () => {
               fontSize: "13px",
               fontWeight: 600,
             }}
-            value={cardNumber}
-            onChange={handleChange1}
+            value={quantity}
+            onChange={handleChange2}
           />
         </FormControl>
         {/* 3 */}
-        <FormControl>
-          <InputLabel id="sel">Cable plan</InputLabel>
-          <Select
-            labelId="select-label"
-            id="sel"
-            value={plan}
-            label="Plan"
-            onChange={handleChange2}
-          >
-            <MenuItem value={"1gb"}>1gb </MenuItem>
-          </Select>
-        </FormControl>
         <FormControl>
           <TextField
             id="outlined-basic"
@@ -122,11 +103,11 @@ const Cablesubui = () => {
           // onClick={() => login(email, password)}
         >
           {/* {isLoading ? <CircularProgress size={"20px"} /> : "Sign up"} */}
-          Validate
+          Generate
         </Button>
       </Stack>
     </Box>
   );
 };
 
-export default Cablesubui;
+export default Resultui;

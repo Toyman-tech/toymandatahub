@@ -9,7 +9,7 @@ const availables = [
   { title: "Cable", img: "/dashboardassets/lucidetv.svg", link: "/dashboard/cable" },
   { title: "Electricity", img: "/dashboardassets/lucidebulb.svg", link: "/dashboard/electricity" },
   { title: "Data Card Printing", img: "/dashboardassets/creditcard.svg", link: "/dashboard/coupon" },
-  { title: "Bulk SMS", img: "/dashboardassets/messagetext.svg", link: "/dashboard/bulk-sms" },
+  // { title: "Bulk SMS", img: "/dashboardassets/messagetext.svg", link: "/dashboard/bulk-sms" },
 ];
 
 const Serv = () => {
