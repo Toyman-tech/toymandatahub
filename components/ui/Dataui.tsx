@@ -90,7 +90,7 @@ const Dataui = () => {
               fontWeight: 200,
             }}
             value={amount}
-            disabled
+            // disabled
           />
         </FormControl>
         <Button

@@ -110,7 +110,7 @@ const Electricityui = () => {
               fontSize: "13px",
               fontWeight: 200,
             }}
-            disabled
+            // disabled
             value={amount}
             onChange={handleChange3}
           />

@@ -97,7 +97,7 @@ const Cablesubui = () => {
               fontWeight: 600,
             }}
             value={amountToPay}
-            disabled
+            // disabled
             
           />
         </FormControl>

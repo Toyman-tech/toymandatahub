@@ -86,7 +86,7 @@ const Airtimeui = () => {
         <FormControl>
           <TextField
             id="outlined-basic"
-            type='number'
+            // type='number'
             label="Amount to pay"
             variant="outlined"
             sx={{
@@ -96,7 +96,7 @@ const Airtimeui = () => {
               fontWeight: 600,
             }}
             value={amountToPay}
-            disabled
+            // disabled
           />
         </FormControl>
           <Button
