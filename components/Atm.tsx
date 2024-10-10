@@ -20,7 +20,7 @@ const Atm = () => {
   };
   return (
     <Box sx={{ color: "#ffff" }} width={"100%"}>
-      <Stack direction="row" display={{ md: "none", xs: "flex" }}>
+      <Stack direction="row" display={{xs:'flex', sm:'none', md:'none'}}>
         <Box component="div"
         mb='7px'>
           <Button
@@ -110,7 +110,7 @@ const Atm = () => {
 
       <Stack
         direction={{ md: "row", sm: "row", xs: "column" }}
-        display={{ xs: "none" }}
+        display={{ xs: "none", sm:'flex', md:'flex' }}
         justifyContent={{ md: "space-between", xs: "center" }}
         alignItems={"center"}
         spacing={2}
