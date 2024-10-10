@@ -25,13 +25,14 @@ export default function Home(){
     alignItems="center"
     justifyContent="center"
     sx={{height:'70vh', padding:{lg:'12px'},  background: {lg:"white"},}}
+    width={'100%'}
     >
     <Stack 
      direction={{md:'row', xs:'column'}} 
      spacing={{sm:10, xs:5,}}
       alignItems="center"
     justifyContent="center"
-    sx={{ padding:'35px',}}
+    sx={{ padding:{md:'35px'},}}
     >
      <Box  component='div' >
      {/* <Image
