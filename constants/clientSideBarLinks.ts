@@ -37,11 +37,11 @@ export const clientSideBarLinks1 = [
     icon: ApplicationIcon,
     url: "/dashboard/utilities",
   },
-  {
-    name: "Change Pin",
-    icon: ApplicationIcon,
-    url: "/dashboard/pin",
-  },
+  // {
+  //   name: "Change Pin",
+  //   icon: ApplicationIcon,
+  //   url: "/dashboard/pin",
+  // },
 ];
 export const clientSideBarLinks2 = [
   {

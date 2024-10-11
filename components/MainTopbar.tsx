@@ -19,7 +19,7 @@ import { KeyboardArrowDownOutlined, SearchOutlined } from "@mui/icons-material";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useSelector } from "react-redux";
-
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import Link from "next/link";
 import MobileTopbar from "./MobileTopbar";
 
@@ -163,7 +163,7 @@ const MainTopbar = () => {
                   },
                 }}
               >
-                <Avatar
+                {/* <Avatar
                   sx={{
                     bgcolor: { md:"#457B83",  sm:"#457B83", xs:"#457B83"},
                     marginRight: "15px",
@@ -173,7 +173,19 @@ const MainTopbar = () => {
                   }}
                   alt="Vaad Media"
                   src={"/"}
-                />
+                /> */}
+                 <Avatar
+                    sx={{
+                      bgcolor: { md:"#457B83",  sm:"#457B83", xs:"#457B83"},
+                      marginRight: "15px",
+                      width: 34,
+                      height: 34,
+                      color:{xs:'#ffff', md:'#fff', sm:'#fff'}
+                    }}
+                    alt="Vaad Media"
+                  >
+                    <PersonOutlineIcon />
+                  </Avatar>
                 <Box sx={{ display: { xs: "none", md: "flex" } }}>
                 <Typography>
                   Abubakar Habeeb
