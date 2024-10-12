@@ -91,7 +91,7 @@ const Sidebar = () => {
                 // }
               }}
             >
-              <item.icon style={{ color: "#ffff" }} />
+              <item.icon style={{ color: "#000000" }} />
               <Typography
                 sx={{
                   color: pathname === item.url ? "#000000" : "#ffff",
@@ -120,7 +120,7 @@ const Sidebar = () => {
                 gap: "15px",
               }}
             >
-              <item.icon style={{ color: "#FFFF" }} />
+              <item.icon style={{ color: "#000000" }} />
               <Typography
                 sx={{
                   color: pathname === item.url ? "#000000" : "#ffff",

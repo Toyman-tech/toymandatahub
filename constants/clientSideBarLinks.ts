@@ -4,6 +4,7 @@ import {
   BookingsIcon,
   ReferAndEarnIcon,
   UserMgtIcon,
+  InvoiceIcon,
 } from "@/client/svgs";
 
 export const clientSideBarLinks1 = [
@@ -24,7 +25,7 @@ export const clientSideBarLinks1 = [
   },
   {
     name: "Buy Airtime",
-    icon: ApplicationIcon,
+    icon: BookingsIcon,
     url: "/dashboard/airtime",
   },
   // {
@@ -34,7 +35,7 @@ export const clientSideBarLinks1 = [
   // },
   {
     name: "Utilities Payment",
-    icon: ApplicationIcon,
+    icon: InvoiceIcon,
     url: "/dashboard/utilities",
   },
   // {
@@ -61,57 +62,6 @@ export const clientSideBarLinks2 = [
   },
 ];
 
-export const hompageCard1 = [
-  {
-    img: "/dashboardassets/img1.svg",
-    title: "Lorem ipsum dolor sit armet cons ecteur",
-    location: "Lekki, Lagos",
-    amount: "N11,202.3/month",
-  },
-  {
-    img: "/dashboardassets/img2.svg",
-    title: "Lorem ipsum dolor sit armet cons ecteur",
-    location: "Lekki, Lagos",
-    amount: "N11,202.3/month",
-  },
-  {
-    img: "/dashboardassets/img3.svg",
-    title: "Lorem ipsum dolor sit armet cons ecteur",
-    location: "Lekki, Lagos",
-    amount: "N11,202.3/month",
-  },
-];
-
-export const hompageCard2 = [
-  {
-    img: "/dashboardassets/order.svg",
-    header: "Order Confirmed",
-    title: "Lorem ipsum dolor sit armet cons ecteur",
-    time: "6:12 PM",
-    button: "View Order",
-  },
-  {
-    img: "/dashboardassets/order.svg",
-    header: "Payment Reminder",
-    title: "Lorem ipsum dolor sit armet cons ecteur",
-    time: "10:07 AM",
-    button: "Pay Now",
-  },
-  {
-    img: "/dashboardassets/icon.svg",
-    header: "Payment Reminder",
-    title: "Lorem ipsum dolor sit armet cons ecteur",
-    time: "8:38 AM",
-    button: "Pay Now",
-  },
-  {
-    img: "/dashboardassets/icon.svg",
-    header: "Order ID:3354654654526",
-    title: "Lorem ipsum dolor sit armet cons ecteur",
-    time: "8:38 AM",
-    button: "View Order",
-  },
-];
 export const faqs = [
   {
     question: "How effective is outdoor advertising?",
@@ -150,7 +100,7 @@ export const faqs = [
     question:
       "Can VAAD provide end-to-end execution of an outdoor advertising campaign?",
     answer: 'Yes, we provide an end-to-end implementation of an outdoor advertising campaign as follows:',
-    answer1:"Campaign Planning: This phase involves defining campaign objectives, identifying the target audience, determining key messaging, and setting a budget. It's crucial to decide on the type of outdoor advertising (billboards, transit ads, etc.) that best suits your goals. Creative Development: Designing the visual and messaging elements of the ad. This includes creating eye-catching graphics, compelling copy, and ensuring brand consistency.",
+    answertitle:"Campaign Planning: This phase involves defining campaign objectives, identifying the target audience, determining key messaging, and setting a budget. It's crucial to decide on the type of outdoor advertising (billboards, transit ads, etc.) that best suits your goals. Creative Development: Designing the visual and messaging elements of the ad. This includes creating eye-catching graphics, compelling copy, and ensuring brand consistency.",
     answer2:"Location Selection: Choosing strategic locations for placing the ads based on factors like high foot traffic, target demographics, visibility, and budget constraints.",
     answer3:"Production: Production of large format print materials for billboards.Installation: Our operation team ensures campaign materials deployed in chosen locations are well-tensioned and in line with regulatory-approved specifications and requirements. or permits required.",
     answer4:"Monitoring and Optimization: Tracking the performance of the campaign through metrics like foot traffic, brand awareness, and engagement.   Reporting and Analysis: Evaluating the success of the campaign against the initial objectives, measuring ROI, and gathering insights for future campaigns.",
@@ -178,4 +128,184 @@ export const faqs = [
     question: "How do I buy a billboard space?",
     answer: "That’s why we are here! Click How to book a billboard ",
   },
+]
+
+export const pricings1 = [
+  {title:[{title:'MTN AIRTIME'},{title:'% 98'}, {title:'% 98'}]},
+  {title:[{title:'GLO AIRTIME'},{title:'% 98'}, {title:'% 98'}]},
+  {title:[{title:'AIRTEL AIRTIME'},{title:'% 98'}, {title:'% 98'}]},
+  {title:[{title:'9MOBILE AIRTIME'},{title:'% 98'}, {title:'% 97'}]},
+  {title:[{title:'WAEC Result Checker'},{title:'₦ 3750.0'}, {title:'₦ 2650.0'}]},
+  {title:[{title:'NECO Result Checker'},{title:'₦ 1400.0'}, {title:'₦ 1400.0'}]},
+  {title:[{title:'MTN Recharge Card pin'},{title:' (₦100.0) @ ₦98.0'}, {title:'(₦100.0) @ ₦100.0'}]},
+  {title:[{title:'MTN Recharge Card pin'},{title:'(₦200.0) @ ₦198.0'}, {title:'(₦200.0) @ ₦100.0'}]},
+  {title:[{title:'MTN Recharge Card pin'},{title:'(₦500.0) @ ₦498.0'}, {title:'(₦500.0) @ ₦100.0'}]},
+  {title:[{title:'GLO Recharge Card pin'},{title:'(₦100.0) @ ₦97.0'}, {title:'(₦100.0) @ ₦100.0'}]},
+  {title:[{title:'GLO Recharge Card pin'},{title:'(₦200.0) @ ₦197.0'}, {title:'(₦200.0) @ ₦100.0'}]},
+  {title:[{title:'GLO Recharge Card pin'},{title:'(₦500.0) @ ₦497.0'}, {title:'(₦500.0) @ ₦100.0'}]},
+  {title:[{title:'AIRTEL Recharge Card pin'},{title:'(₦100.0) @ ₦98.0'}, {title:'(₦100.0) @ ₦100.0'}]},
+  {title:[{title:'AIRTEL Recharge Card pin'},{title:'(₦200.0) @ ₦198.0'}, {title:'(₦200.0) @ ₦100.0'}]},
+  {title:[{title:'AIRTEL Recharge Card pin'},{title:'(₦500.0) @ ₦497.0'}, {title:'(₦500.0) @ ₦100.0'}]},
+]
+export const mtnPricings =[
+  {title: [
+    {title:'150.0MB'}, {title:'₦38'},{title:'₦35'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'250.0MB'}, {title:'	₦69'},{title:'₦70'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'500.0MB'}, {title:'₦130'},{title:'₦140'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'500.0MB'}, {title:'₦133'},{title:'₦140'}, {title:'30days'},
+  ]},
+  {title: [
+    {title:'0.5GB'}, {title:'₦134'},{title:'₦120'}, {title:'30days'},
+  ]},
+  {title: [
+    {title:'1000.0MB'}, {title:'₦250'},{title:'₦280'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'1.024GB'}, {title:'₦255'},{title:'₦280'}, {title:'30days'},
+  ]},
+  {title: [
+    {title:'1.0GB'}, {title:'₦258'},{title:'₦240'}, {title:'30days'},
+  ]},
+  {title: [
+    {title:'1.5GB'}, {title:'₦310'},{title:'₦300'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'2000.0MB'}, {title:'₦500'},{title:'₦560'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'2.048GB'}, {title:'₦510'},{title:'₦560'}, {title:'30days'},
+  ]},
+  {title: [
+    {title:'2.0GB'}, {title:'₦516'},{title:'₦480'}, {title:'30days'},
+  ]},
+  {title: [
+    {title:'3.0GB'}, {title:'₦630'},{title:'₦600'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'3000.0MB'}, {title:'₦750'},{title:'₦840'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'3.072GB'}, {title:'₦765'},{title:'₦840'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'3.0GB'}, {title:'	₦774	'},{title:'₦720'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'5.0GB'}, {title:'₦1050'},{title:'₦1000'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'5000.0MB'}, {title:'₦1250'},{title:'₦1400'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'5.12GB'}, {title:'₦1275'},{title:'₦1400'}, {title:'30days'},
+  ]},
+  {title: [
+    {title:'5.0GB'}, {title:'₦1290'},{title:'₦1200'}, {title:'30days'},
+  ]},
+  {title: [
+    {title:'10000.0MB'}, {title:'₦2500'},{title:'₦2800'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'10.12GB'}, {title:'₦2550'},{title:'₦2800'}, {title:'30days'},
+  ]},
+  {title: [
+    {title:'10.0GB'}, {title:'₦2580'},{title:'₦2400'}, {title:'30days'},
+  ]},
+  {title: [
+    {title:'15.0GB'}, {title:'₦3825'},{title:'₦4200'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'20.0GB'}, {title:'₦5100'},{title:'₦5600'}, {title:'1month'},
+  ]},
+]
+
+export const mobilePricings = [
+  {title: [
+    {title:'500.0MB'}, {title:'₦78'},{title:'₦170'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'1.0GB'}, {title:'₦145'},{title:'₦105'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'1.5GB'}, {title:'₦223'},{title:'₦250'}, {title:'1month'},
+  ]},
+  
+  {title: [
+    {title:'2.0GB'}, {title:'₦290'},{title:'₦345'}, {title:'1month'},
+  ]},
+  
+  {title: [
+    {title:'2.5GB'}, {title:'₦368'},{title:'₦375'}, {title:'1month'},
+  ]},
+  
+  {title: [
+    {title:'3.0GB'}, {title:'₦435'},{title:'₦520'}, {title:'1month'},
+  ]},
+  
+  {title: [
+    {title:'4.0GB'}, {title:'₦580'},{title:'	₦695'}, {title:'1month'},
+  ]},
+  
+  {title: [
+    {title:'10.0GB'}, {title:'₦1450'},{title:'₦2000'}, {title:'1month'},
+  ]},
+]
+
+export const airtelPricings =[
+  {title: [
+    {title:'100.0MB'}, {title:'₦41'},{title:'₦85'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'300.0MB'}, {title:'₦80'},{title:'₦110'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'500.0MB'}, {title:'₦142'},{title:'₦101'}, {title:'30days'},
+  ]},
+  {title: [
+    {title:'1.0GB'}, {title:'₦273'},{title:'₦203'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'2.0GB'}, {title:'₦546'},{title:'₦406'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'5.0GB'}, {title:'₦1365'},{title:'₦1015'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'10.0GB'}, {title:'₦2730'},{title:'₦2030'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'15.0GB'}, {title:'₦4095'},{title:'₦3045'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'20.0GB'}, {title:'₦5460'},{title:'₦4060	'}, {title:'1month'},
+  ]},
+]
+export const gloPricings = [
+  {title: [
+    {title:'200.0MB'}, {title:'₦69'}, {title:'₦56'}, {title:'14days'},
+  ]},
+  {title: [
+    {title:'500.0MB'}, {title:'₦150'}, {title:'₦112'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'1.0GB'}, {title:'₦255'}, {title:'₦255'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'2.0GB'}, {title:'₦510'}, {title:'₦450'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'3.0GB'}, {title:'₦765'}, {title:'₦675'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'5.0GB'}, {title:'₦1275'}, {title:'₦1125'}, {title:'1month'},
+  ]},
+  {title: [
+    {title:'10.0GB'}, {title:'₦2550'}, {title:'₦2250'}, {title:'1month'},
+  ]},
 ]
