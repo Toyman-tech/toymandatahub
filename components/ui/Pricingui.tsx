@@ -391,6 +391,7 @@ const Pricingui = () => {
         }}
         display="flex"
         flexDirection={"column"}
+        color='#ffff'
       >
         <Typography
         display='flex'
@@ -401,11 +402,12 @@ const Pricingui = () => {
         fontWeight={600}
         py='10px'
         >9MOBILE DATA PLAN</Typography>
-        <Table sx={{ overflowX: "auto" }}>
+        <Table sx={{ overflowX: "auto", color:'#ffff' }}>
           <TableHead>
             <TableRow>
               <TableCell>
                 <Box
+                color='#ffff'
                   fontSize={{ md: "17px", xs: "13px" }}
                   fontWeight={500}
                   sx={{
@@ -419,6 +421,7 @@ const Pricingui = () => {
               </TableCell>
               <TableCell>
                 <Box
+                color='#ffff'
                   fontSize={{ md: "17px", xs: "13px" }}
                   fontWeight={500}
                   sx={{
@@ -439,6 +442,7 @@ const Pricingui = () => {
                     justifyContent: "center",
                     alignItems: "center",
                   }}
+                  color='#ffff'
                 >
                   Api User
                 </Box>
@@ -452,6 +456,7 @@ const Pricingui = () => {
                     justifyContent: "center",
                     alignItems: "center",
                   }}
+                  color='#ffff'
                 >
                   Validity
                 </Box>
@@ -468,6 +473,7 @@ const Pricingui = () => {
                       justifyContent: "center",
                       alignItems: "center",
                     }}
+                    color='#ffff'
                   >
                     {price.title}
                   </Box>
