@@ -25,18 +25,16 @@ import SnackbarComp, { useToast } from "./Toast";
 import LoadingPage from "./LoadingPage";
 // import { useUserPInfoHook } from "./personal-info-hook";
 // import ImgUploadModal from "./img-confirm-modal";
-
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 export interface UpdatePicture {
   profilePicture: string;
 }
 export interface UpdatePass {
-  firstname: string;
-  lastname: string;
+  username: string;
   phoneNumber: string;
-  dateOfBirth: string;
-  country: string;
-  city: string;
-  address: string;
+  email: string;
+  bankName: string;
+  accountNumber: string;
 }
 
 const PersonalInfo = ({ handleMessage, setIsLoading }) => {
@@ -145,13 +143,29 @@ const PersonalInfo = ({ handleMessage, setIsLoading }) => {
             display: "inline-block",
           }}
         >
-          <Avatar
+          {/* <Avatar
             src={'/dp1.png'}
             sx={{
               height: { xs: "96px", md: "96px" },
               width: { xs: "96px", md: "96px" },
             }}
-          />
+          /> */}
+           <Avatar
+                    // sx={{
+                    //   bgcolor: { md:"#457B83",  sm:"#457B83", xs:"#457B83"},
+                    //   marginRight: "15px",
+                    //   width: 34,
+                    //   height: 34,
+                    //   color:{xs:'#ffff', md:'#fff', sm:'#fff'}
+                    // }}
+                    alt="Vaad Media"
+                    sx={{
+                      height: { xs: "96px", md: "96px" },
+                      width: { xs: "96px", md: "96px" },
+                    }}
+                  >
+                    <PersonOutlineIcon />
+                  </Avatar>
           {/* <div>
             <Button
               type="submit"
@@ -201,27 +215,27 @@ const PersonalInfo = ({ handleMessage, setIsLoading }) => {
         >
           <Grid item xs={12} md={6}>
             <TextField
-              label="First Name"
+              label="Username"
               type="text"
-              placeholder="first name"
+              placeholder="Username"
               fullWidth
-              // defaultValue={userData?.firstname}
+              // defaultValue={userData?.username}
               sx={{ marginTop: "22.5px" }}
               variant="outlined"
               margin={"normal"}
               InputProps={InputProps}
-              {...register("firstname", {
-                required: "First Name is required",
+              {...register("username", {
+                required: "Username is required",
                 minLength: {
-                  message: "Firstname must be minimum of 1 character.",
+                  message: "Username must be minimum of 1 character.",
                   value: 1,
                 },
               })}
-              error={errors?.firstname ? true : false}
+              error={errors?.username ? true : false}
               helperText={
-                errors?.firstname ? (
+                errors?.username ? (
                   <Typography variant="body2" color={"red"} fontSize="0.5rem">
-                    {errors?.firstname?.message}
+                    {errors?.username?.message}
                   </Typography>
                 ) : (
                   <></>
@@ -229,7 +243,7 @@ const PersonalInfo = ({ handleMessage, setIsLoading }) => {
               }
             />
           </Grid>
-          <Grid item xs={12} md={6}>
+          {/* <Grid item xs={12} md={6}>
             <TextField
               label="Last Name"
               // defaultValue={userData?.lastname}
@@ -244,7 +258,7 @@ const PersonalInfo = ({ handleMessage, setIsLoading }) => {
               {...register("lastname", {
                 required: "Last Name is required",
                 minLength: {
-                  message: "Firstname must be minimum of 1 character.",
+                  message: "username must be minimum of 1 character.",
                   value: 1,
                 },
               })}
@@ -259,7 +273,7 @@ const PersonalInfo = ({ handleMessage, setIsLoading }) => {
                 )
               }
             />
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} md={6}>
             <TextField
               label="Phone Number"
@@ -291,35 +305,35 @@ const PersonalInfo = ({ handleMessage, setIsLoading }) => {
               }
             />
           </Grid>
-          <Grid item xs={12} md={6}>
+          {/* <Grid item xs={12} md={6}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
                 sx={{ marginTop: "22.5px", width: "100%" }}
                 label="Date of Birth"
               />
             </LocalizationProvider>
-          </Grid>
+          </Grid> */}
 
           <Grid item xs={12} md={6}>
             <TextField
-              label="Country"
-              type="country"
+              label="Email"
+              type="email"
               fullWidth
               sx={{ marginTop: "22.5px" }}
-              placeholder={"country"}
-              // defaultValue={userData?.country}
+              placeholder={"example@gmail.com"}
+              // defaultValue={userData?.email}
               variant="outlined"
               margin={"normal"}
               //   InputLabelProps={InputLabelProps}
               InputProps={InputProps}
-              {...register("country", {
-                required: "Country is required",
+              {...register("email", {
+                required: "email is required",
               })}
-              error={errors?.country ? true : false}
+              error={errors?.email ? true : false}
               helperText={
-                errors?.country ? (
+                errors?.email ? (
                   <Typography variant="body2" color={"red"} fontSize="0.5rem">
-                    {errors?.country?.message}
+                    {errors?.email?.message}
                   </Typography>
                 ) : (
                   <></>
@@ -329,24 +343,24 @@ const PersonalInfo = ({ handleMessage, setIsLoading }) => {
           </Grid>
           <Grid item xs={12} md={6}>
             <TextField
-              label="City"
-              type="city"
+              label="Bank Name"
+              type="text"
               fullWidth
               sx={{ marginTop: "22.5px" }}
-              placeholder={"city"}
+              placeholder={"bankName"}
               variant="outlined"
-              // defaultValue={userData?.city}
+              // defaultValue={userData?.bankName}
               margin={"normal"}
               //   InputLabelProps={InputLabelProps}
               InputProps={InputProps}
-              {...register("city", {
-                required: "City is required",
+              {...register("bankName", {
+                required: "bankName is required",
               })}
-              error={errors?.city ? true : false}
+              error={errors?.bankName ? true : false}
               helperText={
-                errors?.city ? (
+                errors?.bankName ? (
                   <Typography variant="body2" color={"red"} fontSize="0.5rem">
-                    {errors?.city?.message}
+                    {errors?.bankName?.message}
                   </Typography>
                 ) : (
                   <></>
@@ -356,24 +370,24 @@ const PersonalInfo = ({ handleMessage, setIsLoading }) => {
           </Grid>
           <Grid item xs={12} md={12} width={"100%"}>
             <TextField
-              label="Address"
-              type="address"
-              // defaultValue={userData?.address}
+              label="Account Number"
+              type="number"
+              // defaultValue={userData?.accountNumber}
               fullWidth
               sx={{ marginTop: "22.5px" }}
-              placeholder={"address"}
+              placeholder={"accountNumber"}
               variant="outlined"
               margin={"normal"}
               //   InputLabelProps={InputLabelProps}
               InputProps={InputProps}
-              {...register("address", {
-                required: "Address is required",
+              {...register("accountNumber", {
+                required: "accountNumber is required",
               })}
-              error={errors?.address ? true : false}
+              error={errors?.accountNumber ? true : false}
               helperText={
-                errors?.address ? (
+                errors?.accountNumber ? (
                   <Typography variant="body2" color={"red"} fontSize="0.5rem">
-                    {errors?.address?.message}
+                    {errors?.accountNumber?.message}
                   </Typography>
                 ) : (
                   <></>

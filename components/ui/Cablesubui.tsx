@@ -28,17 +28,17 @@ const Cablesubui = () => {
   const handleChange2 = (e) => {
     e.preventDefault();
     setPlan(e.target.value);
-    setAmountToPay("N 3000");
+    setAmountToPay("₦ 3000");
   };
 
   return (
     <Box
       component="div"
-      width={{ xs: "100%", md: "50%" }}
-      sx={{
-        backgroundColor: "#ffff",
-        padding: "30px",
-      }}
+      // width={{ xs: "100%", md: "50%" }}
+      // sx={{
+      //   backgroundColor: "#ffff",
+      //   padding: "30px",
+      // }}
     >
       <Stack direction="column" spacing={2}>
         <FormControl>

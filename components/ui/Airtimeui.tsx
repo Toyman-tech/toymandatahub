@@ -19,7 +19,7 @@ const Airtimeui = () => {
    const handleChange2=(e)=>{
     e.preventDefault();
     setAmount(e.target.value)
-    setAmountToPay("N 200")
+    setAmountToPay("₦ 200")
  }
   
     return (

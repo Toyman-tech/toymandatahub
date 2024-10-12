@@ -30,7 +30,7 @@ const Dataui = () => {
   const handleChange2 = (e) => {
     e.preventDefault();
     setPlan(e.target.value);
-    setAmount("N350");
+    setAmount("₦350");
   };
 
   return (
@@ -75,7 +75,7 @@ const Dataui = () => {
             label="Plan"
             onChange={handleChange2}
           >
-            <MenuItem value={"1gb--N300"}>1gb--N 300 </MenuItem>
+            <MenuItem value={"1gb--N300"}>1gb--₦ 300 </MenuItem>
           </Select>
         </FormControl>
         <FormControl>

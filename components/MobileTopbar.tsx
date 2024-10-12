@@ -124,6 +124,7 @@ const MobileTopbar = ({ onClose, open }: MobileNavProps) => {
                 padding: "15px",
                 gap: "15px",
               }}
+              onClick={onClose}
             >
               <item.icon style={{ color: "#FFF" }} />
               <Typography

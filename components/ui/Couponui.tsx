@@ -36,8 +36,8 @@ const Couponui = () => {
             label='Network'
             onChange={handleChange}
           >
-              <MenuItem value={"1.5GB--N308"}>1.5GB--N308</MenuItem>
-              <MenuItem value={"1.0GB--N245"}>1.0GB--N245</MenuItem>
+              <MenuItem value={"1.5GB--₦ 300"}>1.5GB--₦ 300</MenuItem>
+              <MenuItem value={"1.0GB--₦ 245"}>1.0GB--₦ 245</MenuItem>
               
           </Select>
           </FormControl>

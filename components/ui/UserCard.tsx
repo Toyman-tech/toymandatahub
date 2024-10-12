@@ -30,7 +30,7 @@ const UserCard = () => {
         </Box>
         <Stack direction={"column"} spacing={1}>
           <Typography>ToyinCares</Typography>
-          <Typography>balance: N 50,000</Typography>
+          <Typography>balance: ₦ 50,000</Typography>
         </Stack>
       </Stack>
     </>

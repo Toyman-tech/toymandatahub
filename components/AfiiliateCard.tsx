@@ -1,22 +1,21 @@
 "use client"
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography, Button } from "@mui/material";
 import {useRef, useState} from 'react';
 
 const AfiiliateCard = () => {
-  const contentRef = useRef<HTMLDivElement>(null);
-  const handleCopy = () =>{
-    if (contentRef.current){
-        const content = contentRef.current.innerText;
+  // const contentRef = useRef<HTMLDivElement>(null);
+  const [copied, setCopied] = useState(false)
 
-        navigator.clipboard.writeText(content)
-        .then(()=>{
-            alert('Content copied to clipboard!');
-        })
-        .catch(err=>{
-           console.error('Could not copy text: ', err);
-        })
+  const handleCopy = (e) =>{
+    e.preventDefault()
+    // 
+    navigator.clipboard.writeText('toymandatahub.vercel.app')
+    setCopied(true)
+    if(copied){
+      alert('link copied successfully')
     }
-}
+    }
+
   return (
     <Box
       display="flex"
@@ -53,13 +52,39 @@ const AfiiliateCard = () => {
               https://toymandatahub.vercel.app
             </Typography>
             {/* <button onClick={handleCopy} > */}
+            <Button
+            sx={{
+              // height: 45.7, // Custom height
+              // width: "100%",
+              justifyContent: "center",
+              display: "flex",
+              borderRadius: "none",
+              boxShadow: "none",
+              textTransform: "initial",
+              fontSize: "15px",
+              backgroundColor: "#ffff",
+              fontWeight: 200,
+              color: "#2A4F55",
+              
+              ":hover": {
+                backgroundColor: "transparent",
+                fontWeight: 500,
+                color: "#2A4F55",
+                borderRadius: "none",
+              boxShadow: "none",
+              },
+            }}
+            variant="contained"
+            type="submit"
+            onClick={handleCopy}
+          >
             <Box
               component={"img"}
               // ml={{ xs: "10px", md: "55px" }}
               src="/dashboardassets/copy.svg"
               padding={"7px"}
             />
-            {/* </button> */}
+            </Button>
           </Stack>
         </Box>
       </Stack>

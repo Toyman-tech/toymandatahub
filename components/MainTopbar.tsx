@@ -205,7 +205,7 @@ const MainTopbar = () => {
                       variant="h6"
                       component="span"
                       sx={{
-                        color: "#100A55",
+                        color: "#2A4F55",
                         marginRight: "20px",
                         cursor: "pointer",
                         fontSize: "15.17px",
@@ -222,7 +222,7 @@ const MainTopbar = () => {
                       variant="h6"
                       component="span"
                       sx={{
-                        color: "#100A55",
+                        color: "#2A4F55",
                         marginRight: "20px",
                         cursor: "pointer",
                         fontSize: "15.17px",

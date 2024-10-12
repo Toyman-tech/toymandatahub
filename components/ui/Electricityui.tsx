@@ -25,7 +25,7 @@ const Electricityui = () => {
  const handleChange3=(e)=>{
   e.preventDefault();
   setType(e.target.value)
-  setAmount('N 10000')
+  setAmount('₦ 10000')
 }
   
     return (
