@@ -5,7 +5,7 @@ import { Account } from 'appwrite';
 import {Client} from 'node-appwrite'
 
 
- const createAdminClient = async ()=>{
+ const createUserClient = async ()=>{
     const client = new Client()
     .setEndpoint(process.env.NEXT_PUBLIC_ENDPOINT)
     .setProject(process.env.NEXT_PUBLIC_PROJECT_ID)
@@ -43,4 +43,8 @@ import {Client} from 'node-appwrite'
 
 };
 
-export  { createAdminClient, createSessionClient};
+const registerUser = async ()=>{
+
+}
+
+export  { createUserClient, registerUser, createSessionClient};

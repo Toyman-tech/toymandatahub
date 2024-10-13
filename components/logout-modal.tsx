@@ -1,9 +1,13 @@
+"use client"
+// import auth from "@/auth";
 import LoadingPage from "@/components/LoadingPage";
 import SnackbarComp from "@/components/Toast";
 // import { useLogout } from "@/lib/useLogout";
 import { dlgModStyle } from "@/theme/modStyles";
 import { Box, Button, Modal, Stack, Typography } from "@mui/material";
 import React from "react";
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 
 type LogoutModProps = {
   open: boolean;
@@ -11,6 +15,7 @@ type LogoutModProps = {
 };
 
 export default function LogoutModal({ open, handleClose }: LogoutModProps) {
+  const router = useRouter()
   // const {
   //   mutateLogout,
   //   isLoading,
@@ -19,7 +24,29 @@ export default function LogoutModal({ open, handleClose }: LogoutModProps) {
   //   snackBarOpen,
   //   setSnackBarOpen,
   // } = useLogout("User");
+  const handleLogout = async (e)=>{
+    e.preventDefault()
+  // Delete the cookie (on logout)
 
+  const getsess = Cookies.get('session')
+  console.log("hjjj", getsess)
+  Cookies.remove('session', { path: '/' });
+    // try {
+    //   // const user = await auth.getUser();
+    //   // console.log(user)
+    //   // console.log(email, password)
+    //   // Cookies.delete('session', sesion.secret, {
+    //   //   expires: new Date(sesion.expire)
+    //   // });
+    //   //  router.push('/dashboard');
+     
+    //  } catch (error) {
+    //   console.error(error)
+    //   console.log('error')
+    //  } 
+    handleClose()
+    router.push('/auth/sign-in')
+  }
   return (
     <>
       <Modal open={open}>
@@ -54,10 +81,10 @@ export default function LogoutModal({ open, handleClose }: LogoutModProps) {
                 color="primary"
                 size="large"
                 sx={{ textTransform: "capitalize" }}
-                onClick={() => {
-                  handleClose();
+                onClick={
                   // mutateLogout();
-                }}
+                  handleLogout
+                }
               >
                 Yes, proceed
               </Button>

@@ -24,7 +24,9 @@ import { redirect, useRouter } from "next/navigation";
 
 import { setsession} from "../app/cong/action";
 import Cookies from "js-cookie";
-import { createAdminClient } from "@/appwrite/config";
+import { createUserClient } from "@/appwrite/config";
+// import { CreateUserClient } from "@/lib/actions/user.actions";
+
 
 const SignIn = () => {
   const [pwdVisible, setPwdVisible] = useState(false);
@@ -37,7 +39,7 @@ const SignIn = () => {
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [name, setName] = useState(false);
   const [session, setSession] = useState (null);
 
 useEffect( ()=>{
@@ -49,27 +51,33 @@ useEffect( ()=>{
 
   const handleLogin = async(e: React.MouseEvent) => {
     e.preventDefault();
-   
+    setName(true)
      try {
-      // const {account} = await createAdminClient()
-      // // console.log(account)
-      // const sesion = await account.createEmailPasswordSession(
-      //   email,
-      //   password
-      //  )
-      // console.log(sesion)
-      // console.log(email, password)
-      // Cookies.set('session', sesion.secret, {
-      //   expires: new Date(sesion.expire)
-      // });
-      // setSession(sesion)
-      //  await setsession(session)
-       router.push('/dashboard');   
-      // return account;
+      const {account} = await createUserClient()
+      console.log(account)
+      const sesion = await account.createEmailPasswordSession(
+        email,
+        password
+       )
+      console.log(sesion)
+      console.log(email, password)
+      Cookies.set('session', sesion.secret, {
+        expires: new Date(sesion.expire),
+      });
+      setSession(sesion)
+      // const safeSession = JSON.parse(JSON.stringify(session));
+
+      //  await setsession(safeSession)
+       
+       router.push('/dashboard');
+       setName(false)   
+      return account;
      } catch (error) {
       console.error(error)
       console.log('error')
+      setName(false)
      }
+    
   }
   
   return (
@@ -277,13 +285,13 @@ useEffect( ()=>{
             </Box>
           </Stack>
 
-          {/* {isLoading && <LoadingPage />}
-          <SnackbarComp
+           {name && <LoadingPage />}
+          {/* <SnackbarComp
             snackBarOpen={snackBarOpen}
             setSnackBarOpen={setSnackBarOpen}
             alert={handleSnack.alert}
             message={handleSnack.message}
-          /> */}
+          /> */} 
         </Stack>
       </Box>
     </>

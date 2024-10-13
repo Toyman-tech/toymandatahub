@@ -19,6 +19,8 @@ import SnackbarComp from "@/components/Toast";
 import LoadingPage from "@/components/LoadingPage";
 import GoogleIcon from "@mui/icons-material/Google";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { createUser } from "@/lib/actions/user.actions";
 // import { account, ID } from "./appwrite";
 
 
@@ -31,23 +33,45 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [loggedInUser, setLoggedInUser] = useState(null);
-
+  const [phone, setPhone] = useState('')
+  const [isLoading, setIsLoading ] =useState(false)
+  const router = useRouter()
 
   const login = async (email, password) => {
     // const session = await account.createEmailPasswordSession(email, password);
     // setLoggedInUser(await account.get());
   };
   // Function to handle form submission
-  const register = async () => {
-
-    // if (data.password !== confirmPassword) {
-    //   // Show alert if passwords don't match
-    //   alert("Passwords do not match!");
-    //   //handleMessage("Passwords do not match!");
-    //   return; // Stop form submission
-    // }
+  const register = async (e) => {
+    e.preventDefault 
+   
+    if (password !== confirmPassword) {
+      // Show alert if passwords don't match
+      alert("Passwords do not match!");
+      //handleMessage("Passwords do not match!");
+      return; // Stop form submission
+    } else{
     // await account.create(ID.unique(), email, password, name);
     // login(email, password);
+    try {
+      setIsLoading(true)
+      const user = {
+        name: name,
+        email: email,
+        phone: phone,
+        password: password
+      };
+       console.log(email, password)
+      const newUser = await createUser(user);
+        console.log("hi", newUser)
+      if (newUser) {
+        router.push(`/dashboard`);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+    setIsLoading(false)
   };
 
   return (
@@ -110,8 +134,8 @@ const SignUp = () => {
             <Grid item lg={6} md={6} sm={12} xs={12}>
               <TextField 
                 id="outlined-basic"
-                type="firstname"
-                label="Firstname"
+                type="username"
+                label="Username"
                 variant="outlined"
                 // disabled={isLoading || googleLoading}
                 sx={{
@@ -120,6 +144,8 @@ const SignUp = () => {
                   fontSize: "13px",
                   fontWeight: 200,
                 }}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 // {...register("firstname", {
                 //   required: "Firstname is required",
                 // })}
@@ -135,7 +161,7 @@ const SignUp = () => {
                 // }
               />
             </Grid>
-            <Grid item lg={6} md={6} sm={12} xs={12}>
+            {/* <Grid item lg={6} md={6} sm={12} xs={12}>
               <TextField
                 // disabled={isLoading || googleLoading}
                 id="outlined-basic"
@@ -164,7 +190,7 @@ const SignUp = () => {
                 //   )
                 // }
               />
-            </Grid>
+            </Grid> */}
             <Grid item lg={12} md={12} sm={12} xs={12}>
               <TextField
                 // disabled={isLoading || googleLoading}
@@ -209,6 +235,8 @@ const SignUp = () => {
                   fontSize: "13px",
                   fontWeight: 200,
                 }}
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 // {...register("phoneNumber", {
                 //   required: "Phone number is required",
                 // })}
@@ -277,7 +305,7 @@ const SignUp = () => {
                 id="outlined-basic"
                 label="Confirm Password"
                 variant="outlined"
-                //value={confirmPassword}
+                value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 sx={{
                   height: "100%", // Custom height
@@ -323,7 +351,7 @@ const SignUp = () => {
             }}
             variant="contained"
             type="submit"
-            onClick={() => login(email, password)}
+            onClick={register}
           >
             {/* {isLoading ? <CircularProgress size={"20px"} /> : "Sign up"} */}
             Sign up
@@ -338,8 +366,8 @@ const SignUp = () => {
               </Box>
             </Box>
           </Box>
-          {/* {isLoading && <LoadingPage />} */}
-          {/* <SnackbarComp
+          {isLoading && <LoadingPage />} 
+          {/* {/* <SnackbarComp
             snackBarOpen={snackBarOpen}
             setSnackBarOpen={setSnackBarOpen}
             alert={handleSnack.alert}
