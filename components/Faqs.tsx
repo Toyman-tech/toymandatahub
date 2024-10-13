@@ -39,7 +39,7 @@ const Faqs = () => {
                   borderRadius: "8px",
                   boxShadow: "none",
                   textTransform: "initial",
-                  fontSize: "13px",
+                  fontSize: "17px",
                   fontWeight: 200,
                   backgroundColor: "#2A4F55",
                   ":hover": {
@@ -47,7 +47,7 @@ const Faqs = () => {
                   },
                 }}>
               <Link
-                href="/dashboard"
+                href="/dashboard/faqs"
                underline="none"
                color='#ffff'
                display={'flex'}
@@ -58,7 +58,7 @@ const Faqs = () => {
                padding={'20px'}
                width='100%'
               >
-                GO to Dashboard 
+                ? FAQs 
               </Link>
             </Box>
       </Stack>

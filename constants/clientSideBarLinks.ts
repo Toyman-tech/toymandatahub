@@ -64,69 +64,116 @@ export const clientSideBarLinks2 = [
 
 export const faqs = [
   {
-    question: "How effective is outdoor advertising?",
-    answer:
-      "Outdoor advertising can effectively reach a broad audience, create brand awareness, and make a lasting impression on potential customers. ",
+    question: "How can I purchase data from you? ",
+    answer1:
+      " Fund your wallet. ",
+    answer2: " Fill the data order form. STEP 3: Wait for 5-15 minutes, the recipient will receive notification(s) of data recharge(Except for 9mobile(SME), which should be confirmed with its balance code)",
   },
   {
-    question: "What are the different types of outdoor advertising?",
+    question: "How can I fund my wallet? ",
     answer:
-      "Common types of outdoor advertising include static and digital billboards, street lamp poles, and transit advertising.",
+      "You can fund your wallet using any of our three payment means.",
+      answer1: "1. Bank payment.",
+      answer2: "2. Online Payment with your ATM card details via Pay stack Payment Gateway.",
+      answer3: "3. Payment with airtime.",
+      answer4: "4. Payment with Coupon Code(s)."
   },
   {
     question:
-      "How do outdoor advertising agencies choose the best locations for ads",
+      "Can I share the data I buy from you with another line?",
     answer:
-      "Locations are chosen based on campaign objectives and targeted audience. We consider factors such as traffic volume, demographics, and visibility when selecting prime locations for outdoor ads.",
+      "You can only share glo data plans, mtn, 9MOBILE and airtel data cant be shared.",
   },
   {
     question:
-      "What is the typical duration of an outdoor advertising campaign?",
+      "How can I be your agent?",
     answer:
-      "Campaign duration depends on the media plans and objectives. They are either tactical or strategic. Tactical campaigns are more short-term and focused on specific actions or immediate results while strategic campaigns focus on long-term goals, overall brand positioning, and larger market objectives. The minimum duration of a campaign is one month.",
+      "Our Products can be retailed, as they are affordable. You can retail our Products to others and make profit. Just make sure your wallet is funded, then you can easily purchase for anyone you wish.",
   },
   {
     question:
-      "How can I measure the effectiveness of my outdoor advertising campaign?",
+      "Can I send airtime to you for data bundle?",
     answer:
-      "Metrics such as brand awareness surveys, foot traffic analysis, and online engagement can help gauge the success of an outdoor advertising campaign with call-to-action messaging.",
-  },
-  {
-    question: "What are the costs associated with outdoor advertising?",
-    answer:
-      "Costs depend on factors like types and sizes of billboards, location, duration, and whether it&apos;s static or digital. We can provide detailed pricing based on your campaign needs.",
+      "Yes you can, but payment with airtime attracts little additional charge. Kindly fund your wallet with airtime.",
   },
   {
     question:
-      "Can VAAD provide end-to-end execution of an outdoor advertising campaign?",
-    answer: 'Yes, we provide an end-to-end implementation of an outdoor advertising campaign as follows:',
-    answertitle:"Campaign Planning: This phase involves defining campaign objectives, identifying the target audience, determining key messaging, and setting a budget. It's crucial to decide on the type of outdoor advertising (billboards, transit ads, etc.) that best suits your goals. Creative Development: Designing the visual and messaging elements of the ad. This includes creating eye-catching graphics, compelling copy, and ensuring brand consistency.",
-    answer2:"Location Selection: Choosing strategic locations for placing the ads based on factors like high foot traffic, target demographics, visibility, and budget constraints.",
-    answer3:"Production: Production of large format print materials for billboards.Installation: Our operation team ensures campaign materials deployed in chosen locations are well-tensioned and in line with regulatory-approved specifications and requirements. or permits required.",
-    answer4:"Monitoring and Optimization: Tracking the performance of the campaign through metrics like foot traffic, brand awareness, and engagement.   Reporting and Analysis: Evaluating the success of the campaign against the initial objectives, measuring ROI, and gathering insights for future campaigns.",
+      "Hope the data won't get exhausted quickly or disappear?",
+    answer: 'Our data plans are sourced from the network providers, therefore consumption rate is similar to the data gotten directly from them.',
   },
   {
     question:
-      "Are there any restrictions or regulations for outdoor advertising in specific locations?",
+      "How am I sure you guys are not scammers?",
     answer:
-      "Yes, Outdoor advertisements go through a vetting process with the Advertising Regulatory Council of Nigeria. ARCON",
+      "We've being in business for years and have made reputation from our happy clients. We love to keep feedbacks, hence you can check our testimonials page for people's comment about us by clicking this button.Testimonials",
   },
   {
-    question: "Is vetting by ARCON mandatory for all outdoor campaigns?",
-    answer: "Yes, except for religious and campaigns.",
+    question: "What are the other products/services you offer?",
+    answer: "We sell Cheap Internet Data Plans, Airtime VTU on MTN, 9MOBILE, GLO and AIRTEL, we Convert Airtime To Cash, Airtime Swap, Bills Payment (GOTV, DSTV, STARTIMES).",
   },
   {
-    question: "How long does it take to deploy a campaign on a billboard?",
-    answer: "Deployment of campaign materials varies from city to city.",
+    question: "What if my order was cancelled but my wallet was not refunded?",
+    answer: "Chat admin on whatsapp +2349039242601",
   },
   {
-    question: "How can I secure billboard space not currently available?",
+    question: "What if my order has been approved, but not yet received?",
     answer:
-      "Billboards are secured with a contract and payment on a first-come, first-served basis. With a contract and payment, you can secure a billboard currently occupied with a campaign ahead of when it will be available.",
+      "Sincere apologies about that, we regret the inconvenience caused. Kindly reach out us through our customer care line(+2349039242601) via WhatsApp with the order details",
   },
   {
-    question: "How do I buy a billboard space?",
-    answer: "That’s why we are here! Click How to book a billboard ",
+    question: "Can I communicate with you in case I have any enquiry? ",
+    answer: "Yes, you can always reach out to us through our customer care line via Whatsapp +2349039242601 +2349152764148 ",
+  },
+  {
+    question: "Is this data plan compatible with all devices? ",
+    answer: "Yes, it is compatible with all devices. ",
+  },
+  {
+    question: "What's your working period?",
+    answer: "Mon to.Friday 8.30am to 5.00pm, Saturday 10am -4pm.",
+  },
+  // {
+  //   question: "how to Convert airtime ?",
+  //   answer: "after log in click fund my account , if the Airtime has not been load select Airtime pin otherwise Share and sell.
+
+// Fill the form correctly to convert your airtime to cash
+
+// 2. The minimum amount is #500
+
+// 3. If you want to transfer airtime to us, you must send the airtime within 20 minutes or else the transaction will be automatically cancelled.
+
+// 4. To transfer MTN airtime: *600*recipient number*amount*pin#
+
+// 5. To change MTN transfer pin: *600*default pin*new pin*new pin# e.g *600*0000*new pin*new pin#
+
+// 6. To transfer 9mobile airtime: *223*pin*amount*number#
+
+// 7. To change 9mobile transfer pin: *247*default pin*new pin# e.g *247*0000*new pin#
+
+// 8. To transfer Glo airtime: *131*number*amount*pin#
+
+// 10. To change Glo transfer pin: *132*00000*new pin*new pin#
+
+// 9. To Transfer Airtel Airtime:*432*1#
+
+// 10. To change Airtel transfer pin: *432*3# (Default pin:1234)
+
+// 11. Your wallet will be credited with 80% of the amount of airtime you sent(If MTN) and 70% (GLO) ,75% (If Other Networks) e.g if you send #1,000 MTN airtime, #850 will be credited ,Glo #700, if other Networks, #750 will be credited.
+
+// 12. You must not send any amount or Network different from the amount you filled or Choosed.
+
+// 13.You are required to transfer the worth of airtime to the phone number displayed.
+
+// 13.It takes approximately 5 minutes for funds to be verified and credited to your-wallet.
+
+// 14 .After that you can proceed to withdraw using bank of your choice",
+  // },
+  {
+    question: "How to buy data?",
+    answer: "after log in click fund my account ,select Counpon payment You can buy coupon code from our agents",
+    answer1:"Fill the form correctly to buy data plan",
+    answer2: "STEP 1: Fund your wallet.",
+    answer3:"STEP 2: Fill the data order form. STEP 3:the recipient will receive notification(s) of data recharge(Except for 9mobile(SME) instantly, which should be confirmed with its balance code)",
   },
 ]
 
