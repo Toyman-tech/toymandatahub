@@ -16,34 +16,15 @@ type LogoutModProps = {
 
 export default function LogoutModal({ open, handleClose }: LogoutModProps) {
   const router = useRouter()
-  // const {
-  //   mutateLogout,
-  //   isLoading,
-  //   isError,
-  //   handleSnack,
-  //   snackBarOpen,
-  //   setSnackBarOpen,
-  // } = useLogout("User");
+  
   const handleLogout = async (e)=>{
     e.preventDefault()
   // Delete the cookie (on logout)
 
-  const getsess = Cookies.get('session')
-  console.log("hjjj", getsess)
-  Cookies.remove('session', { path: '/' });
-    // try {
-    //   // const user = await auth.getUser();
-    //   // console.log(user)
-    //   // console.log(email, password)
-    //   // Cookies.delete('session', sesion.secret, {
-    //   //   expires: new Date(sesion.expire)
-    //   // });
-    //   //  router.push('/dashboard');
-     
-    //  } catch (error) {
-    //   console.error(error)
-    //   console.log('error')
-    //  } 
+  // const getsess = Cookies.get('session')
+  // console.log("hjjj", getsess)
+  // Cookies.remove('session', { path: '/' });
+    
     handleClose()
     router.push('/auth/sign-in')
   }
