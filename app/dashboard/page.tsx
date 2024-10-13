@@ -5,6 +5,10 @@ import Features from '@/components/Features';
 import AfiiliateCard from '@/components/AfiiliateCard';
 import Serv from '@/components/Serv';
 import Transactions from '@/components/Transactions';
+import Faqs from '@/components/Faqs';
+import Notif from '@/components/Notif';
+import Support from '@/components/Support';
+
 
 
 export default function Home() {
@@ -44,6 +48,12 @@ export default function Home() {
       </Box>
       <Serv/>
       <Transactions/>
+      <Stack direction={{md:'row', xs:'column'}}
+      display='flex' spacing={2}>
+      <Notif/>
+      <Faqs/>
+      <Support/>
+      </Stack>
       </Stack>
       </Box>
     </main>

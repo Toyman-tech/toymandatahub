@@ -135,7 +135,7 @@ const Walletui = () => {
                padding={'20px'}
                width='100%'
               >
-                GO to Dashboard 
+                Go to Dashboard 
               </Link>
             </Box>
         </Stack>
