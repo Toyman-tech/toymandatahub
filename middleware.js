@@ -13,9 +13,5 @@ export async function middleware(req){
     return NextResponse.next()
 }
 export const config = {
-    matcher: [
-      '/((?!api|_next/static|_next/image|.*\\.png$).*)',  // General path matcher (excludes api, static files, etc.)
-      '/dashboard/:path*' 
-    ]
-  };
-  
+    matcher:['/((?!api|_next/static|_next/image|.*\\.png$).)', '/dashboard']
+}
