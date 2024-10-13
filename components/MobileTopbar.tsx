@@ -152,8 +152,8 @@ const MobileTopbar = ({ onClose, open }: MobileNavProps) => {
               gap: "15px",
             }}
             onClick={() => {
-              onClose();
               handleOpenLogoutMod();
+              // onClose();
             }}
           >
             <LogoutIcon />
