@@ -66,13 +66,13 @@ const SignUp = () => {
         console.log("hi", newUser)
        if (newUser) {
          router.push(`/dashboard`);
-      // }
-      router.push(`/dashboard`);
+       }
+      router.refresh();
     } catch (error) {
       console.log(error);
     }
   }
-    // setIsLoading(false)
+    setIsLoading(false)
   };
 
   return (
