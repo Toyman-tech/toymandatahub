@@ -64,7 +64,7 @@ useEffect( ()=>{
       Cookies.set('session', sesion.secret, {
        expires: new Date(sesion.expire),
       });
-      psetSession(sesion)
+      setSession(sesion);
       // // const safeSession = JSON.parse(JSON.stringify(session));
 
       // //  await setsession(safeSession)
