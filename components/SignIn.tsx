@@ -53,18 +53,18 @@ useEffect( ()=>{
     e.preventDefault();
     setName(true)
      try {
-      // const {account} = await createUserClient()
-      // console.log(account)
-      // const sesion = await account.createEmailPasswordSession(
-      //   email,
-      //   password
-      //  )
-      // console.log(sesion)
-      // console.log(email, password)
-      // Cookies.set('session', sesion.secret, {
-      //   expires: new Date(sesion.expire),
-      // });
-      // setSession(sesion)
+      const {account} = await createUserClient()
+       console.log(account)
+      const sesion = await account.createEmailPasswordSession(
+       email,
+        password
+      )
+       console.log(sesion)
+       console.log(email, password)
+      Cookies.set('session', sesion.secret, {
+       expires: new Date(sesion.expire),
+      });
+      psetSession(sesion)
       // // const safeSession = JSON.parse(JSON.stringify(session));
 
       // //  await setsession(safeSession)
