@@ -54,18 +54,18 @@ const SignUp = () => {
     // await account.create(ID.unique(), email, password, name);
     // login(email, password);
     try {
-      // setIsLoading(true)
-      // const user = {
-      //   name: name,
-      //   email: email,
-      //   phone: phone,
-      //   password: password
-      // };
-      //  console.log(email, password)
-      // const newUser = await createUser(user);
-      //   console.log("hi", newUser)
-      // if (newUser) {
-      //   router.push(`/dashboard`);
+      setIsLoading(true)
+       const user = {
+        name: name,
+        email: email,
+        phone: phone,
+        password: password
+       };
+        console.log(email, password)
+       const newUser = await createUser(user);
+        console.log("hi", newUser)
+       if (newUser) {
+         router.push(`/dashboard`);
       // }
       router.push(`/dashboard`);
     } catch (error) {
