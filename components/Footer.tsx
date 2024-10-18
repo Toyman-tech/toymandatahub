@@ -13,7 +13,7 @@ const socials=
 const Footer = () => {
   return (
     <Box sx={{ backgroundColor:'#457b83', color:'#ffff' }} 
-    padding={'20px'}>
+    padding={'20px'} id={'#footer'}>
       <Stack direction='column' spacing={2}>
          <Box component='h2' fontSize={"25px"}>
            TOYMAN DATA

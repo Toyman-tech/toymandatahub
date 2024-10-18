@@ -193,6 +193,9 @@ const Navbar = () => {
               backgroundColor: "#ffff",
               scrollbarWidth:"none"
             }}
+            onClick={()=>{
+              setToggle(false)
+            }}
           >
             <Stack
               direction="column"
@@ -238,7 +241,7 @@ const Navbar = () => {
                     About Us
                   </Link>
                   <Link
-                    href="/"
+                    href="#our-services"
                     underline="none"
                     color="#2A4F55"
                     p="10px"
@@ -253,7 +256,7 @@ const Navbar = () => {
                     Our Services
                   </Link>
                   <Link
-                    href="/"
+                    href="/#our-services"
                     underline="none"
                     color="#2A4F55"
                     p="10px"
@@ -267,7 +270,7 @@ const Navbar = () => {
                     Blog
                   </Link>
                   <Link
-                    href="/"
+                    href="/#footer"
                     underline="none"
                     color="#2A4F55"
                     p="10px"
