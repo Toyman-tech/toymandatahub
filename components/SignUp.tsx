@@ -72,7 +72,7 @@ const SignUp = () => {
       console.log(error);
     }
   }
-    // setIsLoading(false)
+    setIsLoading(false)
   };
 
   return (
