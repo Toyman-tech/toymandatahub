@@ -16,7 +16,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 // import { useAdminSigninHook } from "@/lib/signin-hook"; // Adjust the import path as necessary
-import SnackbarComp from "@/components/Toast";
+import SnackbarComp, { useToast } from "@/components/Toast";
 import LoadingPage from "@/components/LoadingPage";
 import GoogleIcon from "@mui/icons-material/Google";
 import { redirect, useRouter } from "next/navigation";
@@ -31,16 +31,15 @@ import { createUserClient } from "@/appwrite/config";
 const SignIn = () => {
   const [pwdVisible, setPwdVisible] = useState(false);
   const router = useRouter();
-
-  // const handleLogin = (e: React.MouseEvent) => {
-  //   e.preventDefault();
-  //    router.push('/')
-  // };
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState(false);
   const [session, setSession] = useState (null);
+  
+  const { handleMessage, handleSnack, snackBarOpen, setSnackBarOpen } =
+  useToast();
+
 
 useEffect( ()=>{
   const sessionCookie = Cookies.get('session');
@@ -65,10 +64,17 @@ useEffect( ()=>{
         expires: new Date(sesion.expire),
       });
       setSession(sesion)
-      // // const safeSession = JSON.parse(JSON.stringify(session));
-
-      // //  await setsession(safeSession)
-       
+      //  if(sesion){
+      //   handleMessage(
+      //     "success",
+      //     "You have sucessfully logged in"
+      //   );
+      //   return;
+      //  }
+      handleMessage(
+        "success",
+        "You have sucessfully logged in"
+      );
        router.push('/dashboard');
        setName(false)   
       // return account;
@@ -76,6 +82,10 @@ useEffect( ()=>{
       console.error(error)
       console.log('error')
       setName(false)
+      handleMessage(
+        "error",
+        "Invalid login details or check your network connection"
+      );
      }
     
   }
@@ -286,12 +296,12 @@ useEffect( ()=>{
           </Stack>
 
            {name && <LoadingPage />}
-          {/* <SnackbarComp
+          <SnackbarComp
             snackBarOpen={snackBarOpen}
             setSnackBarOpen={setSnackBarOpen}
             alert={handleSnack.alert}
             message={handleSnack.message}
-          /> */} 
+          /> 
         </Stack>
       </Box>
     </>

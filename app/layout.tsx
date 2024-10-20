@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   keywords: [
     'Toyman data hub',
     'Toyman datahub',
+    'datahub',
+    'vtu',
     'Buy Airtime online',
     'Data subscription for all networks',
     'Pay Electricity Bills Online',

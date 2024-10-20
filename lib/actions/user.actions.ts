@@ -14,6 +14,7 @@ import { Account } from "appwrite";
 // CREATE APPWRITE USER
 export const createUser = async (user) => {
     try {
+      console.log('testing1')
       // Create new user -> https://appwrite.io/docs/references/1.5.x/server-nodejs/users#create
       const newuser = await users.create(
         ID.unique(),
@@ -23,9 +24,11 @@ export const createUser = async (user) => {
         user.name,
         
       );
-      console.log("hmm", user)
+      console.log('hey')
+      console.log("hmm", newuser)
   
       return parseStringify(newuser);
+      // return;
     } catch (error: any) {
       // Check existing user
       if (error && error?.code === 409) {

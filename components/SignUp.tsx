@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import SnackbarComp from "@/components/Toast";
+import SnackbarComp, { useToast } from "@/components/Toast";
 import LoadingPage from "@/components/LoadingPage";
 import GoogleIcon from "@mui/icons-material/Google";
 import Image from "next/image";
@@ -36,23 +36,22 @@ const SignUp = () => {
   const [phone, setPhone] = useState('')
   const [isLoading, setIsLoading ] =useState(false)
   const router = useRouter()
+  const { handleMessage, handleSnack, snackBarOpen, setSnackBarOpen } =
+  useToast();
 
-  const login = async (email, password) => {
-    // const session = await account.createEmailPasswordSession(email, password);
-    // setLoggedInUser(await account.get());
-  };
   // Function to handle form submission
   const register = async (e) => {
     e.preventDefault 
    
     if (password !== confirmPassword) {
       // Show alert if passwords don't match
-      alert("Passwords do not match!");
-      //handleMessage("Passwords do not match!");
+      // alert("Passwords do not match!");
+      handleMessage(
+        "error",
+      "Passwords do not match!");
       return; // Stop form submission
     } else{
-    // await account.create(ID.unique(), email, password, name);
-    // login(email, password);
+    
     try {
       setIsLoading(true)
       const user = {
@@ -61,15 +60,22 @@ const SignUp = () => {
         phone: phone,
         password: password
       };
-       console.log(email, password)
+       console.log(email, password);
       const newUser = await createUser(user);
         console.log("hi", newUser)
       if (newUser) {
+        handleMessage(
+          "success",
+          "You have sucessfully Registered"
+        );
         router.push(`/dashboard`);
-      }
+      } else {
+      handleMessage("error", 'Invalid details please check again or maybe check your internet connection')
       router.refresh();
+      }
     } catch (error) {
       console.log(error);
+      handleMessage("error", 'Invalid details please check again or maybe check your internet connection')
     }
   }
     setIsLoading(false)
@@ -368,12 +374,12 @@ const SignUp = () => {
             </Box>
           </Box>
           {isLoading && <LoadingPage />} 
-          {/* {/* <SnackbarComp
+          <SnackbarComp
             snackBarOpen={snackBarOpen}
             setSnackBarOpen={setSnackBarOpen}
             alert={handleSnack.alert}
             message={handleSnack.message}
-          /> */}
+          />
         </Stack>
       </Box>
     </>
