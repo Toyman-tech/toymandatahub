@@ -68,14 +68,14 @@ const SignUp = () => {
           "success",
           "You have sucessfully Registered"
         );
-        router.push(`/dashboard`);
+        router.push(`/auth/sign-in`);
       } else {
       handleMessage("error", 'Invalid details please check again or maybe check your internet connection')
       router.refresh();
       }
     } catch (error) {
       console.log(error);
-      handleMessage("error", 'Invalid details please check again or maybe check your internet connection')
+      handleMessage("error", 'Invalid details please check again or maybe check your internet connection');
     }
   }
     setIsLoading(false)

@@ -9,7 +9,7 @@ import { createSessionClient} from "@/appwrite/config";
         auth.sessionCookie = cookies().get('session');
          
         try{
-            const {account} = await createSessionClient(auth.sessionCookie.value)
+            const {account} = await createSessionClient(auth.sessionCookie?.value)
             auth.user = await account.get() 
         } catch (error){
             console.error(error);

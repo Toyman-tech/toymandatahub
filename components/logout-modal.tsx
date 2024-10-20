@@ -21,9 +21,9 @@ export default function LogoutModal({ open, handleClose }: LogoutModProps) {
     e.preventDefault()
   // Delete the cookie (on logout)
 
-  // const getsess = Cookies.get('session')
-  // console.log("hjjj", getsess)
-  // Cookies.remove('session', { path: '/' });
+  const getsess = Cookies.get('session')
+  console.log("hjjj", getsess)
+  Cookies.remove('session', { path: '/' });
     
     handleClose()
     router.push('/auth/sign-in')

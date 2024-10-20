@@ -1,8 +1,29 @@
 import { Avatar, Box, Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+// import { getUser } from "@/lib/actions/user.actions";
+import auth from "@/auth";
+import { getUser } from "@/lib/actions/user.actions";
 
 const UserCard = () => {
+ const [user, setUser] = useState('')
+ 
+  useEffect(() => {
+    const fetchUser = async ()=>{
+      // Ensure the code runs on the client-side
+    if (typeof window !== "undefined") {
+      const storedUserId = localStorage.getItem("tee"); // Retrieve the value from localStorage
+      if (storedUserId) {
+        const userr = await getUser(storedUserId);
+         // Update state with the stored user ID
+        console.log("lfg", userr)
+        setUser(userr.name)
+        }
+    }
+    }
+    fetchUser();
+  }, []); // Empty array ensures this runs only once, when the component is mounted
+
   return (
     <>
       <Stack
@@ -29,7 +50,7 @@ const UserCard = () => {
           </Avatar>
         </Box>
         <Stack direction={"column"} spacing={1}>
-          <Typography>ToyinCares</Typography>
+          <Typography>{user}</Typography>
           <Typography>balance: ₦ 50,000</Typography>
         </Stack>
       </Stack>

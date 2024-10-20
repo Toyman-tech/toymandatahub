@@ -9,6 +9,7 @@ import {
 } from "../appwrite.config";
 import { parseStringify } from "../utils";
 import { Account } from "appwrite";
+import auth from "@/auth";
 
 
 // CREATE APPWRITE USER
@@ -26,7 +27,9 @@ export const createUser = async (user) => {
       );
       console.log('hey')
       console.log("hmm", newuser)
-  
+    //  const data = parseStringify(newuser);
+    //  console.log('data', data?.$id)
+    
       return parseStringify(newuser);
       // return;
     } catch (error: any) {
@@ -42,10 +45,19 @@ export const createUser = async (user) => {
     }
   };
 
-  export const getUser = async (userId: string) => {
+  export const getUser = async (userId:string) => {
+    // try {
+    //   const user = await auth.getUser();
+    //   console.log("tee", user?.$id);
+      
+    //   return user;  
+    // } catch (error) {
+    //   console.log(error)
+    // }
+    
     try {
       const user = await users.get(userId);
-  
+      console.log('result', user)
       return parseStringify(user);
     } catch (error) {
       console.error(
