@@ -20,7 +20,7 @@
     "@mui/x-date-pickers-pro": "^7.1.0",
     "@reduxjs/toolkit": "^2.2.2",
     "appwrite": "^15.0.0",
-    "axios": "^1.6.8",
+    "axios": "^1.7.7",
     "date-fns": "^3.6.0",
     "dayjs": "^1.11.10",
     "dompurify": "^3.1.3",
