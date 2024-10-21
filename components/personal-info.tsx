@@ -234,7 +234,7 @@ const PersonalInfo = ({ handleMessage, setIsLoading }) => {
         >
           <Grid item xs={12} md={6}>
             <TextField
-              label="Username"
+              // label="Username"
               type="text"
               placeholder="Username"
               fullWidth
@@ -295,12 +295,12 @@ const PersonalInfo = ({ handleMessage, setIsLoading }) => {
           </Grid> */}
           <Grid item xs={12} md={6}>
             <TextField
-              label="Phone Number"
+              // label="Phone Number"
               defaultValue={user?.phone}
               type="tel"
               fullWidth
               sx={{ marginTop: "22.5px" }}
-              placeholder={"phone number"}
+              placeholder={"Phone Number"}
               variant="outlined"
               margin={"normal"}
               //   InputLabelProps={InputLabelProps}
@@ -335,11 +335,11 @@ const PersonalInfo = ({ handleMessage, setIsLoading }) => {
 
           <Grid item xs={12} md={6}>
             <TextField
-              label="Email"
+              // label="Email"
               type="email"
               fullWidth
               sx={{ marginTop: "22.5px" }}
-              placeholder={"example@gmail.com"}
+              placeholder={"Email"}
               defaultValue={user?.email}
               variant="outlined"
               margin={"normal"}
