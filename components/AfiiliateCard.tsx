@@ -1,36 +1,13 @@
 "use client";
 import { Box, Stack, Typography, Button } from "@mui/material";
 import { useEffect, useState } from "react";
-import Cookies from "js-cookie";
-import { getUser } from "@/lib/actions/user.actions";
-import { createSessionClient } from "@/appwrite/config";
+
 
 const AffiliateCard = () => {
   const [copied, setCopied] = useState(false);
   const [user, setUser] = useState(null); // State to store user data
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      const session = Cookies.get("session");
-      try {
-        // const userr = await getUser(session); // Fetch user with session
-        const { account } = await createSessionClient(
-          session
-        );
-       const userr = await account.get();
-        setUser(userr); // Store user in state
-        if (typeof window !== "undefined") {
-          localStorage.setItem("tee", userr?.$id); // Save to localStorage
-        }
-        console.log("User data:", userr);
-      } catch (error) {
-        console.error("Error fetching user:", error);
-      }
-    };
-
-    fetchUser(); // Fetch user data on component mount
-  }, []); // Empty dependency array to ensure it runs once on mount
-
+  
   const handleCopy = (e) => {
     e.preventDefault();
     navigator.clipboard.writeText("https://toymandatahub.vercel.app");

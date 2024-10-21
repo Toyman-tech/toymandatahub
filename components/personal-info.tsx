@@ -15,6 +15,9 @@ import {
 } from "@mui/material";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import React, { LegacyRef, useEffect, useRef, useState } from "react";
+import Cookies from "js-cookie";
+import { getUser } from "@/lib/actions/user.actions";
+import { createSessionClient } from "@/appwrite/config";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { useSelector } from "react-redux";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -44,7 +47,30 @@ const PersonalInfo = ({ handleMessage, setIsLoading }) => {
   const handleCloseMod = () => {
     setOpenMod(false);
   };
+  const [user, setUser] = useState(null); // State to store user data
   const uploadRef: LegacyRef<HTMLInputElement> | undefined = useRef(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const session = Cookies.get("session");
+      try {
+        // const userr = await getUser(session); // Fetch user with session
+        const { account } = await createSessionClient(
+          session
+        );
+       const userr = await account.get();
+        setUser(userr); // Store user in state
+        if (typeof window !== "undefined") {
+          localStorage.setItem("tee", userr?.$id); // Save to localStorage
+        }
+        console.log("User data:", userr);
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      }
+    };
+
+    fetchUser(); // Fetch user data on component mount
+  }, []); // Empty dependency array to ensure it runs once on mount
 
   // const {
   //   // handleSnack,
@@ -151,13 +177,6 @@ const PersonalInfo = ({ handleMessage, setIsLoading }) => {
             }}
           /> */}
            <Avatar
-                    // sx={{
-                    //   bgcolor: { md:"#457B83",  sm:"#457B83", xs:"#457B83"},
-                    //   marginRight: "15px",
-                    //   width: 34,
-                    //   height: 34,
-                    //   color:{xs:'#ffff', md:'#fff', sm:'#fff'}
-                    // }}
                     alt="Vaad Media"
                     sx={{
                       height: { xs: "96px", md: "96px" },
@@ -219,7 +238,7 @@ const PersonalInfo = ({ handleMessage, setIsLoading }) => {
               type="text"
               placeholder="Username"
               fullWidth
-              // defaultValue={userData?.username}
+              defaultValue={user?.name}
               sx={{ marginTop: "22.5px" }}
               variant="outlined"
               margin={"normal"}
@@ -277,7 +296,7 @@ const PersonalInfo = ({ handleMessage, setIsLoading }) => {
           <Grid item xs={12} md={6}>
             <TextField
               label="Phone Number"
-              // defaultValue={userData?.phoneNumber}
+              defaultValue={user?.phone}
               type="tel"
               fullWidth
               sx={{ marginTop: "22.5px" }}
@@ -321,7 +340,7 @@ const PersonalInfo = ({ handleMessage, setIsLoading }) => {
               fullWidth
               sx={{ marginTop: "22.5px" }}
               placeholder={"example@gmail.com"}
-              // defaultValue={userData?.email}
+              defaultValue={user?.email}
               variant="outlined"
               margin={"normal"}
               //   InputLabelProps={InputLabelProps}
@@ -349,7 +368,7 @@ const PersonalInfo = ({ handleMessage, setIsLoading }) => {
               sx={{ marginTop: "22.5px" }}
               placeholder={"bankName"}
               variant="outlined"
-              // defaultValue={userData?.bankName}
+              defaultValue={user?.bankName}
               margin={"normal"}
               //   InputLabelProps={InputLabelProps}
               InputProps={InputProps}
@@ -372,7 +391,7 @@ const PersonalInfo = ({ handleMessage, setIsLoading }) => {
             <TextField
               label="Account Number"
               type="number"
-              // defaultValue={userData?.accountNumber}
+              defaultValue={user?.accountNumber}
               fullWidth
               sx={{ marginTop: "22.5px" }}
               placeholder={"accountNumber"}
