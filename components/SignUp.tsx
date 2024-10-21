@@ -22,7 +22,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { createUser } from "@/lib/actions/user.actions";
 // import { account, ID } from "./appwrite";
-
+import {parsePhoneNumberFromString} from 'libphonenumber-js'
 
 const SignUp = () => {
   const [googleLoading, setgoogleLoading] = useState(false)
@@ -34,11 +34,29 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [phone, setPhone] = useState('')
+  const [fphone, setFPhone] = useState('')
   const [isLoading, setIsLoading ] =useState(false)
   const router = useRouter()
   const { handleMessage, handleSnack, snackBarOpen, setSnackBarOpen } =
   useToast();
 
+
+  //phone number 
+  const handlePhone = (e) => {
+    e.preventDefault();
+    setFPhone(e.target.value)
+    function formatPhoneNumber(fphone) {
+      const phoneNumberObj = parsePhoneNumberFromString(fphone, 'NG');
+      if (phoneNumberObj){
+        return phoneNumberObj.format('E.164');
+      }
+      return fphone;
+    }
+    const formattedPhone = formatPhoneNumber(fphone)
+    setPhone(formattedPhone)
+    console.log(phone)
+    
+  }
   // Function to handle form submission
   const register = async (e) => {
     e.preventDefault 
@@ -242,8 +260,8 @@ const SignUp = () => {
                   fontSize: "13px",
                   fontWeight: 200,
                 }}
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                value={fphone}
+                onChange={handlePhone}
                 // {...register("phoneNumber", {
                 //   required: "Phone number is required",
                 // })}

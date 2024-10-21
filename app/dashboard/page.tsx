@@ -33,7 +33,8 @@ export default async function Home() {
       >
         <Stack direction="column" display={"flex"} spacing={2} width={"100"}>
           <Box component="h2" color="#457B83" sx={{ marginTop: "30px" }}>
-            Welcome {user?.name}
+            Welcome {" "} <Box component='span'
+            >{user?.name}</Box> 
           </Box>
           <Card />
           <Features />
