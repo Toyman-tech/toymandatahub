@@ -46,6 +46,10 @@ const SignUp = () => {
     e.preventDefault();
     setFPhone(e.target.value)
     function formatPhoneNumber(fphone) {
+      // add +234
+      if (fphone.startsWith('0')){
+        setFPhone('+234' + fphone.slice(1))
+      }
       const phoneNumberObj = parsePhoneNumberFromString(fphone, 'NG');
       if (phoneNumberObj){
         return phoneNumberObj.format('E.164');

@@ -31,6 +31,9 @@ import { useTheme } from "@mui/styles";
 import { useForm, SubmitHandler } from "react-hook-form";
 import LoadingPage from "./LoadingPage";
 import SnackbarComp, { useToast } from "./Toast";
+import Cookies from "js-cookie";
+import { getUser } from "@/lib/actions/user.actions";
+import { createSessionClient } from "@/appwrite/config";
 
 export interface SettingPass {
   oldPassword: string;
@@ -64,6 +67,29 @@ const ChangePhone: React.FC<ChangePhoneProps> = ({
   const [pwdVisible, setPwdVisible] = useState(false);
   const [pwdVisible2, setPwdVisible2] = useState(false);
   const [pwdVisible3, setPwdVisible3] = useState(false);
+  const [user, setUser] = useState(null); // State to store user data
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const session = Cookies.get("session");
+      try {
+        // const userr = await getUser(session); // Fetch user with session
+        const { account } = await createSessionClient(
+          session
+        );
+       const userr = await account.get();
+        setUser(userr); // Store user in state
+        // if (typeof window !== "undefined") {
+        //   localStorage.setItem("tee", userr?.$id); // Save to localStorage
+        // }
+        console.log("User data:", userr);
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      }
+    };
+
+    fetchUser(); // Fetch user data on component mount
+  }, []); // Empty dependency array to ensure it runs once on mount
 
   // const { submit, isLoading } = useResetPassword2();
 
@@ -104,8 +130,9 @@ const ChangePhone: React.FC<ChangePhoneProps> = ({
             <Box>
               <TextField
                 id="password"
-                placeholder="**********"
-                label="Old Password"
+                placeholder="Old Password"
+                // label="Old Password"
+                defaultValue={user?.password}
                 sx={{
                   height: "100%",
                   width: "100%",
