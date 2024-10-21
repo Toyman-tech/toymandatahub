@@ -78,6 +78,20 @@ const Navbar = () => {
                 Home
               </Link>
               <Link
+                    href="/dashboard"
+                    underline="none"
+                    color="#2A4F55"
+                    p="10px"
+                    sx={{
+                      ":hover": {
+                        width: "100vw",
+                        backgroundColor: "#ababab",
+                      },
+                    }}
+                  >
+                    Dashboard
+                  </Link>
+              <Link
                 href="#"
                 underline="none"
                 color="black"
@@ -226,6 +240,20 @@ const Navbar = () => {
                     Home
                   </Link>
                   <Link
+                    href="/dashboard"
+                    underline="none"
+                    color="#2A4F55"
+                    p="10px"
+                    sx={{
+                      ":hover": {
+                        width: "100vw",
+                        backgroundColor: "#ababab",
+                      },
+                    }}
+                  >
+                    Dashboard
+                  </Link>
+                  <Link
                     href="/"
                     underline="none"
                     color="#2A4F55"
@@ -254,20 +282,6 @@ const Navbar = () => {
                     }}
                   >
                     Our Services
-                  </Link>
-                  <Link
-                    href="/#our-services"
-                    underline="none"
-                    color="#2A4F55"
-                    p="10px"
-                    sx={{
-                      ":hover": {
-                        width: "100vw",
-                        backgroundColor: "#ababab",
-                      },
-                    }}
-                  >
-                    Blog
                   </Link>
                   <Link
                     href="/#footer"
