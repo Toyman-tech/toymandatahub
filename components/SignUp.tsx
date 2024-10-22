@@ -76,10 +76,10 @@ const SignUp = () => {
     
     try {
       setIsLoading(true)
-      if (fphone.startsWith('0')){
-        setPhone('+234' + fphone.slice(1))
+      if (phone.startsWith('0')){
+        setPhone('+234' + phone.slice(1))
       } else {
-        setPhone(fphone)
+        setPhone(phone)
     console.log(phone)
       }
       const user = {
@@ -270,8 +270,8 @@ const SignUp = () => {
                   fontSize: "13px",
                   fontWeight: 200,
                 }}
-                value={fphone}
-                onChange={handlePhone}
+                value={phone}
+            //    onChange={handlePhone}
                 // {...register("phoneNumber", {
                 //   required: "Phone number is required",
                 // })}
