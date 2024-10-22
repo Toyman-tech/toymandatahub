@@ -51,10 +51,10 @@ const SignUp = () => {
         setFPhone('+234' + fphone.slice(1))
       }
       const phoneNumberObj = parsePhoneNumberFromString(fphone, 'NG');
-      if (phoneNumberObj){
-        return phoneNumberObj.format('E.164');
-      }
-      return fphone;
+    //  if (phoneNumberObj){
+      //  return phoneNumberObj.format('E.164');
+  //   }
+      return phoneNumberObj;
     }
     const formattedPhone = formatPhoneNumber(fphone)
     setPhone(formattedPhone)
