@@ -45,18 +45,18 @@ const SignUp = () => {
   const handlePhone = (e) => {
     e.preventDefault();
     setFPhone(e.target.value)
-    function formatPhoneNumber(fphone) {
+ //   function formatPhoneNumber(fphone) {
       // add +234
       if (fphone.startsWith('0')){
-        setFPhone('+234' + fphone.slice(1))
+        setPhone('+234' + fphone.slice(1))
       }
-      const phoneNumberObj = parsePhoneNumberFromString(fphone, 'NG');
+  //    const phoneNumberObj = parsePhoneNumberFromString(fphone, 'NG');
     //  if (phoneNumberObj){
       //  return phoneNumberObj.format('E.164');
   //   }
-      return phoneNumberObj;
-    }
-    const formattedPhone = formatPhoneNumber(fphone)
+     // return phoneNumberObj;
+//    }
+//    const formattedPhone = formatPhoneNumber(fphone)
     setPhone(fphone)
     console.log(phone)
     
