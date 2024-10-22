@@ -271,6 +271,7 @@ const SignUp = () => {
                   fontWeight: 200,
                 }}
                 value={phone}
+                onChange={(e) => setPhone(e.target.value)}
             //    onChange={handlePhone}
                 // {...register("phoneNumber", {
                 //   required: "Phone number is required",
