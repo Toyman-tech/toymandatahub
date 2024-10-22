@@ -57,7 +57,7 @@ const SignUp = () => {
       return phoneNumberObj;
     }
     const formattedPhone = formatPhoneNumber(fphone)
-    setPhone(formattedPhone)
+    setPhone(fphone)
     console.log(phone)
     
   }
