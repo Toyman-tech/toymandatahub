@@ -76,6 +76,12 @@ const SignUp = () => {
     
     try {
       setIsLoading(true)
+      if (fphone.startsWith('0')){
+        setPhone('+234' + fphone.slice(1))
+      } else {
+        setPhone(fphone)
+    console.log(phone)
+      }
       const user = {
         name: name,
         email: email,
