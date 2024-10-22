@@ -49,7 +49,7 @@ const SignUp = () => {
       // add +234
       if (fphone.startsWith('0')){
         setPhone('+234' + fphone.slice(1))
-      }
+      } else {
   //    const phoneNumberObj = parsePhoneNumberFromString(fphone, 'NG');
     //  if (phoneNumberObj){
       //  return phoneNumberObj.format('E.164');
@@ -59,7 +59,7 @@ const SignUp = () => {
 //    const formattedPhone = formatPhoneNumber(fphone)
     setPhone(fphone)
     console.log(phone)
-    
+      }
   }
   // Function to handle form submission
   const register = async (e) => {
