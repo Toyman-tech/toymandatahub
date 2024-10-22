@@ -33,8 +33,8 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [loggedInUser, setLoggedInUser] = useState(null);
-  const [phone, setPhone] = useState()
-  const [fphone, setFPhone] = useState()
+  const [phone, setPhone] = useState('')
+  const [fphone, setFPhone] = useState('')
   const [isLoading, setIsLoading ] =useState(false)
   const router = useRouter()
   const { handleMessage, handleSnack, snackBarOpen, setSnackBarOpen } =
