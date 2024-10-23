@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   }
 };
 
-export default function layout({ children }: { children: ReactNode }) {
+export default function layout({ children }: { children: React.ReactNode }) {
   return (
     // <Stack direction="column">
     <Box 

@@ -16,15 +16,37 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { createSessionClient } from "@/appwrite/config";
+import {MonnifySDK}  from 'monnify-sdk';
+import LoadingPage from "../LoadingPage";
+import SnackbarComp, { useToast } from "../Toast";
+import { useRouter } from "next/navigation";
 
 const Walletui = () => {
+  const [isLoading, setIsLoading ] =useState(false)
   const [amount, setAmount] = useState<number>();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [fee, setFee] = useState<number>();
   const [total, setTotal] = useState<number>();
   const [user, setUser] = useState(null); // State to store user data
+  const [paymentStatus, setPaymentStatus] = useState('');
+  const [currency, setCurrency] = useState('NGN');
+  const router = useRouter()
+  const { handleMessage, handleSnack, snackBarOpen, setSnackBarOpen } =
+  useToast();
 
+  useEffect(() => {
+    // Dynamically load the Monnify SDK script when the component mounts
+    const script = document.createElement('script');
+    script.src = 'https://sdk.monnify.com/plugin/monnify.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Clean up the script when the component unmounts
+      document.body.removeChild(script);
+    };
+  }, []);
   useEffect(() => {
     const fetchUser = async () => {
       const session = Cookies.get("session");
@@ -56,26 +78,65 @@ const Walletui = () => {
 
     setTotal(total(value, newam));
   };
-  const handlePayment = async (e: React.FormEvent) => {
+                                                                                                                                                                         
+  // paymentt
+  const handlePayment = (e: React.FormEvent) => {
     e.preventDefault();
-
-    const paymentReference = `MON-${Math.random()
-      .toString(36)
-      .substring(7)
-      .toUpperCase()}`;
-
-    try {
-      const response = await axios.post("/api/monnify/initializePayment", {
+    setIsLoading(true)
+    console.log("hello world");
+    if (window.MonnifySDK) {
+     window.MonnifySDK.initialize({
         amount: total,
-        customerEmail: email,
-        customerName: name,
-        paymentReference,
+        currency: 'NGN',
+        reference: `${new Date().getTime()}`, // Generates a unique reference
+        customerFullName: name,
+        customerEmail: "habeebthedev@gmail.com",
+        apiKey: "MK_TEST_HDTP6X0F4C",
+        contractCode: '7713023602',
+        paymentDescription: 'Lahray World',
+        metadata: {
+          name: name,
+          age: 45,
+        },
+        // incomeSplitConfig: [
+        //   {
+        //     subAccountCode: 'MFY_SUB_342113621921',
+        //     feePercentage: 50,
+        //     splitAmount: 1900,
+        //     feeBearer: true,
+        //   },
+        //   {
+        //     subAccountCode: 'MFY_SUB_342113621922',
+        //     feePercentage: 50,
+        //     splitAmount: 2100,
+        //     feeBearer: true,
+        //   },
+        // ],
+        onLoadStart: () => {
+          console.log('Payment loading started');
+        },
+        onLoadComplete: () => {
+          console.log('Payment SDK is ready');
+        },
+        onComplete: (response) => {
+          console.log('Payment completed successfully:', response);
+          handleMessage(
+            "success",
+            "Payment completed successfully"
+          );
+          // Handle the payment response (e.g., save transaction, display success)
+        },
+        onClose: (data) => {
+          console.log('Payment modal closed:', data);
+          setIsLoading(false)
+          // router.reset();
+          // Handle the case where the modal is closed
+        },
       });
-
-      const { checkoutUrl } = response.data.responseBody;
-      window.location.href = checkoutUrl;
-    } catch (error) {
-      console.error("Payment failed:", error.response?.data || error.message);
+    }else {
+      console.error('Monnify SDK not loaded');
+      handleMessage("error", 'Error, please check your internet connection and try again')
+      setIsLoading(false)
     }
   };
 
@@ -184,6 +245,13 @@ const Walletui = () => {
           </Box>
         </Stack>
       </Stack>
+      {isLoading && <LoadingPage />} 
+          <SnackbarComp
+            snackBarOpen={snackBarOpen}
+            setSnackBarOpen={setSnackBarOpen}
+            alert={handleSnack.alert}
+            message={handleSnack.message}
+          />
     </Box>
   );
 };
