@@ -5,7 +5,10 @@ import { ID, Query, Client } from "node-appwrite";
 import {
   ENDPOINT,
   NEXT_PUBLIC_PROJECT_ID,
+  NEXT_PUBLIC_DATABASE_ID,
+  NEXT_PUBLIC_COLLECTION_WALLETS,
   users,
+  databases,
 } from "../appwrite.config";
 import { parseStringify } from "../utils";
 import { Account } from "appwrite";
@@ -26,10 +29,31 @@ export const createUser = async (user) => {
         
       );
       console.log('hey')
-      console.log("hmm", newuser)
-    //  const data = parseStringify(newuser);
-    //  console.log('data', data?.$id)
-    
+      // console.log("hmm", newuser)
+     const data = parseStringify(newuser);
+    //  create a document in the db
+      if (data){
+        console.log('hello new wallet here')
+        const wallet = {
+          user_id: data.$id,
+          balance: 10000,
+          transaction_history: []
+        };
+        console.log("Wallet object:", wallet);
+
+        try {
+          const response = await databases.createDocument(
+            NEXT_PUBLIC_DATABASE_ID,
+            NEXT_PUBLIC_COLLECTION_WALLETS,
+            ID.unique(),
+            wallet
+            );
+          console.log('Wallet created:', response);
+        } catch (error) {
+          console.error('Error creating wallet:', error);
+        }
+      
+      }
       return parseStringify(newuser);
       // return;
     } catch (error: any) {
