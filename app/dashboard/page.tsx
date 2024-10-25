@@ -13,7 +13,7 @@ import auth from "@/auth";
 export default async function Home() {
   const user = await auth.getUser();
  
-  console.log("tee", user?.$id);
+  // console.log("tee", user?.$id);
   // if (typeof window !== "undefined") {
   //   localStorage.setItem("tee", user?.$id);
   // }

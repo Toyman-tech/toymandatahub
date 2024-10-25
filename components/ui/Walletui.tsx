@@ -54,6 +54,9 @@ const Walletui = () => {
         // const userr = await getUser(session); // Fetch user with session
         const { account } = await createSessionClient(session);
         const userr = await account.get();
+        // if (typeof window !== "undefined") {
+        //   localStorage.setItem("tee", userr?.$id);
+        // }
         setUser(userr); // Store user in state
         setName(user?.name);
         setEmail(user?.email)

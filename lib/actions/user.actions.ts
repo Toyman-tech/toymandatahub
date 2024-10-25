@@ -34,8 +34,8 @@ export const createUser = async (user) => {
     //  create a document in the db
       if (data){
         console.log('hello new wallet here')
+        const user_id = data.$id;
         const wallet = {
-          user_id: data.$id,
           balance: 10000,
           transaction_history: []
         };
@@ -45,7 +45,7 @@ export const createUser = async (user) => {
           const response = await databases.createDocument(
             NEXT_PUBLIC_DATABASE_ID,
             NEXT_PUBLIC_COLLECTION_WALLETS,
-            ID.unique(),
+            user_id,
             wallet
             );
           console.log('Wallet created:', response);
@@ -90,13 +90,75 @@ export const createUser = async (user) => {
       );
     }
   };
+
+// Function to update wallet balance and transaction history
+export const updateWallet = async (userId: string, transaction: any) => {
+  try {
+    // Fetch the current wallet
+    const wallet = await databases.getDocument(
+      '[YOUR_DATABASE_ID]',
+      '[YOUR_WALLET_COLLECTION_ID]',
+      userId
+    );
+
+    // Update balance based on the transaction type
+    const newBalance =
+      transaction.type === 'credit'
+        ? wallet.balance + transaction.amount
+        : wallet.balance - transaction.amount;
+
+    // Update the transaction history
+    const updatedTransactions = [...wallet.transaction_history, transaction];
+
+    // Update the wallet document in the database
+    const updatedWallet = await databases.updateDocument(
+      '[YOUR_DATABASE_ID]',
+      '[YOUR_WALLET_COLLECTION_ID]',
+      userId,
+      {
+        balance: newBalance,
+        transaction_history: updatedTransactions,
+      }
+    );
+
+    console.log('Wallet updated:', updatedWallet);
+  } catch (error) {
+    console.error('Error updating wallet:', error);
+  }
+};
+
+// Function to get user's wallet
+export const getWalletForUser = async (user_id: string) => {
+  try {
+    console.log("wallets", user_id)
+    const wallet = await databases.getDocument(
+      NEXT_PUBLIC_DATABASE_ID,
+  NEXT_PUBLIC_COLLECTION_WALLETS,
+      user_id,
+    );
+    console.log('User wallet:', wallet);
+    return wallet;
+  } catch (error) {
+    console.error('Error fetching wallet:', error);
+    return null;
+  }
+};
+
+  
   export const logout = async() =>{
     // await users.deleteSession('session');
 
   }
 
 
-
+  // const transaction = {
+  //   transaction_id: 'txn003',
+  //   type: 'credit', // or 'debit'
+  //   amount: 1000, // Amount in NGN
+  //   description: 'Wallet funding',
+  //   date: new Date().toISOString(),
+  //   reference: 'ref003', // Reference ID from Monnify or other payment gateways
+  // };
 //   export const CreateUserClient = async ()=>{
 //     const client = new Client()
 //     .setEndpoint(process.env.NEXT_PUBLIC_ENDPOINT)
