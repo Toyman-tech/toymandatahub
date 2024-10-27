@@ -76,12 +76,12 @@ const SignUp = () => {
     
     try {
       setIsLoading(true)
-      if (phone.startsWith('0')){
-        setPhone('+234' + phone.slice(1))
-      } else {
-        setPhone(phone)
-    console.log(phone)
-      }
+    //   if (phone.startsWith('0')){
+    //     setPhone('+234' + phone.slice(1))
+    //   } else {
+    //     setPhone(phone)
+    // console.log(phone)
+    //   }
       const user = {
         name: name,
         email: email,
@@ -271,7 +271,14 @@ const SignUp = () => {
                   fontWeight: 200,
                 }}
                 value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                onChange={(e) => {
+                  if (e.target.value.startsWith('0')){
+                    setPhone('+234' + e.target.value.slice(1))
+                  } else {
+                    setPhone(e.target.value)
+                console.log(phone)
+                  }
+                }}
             //    onChange={handlePhone}
                 // {...register("phoneNumber", {
                 //   required: "Phone number is required",

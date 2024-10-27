@@ -1,10 +1,12 @@
 "use client";
+import { fetchAccountData } from "@/lib/actions/user.actions";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Atm = () => {
   const [click, setClick] = useState("moniepoint");
+
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -18,6 +20,23 @@ const Atm = () => {
     e.preventDefault();
     setClick("zenith");
   };
+
+  useEffect(() => {
+    const fetchUser = async ()=>{
+      // Ensure the code runs on the client-side
+    if (typeof window !== "undefined") {
+      const storedUserId = localStorage.getItem("tee"); // Retrieve the value from localStorage
+      console.log('fired')
+      if (storedUserId) {
+        console.log('im in');
+        const details = await fetchAccountData(storedUserId)
+        console.log(details)
+        }
+    }
+    }
+    fetchUser();
+  }, []); // Empty array ensures this runs only once, when the component is mounted
+
   return (
     <Box sx={{ color: "#ffff" }} width={"100%"}>
       <Stack direction="row" display={{xs:'flex', sm:'none', md:'none'}}>
