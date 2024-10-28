@@ -132,7 +132,7 @@ const Walletui = () => {
         onClose: (data) => {
           console.log('Payment modal closed:', data);
           setIsLoading(false)
-          // router.reset();
+          router.refresh();
           // Handle the case where the modal is closed
         },
       });
