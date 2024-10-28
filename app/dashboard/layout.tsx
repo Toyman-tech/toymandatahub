@@ -52,7 +52,10 @@ export const metadata: Metadata = {
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
     // <Stack direction="column">
-    <Box 
+    <html lang="en">
+    <body className={dmSans.className}
+     suppressHydrationWarning={true}>
+      <Box 
     sx={{
       display: "flex",
       flexDirection: "column",
@@ -91,6 +94,9 @@ export default function layout({ children }: { children: React.ReactNode }) {
       <Bottombar />
       
       </Box>
+    </body>
+    </html>
+    
     // </Stack>
   );
 }

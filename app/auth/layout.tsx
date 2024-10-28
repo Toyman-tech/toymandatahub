@@ -47,5 +47,12 @@ export const metadata: Metadata = {
 };
 
 export default function layout({ children }: { children: React.ReactNode }) {
-  return children;
+  return(
+    <html lang="en">
+    <body className={dmSans.className}
+     suppressHydrationWarning={true}>
+      {children}
+    </body>
+    </html>
+  );
 }
