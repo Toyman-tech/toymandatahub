@@ -43,7 +43,8 @@ const Support = () => {
           }}
         >
           <Link
-            href="/dashboard"
+            target="_blank" 
+            href="https://wa.me/2349039242601"
             underline="none"
             color="#ffff"
             display={"flex"}
@@ -92,7 +93,8 @@ const Support = () => {
           }}
         >
           <Link
-            href="/dashboard"
+            target="_blank" 
+            href="https://wa.me/2349039242601"
             underline="none"
             color="#ffff"
             display={"flex"}

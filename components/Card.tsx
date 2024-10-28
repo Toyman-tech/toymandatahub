@@ -22,7 +22,7 @@ const Card = () => {
         }
         //  get wallet details
         const wallet = await getWalletForUser(userr?.$id)
-        console.log("data", wallet)
+        // console.log("data", wallet)
         setAmount(wallet?.balance - 9900)
         if (typeof window !== "undefined") {
           const newTot = wallet?.balance - 9900

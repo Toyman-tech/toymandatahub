@@ -6,10 +6,10 @@ import React, { useEffect, useState } from "react";
 
 const Atm = () => {
   const [click, setClick] = useState("wema");
-  const [bankname, setBankName] = useState('')
-  const [bankaccount, setBankAccount] = useState('')
-  const [accountname, setAccountName] = useState('')
-// sh -ci "$(curl -fsSL https://internetcomputer.org/install.sh)"
+  const [bankname, setBankName] = useState("...");
+  const [bankaccount, setBankAccount] = useState(".......");
+  const [accountname, setAccountName] = useState(".....");
+  // sh -ci "$(curl -fsSL https://internetcomputer.org/install.sh)"
   const handleChange = (e) => {
     e.preventDefault();
     setClick("wema");
@@ -37,12 +37,12 @@ const Atm = () => {
 
           // Access `bankName` and `accountNumber`
           const bankName = parsedAccount.bankName;
-        
+
           const accountNumber = parsedAccount.accountNumber;
           const accountName = parsedAccount.accountName;
           setBankName(bankName);
-          setBankAccount(accountNumber)
-          setAccountName(accountName)
+          setBankAccount(accountNumber);
+          setAccountName(accountName);
           console.log("Bank Name:", bankName); // Output: Wema bank
           console.log("Account Number:", accountNumber); // Output: 0013074298
           console.log(details);
@@ -107,7 +107,7 @@ const Atm = () => {
             type="submit"
             onClick={handleChange1}
           >
-           MONIIEPOINT
+            MONIIEPOINT
           </Button>
         </Box>
         {/* 3 */}
@@ -175,6 +175,7 @@ const Atm = () => {
             justifyContent={"space-between"}
             spacing={{ sm: 1, xs: 5, md: 5 }}
             zIndex={2}
+            width={'100%'}
             position={"relative"}
           >
             <Box component="h3">{bankname}</Box>
@@ -230,6 +231,7 @@ const Atm = () => {
             spacing={{ sm: 1, xs: 5, md: 5 }}
             zIndex={2}
             position={"relative"}
+          width={'100%'}
           >
             <Box component="h3">MONIEPOINT</Box>
             <Typography
@@ -241,7 +243,7 @@ const Atm = () => {
                 textAlign: "center",
               }}
             >
-              {accountname}
+              {bankaccount}
             </Typography>
             <Box
               component="h3"
@@ -295,7 +297,7 @@ const Atm = () => {
                 textAlign: "center",
               }}
             >
-             {bankaccount}
+              {bankaccount}
             </Typography>
             <Box
               component="h3"
@@ -348,15 +350,15 @@ const Atm = () => {
             justifyContent={"space-between"}
             spacing={{ sm: 1, xs: 5, md: 5 }}
             zIndex={2}
-            width={'100%'}
+            width={"100%"}
             position={"relative"}
           >
             {click == "moniepoint" ? (
-              <Box component="h3">MONIEPOINT</Box>
+              <Box component="h3"> MONIEPOINT</Box>
             ) : click == "wema" ? (
-              <Box component="h3" > WEMA </Box>
+              <Box component="h3"> WEMA </Box>
             ) : (
-              <Box component="h3" > ZENITH </Box>
+              <Box component="h3"> ZENITH </Box>
             )}
             {click == "moniepoint" ? (
               <Typography
