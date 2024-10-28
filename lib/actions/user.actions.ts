@@ -42,6 +42,7 @@ export const createUser = async (user) => {
       
       if (wallets) {
         const newWallet = parseStringify(wallets);
+        const reference = newWallet?.accountReference
         const parsedWallets = newWallet?.accounts?.map(account => JSON.stringify(account)) || [];
         // console.log("Formatted account details:", parsedWallets);
       
@@ -50,6 +51,7 @@ export const createUser = async (user) => {
           balance: '10000',
           transaction_history: [],
           account_details: parsedWallets, // Store each account as a string in the array
+          account_reference: reference,
         };
       
         // console.log("Wallet object:", wallet);

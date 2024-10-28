@@ -93,10 +93,10 @@ const Walletui = () => {
         currency: 'NGN',
         reference: `${new Date().getTime()}`, // Generates a unique reference
         customerFullName: name,
-        customerEmail: "habeebthedev@gmail.com",
+        customerEmail: email,
         apiKey: "MK_TEST_HDTP6X0F4C",
         contractCode: '7713023602',
-        paymentDescription: 'Lahray World',
+        paymentDescription: 'Testing by toyman',
         metadata: {
           name: name,
           age: 45,
