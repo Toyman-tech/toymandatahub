@@ -10,7 +10,7 @@ const AffiliateCard = () => {
   
   const handleCopy = (e) => {
     e.preventDefault();
-    navigator.clipboard.writeText("https://toymandatahub.vercel.app");
+    navigator.clipboard.writeText("https://www.toymandatahub.com");
     setCopied(true);
     if (copied) {
       alert("Link copied successfully");
@@ -47,7 +47,7 @@ const AffiliateCard = () => {
             width="90%"
           >
             <Typography color="black">
-              https://toymandatahub.vercel.app
+              https://www.toymandatahub.com
             </Typography>
             <Button
               sx={{
