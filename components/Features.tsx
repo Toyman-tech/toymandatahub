@@ -1,28 +1,44 @@
+"use client"
 import { Box, Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const stats = [
-  {
-    title: "Total Fund",
-    amount: "22,000.00",
-    img: "/dashboardassets/arrowdown.svg",
-    col:"#21AE95"
-  },
-  {
-    title: "Total Spent",
-    amount: "10,000.00",
-    img: "/dashboardassets/arrowdown.svg",
-    col:"#FFAB23"
-  },
-  {
-    title: "Total Referral Earned",
-    amount: "120,000.00",
-    img: "/dashboardassets/arrowdown.svg",
-    col:"#5C23FF"
-  },
-];
 
 const Features = () => {
+  const [amount, setAmount] = useState('0')
+  useEffect(() => {
+    const fetchUser = async ()=>{
+      // Ensure the code runs on the client-side
+    if (typeof window !== "undefined") {
+      const storedUserId2 = localStorage.getItem("leo");
+      // console.log('fired')
+      if(storedUserId2){
+        setAmount(storedUserId2)
+      }
+    }
+    }
+    fetchUser();
+  }, []); // Empty array ensures this runs only once, when the component is mounted
+  const stats = [
+    {
+      title: "Total Fund",
+      amount: `${amount}`,
+      img: "/dashboardassets/arrowdown.svg",
+      col:"#21AE95"
+    },
+    {
+      title: "Total Spent",
+      amount: "0.00",
+      img: "/dashboardassets/arrowdown.svg",
+      col:"#FFAB23"
+    },
+    {
+      title: "Total Referral Earned",
+      amount: "25.00",
+      img: "/dashboardassets/arrowdown.svg",
+      col:"#5C23FF"
+    },
+  ];
+  
   return (
     <Box
      width='100%'
