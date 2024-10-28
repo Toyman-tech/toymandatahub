@@ -5,16 +5,18 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 const Atm = () => {
-  const [click, setClick] = useState("moniepoint");
-
-
+  const [click, setClick] = useState("wema");
+  const [bankname, setBankName] = useState('')
+  const [bankaccount, setBankAccount] = useState('')
+  const [accountname, setAccountName] = useState('')
+// sh -ci "$(curl -fsSL https://internetcomputer.org/install.sh)"
   const handleChange = (e) => {
     e.preventDefault();
-    setClick("moniepoint");
+    setClick("wema");
   };
   const handleChange1 = (e) => {
     e.preventDefault();
-    setClick("wema");
+    setClick("moniepoint");
   };
   const handleChange2 = (e) => {
     e.preventDefault();
@@ -22,26 +24,38 @@ const Atm = () => {
   };
 
   useEffect(() => {
-    const fetchUser = async ()=>{
+    const fetchUser = async () => {
       // Ensure the code runs on the client-side
-    if (typeof window !== "undefined") {
-      const storedUserId = localStorage.getItem("tee"); // Retrieve the value from localStorage
-      console.log('fired')
-      if (storedUserId) {
-        console.log('im in');
-        const details = await fetchAccountData(storedUserId)
-        console.log(details)
+      if (typeof window !== "undefined") {
+        const storedUserId = localStorage.getItem("tee"); // Retrieve the value from localStorage
+        console.log("fired");
+        if (storedUserId) {
+          console.log("im in");
+          const details = await fetchAccountData(storedUserId);
+          // Parse the JSON string to an object
+          const parsedAccount = JSON.parse(details[0]);
+
+          // Access `bankName` and `accountNumber`
+          const bankName = parsedAccount.bankName;
+        
+          const accountNumber = parsedAccount.accountNumber;
+          const accountName = parsedAccount.accountName;
+          setBankName(bankName);
+          setBankAccount(accountNumber)
+          setAccountName(accountName)
+          console.log("Bank Name:", bankName); // Output: Wema bank
+          console.log("Account Number:", accountNumber); // Output: 0013074298
+          console.log(details);
         }
-    }
-    }
+      }
+    };
     fetchUser();
   }, []); // Empty array ensures this runs only once, when the component is mounted
 
   return (
     <Box sx={{ color: "#ffff" }} width={"100%"}>
-      <Stack direction="row" display={{xs:'flex', sm:'none', md:'none'}}>
-        <Box component="div"
-        mb='7px'>
+      <Stack direction="row" display={{ xs: "flex", sm: "none", md: "none" }}>
+        <Box component="div" mb="7px">
           <Button
             sx={{
               height: 45.7, // Custom height
@@ -65,7 +79,7 @@ const Atm = () => {
             type="submit"
             onClick={handleChange}
           >
-            Moniepoint
+            WEMA
           </Button>
         </Box>
         {/* 2 */}
@@ -93,7 +107,7 @@ const Atm = () => {
             type="submit"
             onClick={handleChange1}
           >
-            Wema
+           MONIIEPOINT
           </Button>
         </Box>
         {/* 3 */}
@@ -129,12 +143,66 @@ const Atm = () => {
 
       <Stack
         direction={{ md: "row", sm: "row", xs: "column" }}
-        display={{ xs: "none", sm:'flex', md:'flex' }}
+        display={{ xs: "none", sm: "flex", md: "flex" }}
         justifyContent={{ md: "space-between", xs: "center" }}
         alignItems={"center"}
         spacing={2}
         width={{ md: "100%", xs: "100%" }}
       >
+        <Box
+          width="95%"
+          position={"relative"}
+          display="flex"
+          alignItems={"center"}
+          justifyContent={"center"}
+          sx={{
+            // width: { xs: "90vw", md: "20vw" },
+            height: "250px",
+            // backgroundColor: "#08084b",
+            padding: "30px",
+            borderRadius: "28px",
+          }}
+        >
+          <Image
+            src="/dashboardassets/wema.png"
+            layout="fill"
+            objectFit="contain"
+            alt="Atm card"
+            // sx={{z: '-1', position: 'absolute', }}
+          />
+          <Stack
+            direction="column"
+            justifyContent={"space-between"}
+            spacing={{ sm: 1, xs: 5, md: 5 }}
+            zIndex={2}
+            position={"relative"}
+          >
+            <Box component="h3">{bankname}</Box>
+            <Typography
+              fontSize={"25px"}
+              fontWeight={700}
+              sx={{
+                justifyContent: "center",
+                alignItems: "center",
+                textAlign: "center",
+              }}
+            >
+              {bankaccount}
+            </Typography>
+            <Box
+              component="h3"
+              display=""
+              sx={{
+                justifyContent: "end",
+                alignItems: "end",
+                textAlign: "end",
+              }}
+            >
+              {accountname}
+            </Box>
+          </Stack>
+        </Box>
+        {/* second atm */}
         <Box
           width="95%"
           position={"relative"}
@@ -173,7 +241,7 @@ const Atm = () => {
                 textAlign: "center",
               }}
             >
-              9031 9242 6018 2733
+              {accountname}
             </Typography>
             <Box
               component="h3"
@@ -184,61 +252,7 @@ const Atm = () => {
                 textAlign: "end",
               }}
             >
-              Abubakar Habeeb Akolawole
-            </Box>
-          </Stack>
-        </Box>
-        {/* second atm */}
-        <Box
-          width="95%"
-          position={"relative"}
-          display="flex"
-          alignItems={"center"}
-          justifyContent={"center"}
-          sx={{
-            // width: { xs: "90vw", md: "20vw" },
-            height: "250px",
-            // backgroundColor: "#08084b",
-            padding: "30px",
-            borderRadius: "28px",
-          }}
-        >
-          <Image
-            src="/dashboardassets/wema.png"
-            layout="fill"
-            objectFit="contain"
-            alt="Atm card"
-            // sx={{z: '-1', position: 'absolute', }}
-          />
-          <Stack
-            direction="column"
-            justifyContent={"space-between"}
-            spacing={{ sm: 1, xs: 5, md: 5 }}
-            zIndex={2}
-            position={"relative"}
-          >
-            <Box component="h3">WEMA</Box>
-            <Typography
-              fontSize={"25px"}
-              fontWeight={700}
-              sx={{
-                justifyContent: "center",
-                alignItems: "center",
-                textAlign: "center",
-              }}
-            >
-              9031 9242 6018 2733
-            </Typography>
-            <Box
-              component="h3"
-              display=""
-              sx={{
-                justifyContent: "end",
-                alignItems: "end",
-                textAlign: "end",
-              }}
-            >
-              Abubakar Habeeb Akolawole
+              {bankname}
             </Box>
           </Stack>
         </Box>
@@ -281,7 +295,7 @@ const Atm = () => {
                 textAlign: "center",
               }}
             >
-              9031 9242 6018 2733
+             {bankaccount}
             </Typography>
             <Box
               component="h3"
@@ -292,7 +306,7 @@ const Atm = () => {
                 textAlign: "end",
               }}
             >
-              Abubakar Habeeb Akolawole
+              {accountname}
             </Box>
           </Stack>
         </Box>
@@ -329,54 +343,59 @@ const Atm = () => {
             alt="Atm card"
             // sx={{z: '-1', position: 'absolute', }}
           />
-           <Stack
+          <Stack
             direction="column"
             justifyContent={"space-between"}
             spacing={{ sm: 1, xs: 5, md: 5 }}
             zIndex={2}
+            width={'100%'}
             position={"relative"}
           >
-            {click=='moniepoint' ?  <Box component="h3">MONIEPOINT</Box> 
-           : click=='wema' ?  <Box component="h3"> WEMA </Box>
-           :  <Box component="h3">ZENITH</Box>  
-          }
-            {click=='moniepoint' ?  <Typography
-              fontSize={"25px"}
-              fontWeight={700}
-              sx={{
-                justifyContent: "center",
-                alignItems: "center",
-                textAlign: "center",
-              }}
-            >
-              9031 9242 6018 2733
-            </Typography> 
-           : click=='wema' ? 
-           <Typography
-           fontSize={"25px"}
-           fontWeight={700}
-           sx={{
-             justifyContent: "center",
-             alignItems: "center",
-             textAlign: "center",
-           }}
-         >
-           9031 9242 6018 2733
-         </Typography>
-           : 
-           <Typography
-           fontSize={"25px"}
-           fontWeight={700}
-           sx={{
-             justifyContent: "center",
-             alignItems: "center",
-             textAlign: "center",
-           }}
-         >
-           9031 9242 6018 2733
-         </Typography> 
-          }
-           
+            {click == "moniepoint" ? (
+              <Box component="h3">MONIEPOINT</Box>
+            ) : click == "wema" ? (
+              <Box component="h3" > WEMA </Box>
+            ) : (
+              <Box component="h3" > ZENITH </Box>
+            )}
+            {click == "moniepoint" ? (
+              <Typography
+                fontSize={"25px"}
+                fontWeight={700}
+                sx={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  textAlign: "center",
+                }}
+              >
+                {bankaccount}
+              </Typography>
+            ) : click == "wema" ? (
+              <Typography
+                fontSize={"25px"}
+                fontWeight={700}
+                sx={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  textAlign: "center",
+                }}
+              >
+                {bankaccount}
+              </Typography>
+            ) : (
+              <Typography
+                fontSize={"25px"}
+                fontWeight={700}
+                sx={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  textAlign: "center",
+                }}
+              >
+                {bankaccount}
+              </Typography>
+            )}
+
             <Box
               component="h3"
               display=""
@@ -386,7 +405,7 @@ const Atm = () => {
                 textAlign: "end",
               }}
             >
-              Abubakar Habeeb Akolawole
+              {accountname}
             </Box>
           </Stack>
         </Box>
