@@ -39,6 +39,7 @@ const Atm = () => {
           const bankName = parsedAccount.bankName;
 
           const accountNumber = parsedAccount.accountNumber;
+          localStorage.setItem("acct", accountNumber);
           const accountName = parsedAccount.accountName;
           setBankName(bankName);
           setBankAccount(accountNumber);
@@ -191,7 +192,7 @@ const Atm = () => {
               {bankaccount}
             </Typography>
             <Box
-              component="h3"
+              component="h4"
               display=""
               sx={{
                 justifyContent: "end",
@@ -199,7 +200,7 @@ const Atm = () => {
                 textAlign: "end",
               }}
             >
-              {accountname}
+              MONNIFY / Toyman Datahub-{accountname}
             </Box>
           </Stack>
         </Box>
@@ -254,7 +255,7 @@ const Atm = () => {
                 textAlign: "end",
               }}
             >
-              {bankname}
+              MONNIFY / Toyman Datahub-{accountname}
             </Box>
           </Stack>
         </Box>
@@ -300,7 +301,7 @@ const Atm = () => {
               {bankaccount}
             </Typography>
             <Box
-              component="h3"
+              component="h4"
               display=""
               sx={{
                 justifyContent: "end",
@@ -308,7 +309,7 @@ const Atm = () => {
                 textAlign: "end",
               }}
             >
-              {accountname}
+              MONNIFY / Toyman Datahub-{accountname}
             </Box>
           </Stack>
         </Box>
@@ -399,7 +400,7 @@ const Atm = () => {
             )}
 
             <Box
-              component="h3"
+              component="h4"
               display=""
               sx={{
                 justifyContent: "end",
@@ -407,7 +408,7 @@ const Atm = () => {
                 textAlign: "end",
               }}
             >
-              {accountname}
+              MONNIFY / Toyman Datahub-{accountname}
             </Box>
           </Stack>
         </Box>

@@ -15,5 +15,5 @@ export async function middleware(req){
     return NextResponse.next()
 }
 export const config = {
-    matcher:['/((?!api|_next/static|_next/image|.*\\.png$).)', '/dashboard']
+    matcher:['/((?!api|_next/static|_next/image|.*\\.png$).)', '/dashboard', '/dashboard/wallet', '/dashboard/airtime', '/dashboard/bulk-sms', '/dashboard/cable', '/dashboard/coupon', '/dashboard/data', '/dashboard/devApi', '/dashboard/electricity', '/dashboard/faqs', '/dashboard/orders', '/dashboard/payments', '/dashboard/pin', '/dashboard/pricing', '/dashboard/resut-checker', '/dashboard/settings', '/dashboard/summary', '/dashboard/utilities', '/dashboard/walllet']
 }

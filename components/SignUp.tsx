@@ -134,7 +134,7 @@ const SignUp = () => {
           </Box>
           
           
-          <Button
+          {/* <Button
             fullWidth
             size="large"
             sx={{
@@ -160,13 +160,13 @@ const SignUp = () => {
               "    Sign up with google"
             )}
           </Button>
-          <Divider sx={{ width: "100%", my: "2em" }}>Or</Divider>
+          <Divider sx={{ width: "100%", my: "2em" }}>Or</Divider> */}
           <Grid
             container
             spacing={1}
             component={"form"}
           >
-            <Grid item lg={6} md={6} sm={12} xs={12}>
+            <Grid item lg={12} md={12} sm={12} xs={12}>
               <TextField 
                 id="outlined-basic"
                 type="username"
@@ -196,36 +196,7 @@ const SignUp = () => {
                 // }
               />
             </Grid>
-            {/* <Grid item lg={6} md={6} sm={12} xs={12}>
-              <TextField
-                // disabled={isLoading || googleLoading}
-                id="outlined-basic"
-                type="name"
-                label="Lastname"
-                variant="outlined"
-                sx={{
-                  height: "100%", // Custom height
-                  width: "100%",
-                  fontSize: "13px",
-                  fontWeight: 200,
-                }}
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                // {...register("lastname", {
-                //   required: "Lastname is required",
-                // })}
-                // error={errors?.email ? true : false}
-                // helperText={
-                //   errors?.email ? (
-                //     <Typography variant="body2" color={"red"} fontSize={"10px"}>
-                //       {errors?.email?.message}
-                //     </Typography>
-                //   ) : (
-                //     <></>
-                //   )
-                // }
-              />
-            </Grid> */}
+           
             <Grid item lg={12} md={12} sm={12} xs={12}>
               <TextField
                 // disabled={isLoading || googleLoading}

@@ -10,7 +10,7 @@ const Features = () => {
       // Ensure the code runs on the client-side
     if (typeof window !== "undefined") {
       const storedUserId2 = localStorage.getItem("leo");
-      // console.log('fired')
+      // console.log('fired', storedUserId2)
       if(storedUserId2){
         setAmount(storedUserId2)
       }

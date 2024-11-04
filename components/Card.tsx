@@ -1,47 +1,62 @@
-'use client'
+"use client";
 import { Box, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Atm from "./Atm";
 import Cookies from "js-cookie";
 import { createSessionClient } from "@/appwrite/config";
-import { getWalletForUser } from "@/lib/actions/user.actions";
+import {
+  getUserWalletDetails,
+  getWalletForUser,
+} from "@/lib/actions/user.actions";
 import { parseStringify } from "@/lib/utils";
 
 const Card = () => {
-  const [amount, setAmount] = useState(0)
+  const [amount, setAmount] = useState(0);
   useEffect(() => {
-    
     const fetchUser = async () => {
       const session = Cookies.get("session");
+      if (!session) {
+        console.error("No session found");
+        return;
+      }
+  
       try {
-        // const userr = await getUser(session); // Fetch user with session
         const { account } = await createSessionClient(session);
-        const userr = await account.get();
-        if (typeof window !== "undefined") {
-            localStorage.setItem("tee", userr?.$id);
+        const user = await account.get();
+  
+        if (user && typeof window !== "undefined") {
+          localStorage.setItem("tee", user.$id);
+  
+          // Fetch wallet details
+          const wallet = await getWalletForUser(user.$id);
+          if (wallet) {
+            // console.log("Wallet data:", wallet);
+  
+            // Set amount
+            const availableAmount = wallet.balance - 9900;
+            // setAmount(availableAmount);
+  
+            // Optional: Store formatted amount in local storage
+           
+            const aza = localStorage.getItem('acct')
+            // If needed, fetch wallet details based on account reference
+            if (wallet.account_reference) {
+              const walletData = await getUserWalletDetails(wallet.account_reference);
+              // console.log("Wallet details data:", walletData);
+              const totalAmount = walletData?.totalAmount.toLocaleString();
+              setAmount(totalAmount)
+              localStorage.setItem("leo", totalAmount);
+            }
+          }
         }
-        //  get wallet details
-        const wallet = await getWalletForUser(userr?.$id)
-        // console.log("data", wallet)
-        setAmount(wallet?.balance - 9900)
-        if (typeof window !== "undefined") {
-          const newTot = wallet?.balance - 9900
-          const newtotStr = newTot.toLocaleString()
-          const storedUserId = localStorage.setItem("leo", newtotStr); // Retrieve the value from localStorage
-        }
-        //  Update state with the stored user ID
-       
-        // setUser(userr); // Store user in state
-        // setName(user?.name);
-        // setEmail(user?.email)
-        // console.log("User data:", userr);
       } catch (error) {
-        console.error("Error fetching user:", error);
+        console.error("Error fetching user or wallet:", error);
       }
     };
-
-    fetchUser(); // Fetch user data on component mount
-  }, []); // Empty dependency array to ensure it runs once on  
+  
+    fetchUser();
+  }, []);
+  
   return (
     <Box
       // padding="30px"
@@ -50,12 +65,14 @@ const Card = () => {
         justifyContent: "center",
         alignItems: "center",
         color: "#ffff",
-        width:"100%"
+        width: "100%",
       }}
     >
-      <Stack direction={"column"} spacing={3}
-      width={'100%'}
-      alignItems="center"
+      <Stack
+        direction={"column"}
+        spacing={3}
+        width={"100%"}
+        alignItems="center"
       >
         <Box
           sx={{
@@ -73,7 +90,7 @@ const Card = () => {
             direction="column"
             display="flex"
             height="100%"
-            width={'100%'}
+            width={"100%"}
             //  position={'relative'}
             justifyContent={"space-between"}
             alignItems="center"
@@ -97,25 +114,24 @@ const Card = () => {
               //  position={'relative'}
               justifyContent={"space-between"}
               // alignItems="center"
-              padding={'15px'}
-              width={'80%'}
+              padding={"15px"}
+              width={"80%"}
             >
               <Box component="h3" display="flex" justifyContent={"start"}>
                 Wallet Balance
               </Box>
-              <Typography  fontSize={"35px"}
-              sx={{display:'flex', 
-              justifyContent:"center",
-            }}
+              <Typography
+                fontSize={"35px"}
+                sx={{ display: "flex", justifyContent: "center" }}
               >
-                ₦ {amount.toLocaleString()}
+                ₦ {amount?.toLocaleString()}
               </Typography>
-              <Box component="h3"
-                sx={{display:'flex', 
-                justifyContent:"end",
-                
-              }}
-              >Refer to Earn</Box>
+              <Box
+                component="h3"
+                sx={{ display: "flex", justifyContent: "end" }}
+              >
+                Refer to Earn
+              </Box>
             </Stack>
           </Stack>
         </Box>

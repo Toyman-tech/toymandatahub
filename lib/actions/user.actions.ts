@@ -41,17 +41,37 @@ export const createUser = async (user) => {
       const wallets = await createMonnifyWallet(data);
       
       if (wallets) {
+        console.log("wallet created")
         const newWallet = parseStringify(wallets);
+        console.log("newWallet", newWallet)
         const reference = newWallet?.accountReference
+        console.log("reference", reference)
         const parsedWallets = newWallet?.accounts?.map(account => JSON.stringify(account)) || [];
-        // console.log("Formatted account details:", parsedWallets);
+        console.log("Formatted account details:", parsedWallets);
       
+// monify subaccount
+const subAccount = await createMonnifySubAccount({
+  currencyCode: 'NGN',
+  bankCode: "035",
+  accountNumber: wallets.accounts[0].accountNumber,
+  email: "admin419@breics.com",
+  defaultSplitPercentage: 20.2,
+  // bankCode: wallets.accounts[0].bankCode,
+  // accountNumber: wallets.accounts[0].accountNumber,
+  // email: user.email,
+  // defaultSplitPercentage: 20,
+   // Assuming 100% split to the reserved account
+});
+
+  if (subAccount) {
+          console.log("Sub-account created successfully");
         const user_id = data.$id;
         const wallet = {
           balance: '10000',
           transaction_history: [],
           account_details: parsedWallets, // Store each account as a string in the array
           account_reference: reference,
+          sub_account_code : subAccount.subAccountCode, // Add the sub-account code
         };
       
         // console.log("Wallet object:", wallet);
@@ -68,6 +88,7 @@ export const createUser = async (user) => {
           console.error("Error creating wallet:", error);
         }
       }
+    }
       
       // creating monnify acct
     }
@@ -85,6 +106,7 @@ export const createUser = async (user) => {
     console.error("An error occurred while creating a new user:", error);
   }
 };
+
 
 export const getUser = async (userId: string) => {
   // try {
@@ -144,6 +166,60 @@ export const updateWallet = async (userId: string, transaction: any) => {
   }
 };
 
+
+
+let monnifyAuthToken = null; // Cache token temporarily
+
+const getMonnifyAuthToken = async () => {
+    if (monnifyAuthToken) return monnifyAuthToken;
+    try {
+        const credentials = Buffer.from(`${MONNIFY_API_KEY}:${MONNIFY_SECRET_KEY}`).toString('base64');
+        const response = await axios.post(
+            `${MONNIFY_BASE_URL}/api/v1/auth/login`,
+            {},
+            { headers: { 'Authorization': `Basic ${credentials}`, 'Content-Type': 'application/json' } }
+        );
+        monnifyAuthToken = response.data.responseBody.accessToken;
+        return monnifyAuthToken;
+    } catch (error) {
+        console.error('Error retrieving Monnify auth token:', error.response?.data || error.message);
+        throw error;
+    }
+};
+
+const monnifyHeaders = async () => ({
+    'Authorization': `Bearer ${await getMonnifyAuthToken()}`,
+    'Content-Type': 'application/json'
+});
+
+
+// subaccount
+export const createMonnifySubAccount = async ({
+  currencyCode = 'NGN', bankCode, accountNumber, email, defaultSplitPercentage = 20.87
+}) => {
+  try {
+      const headers = await monnifyHeaders();
+      const response = await axios.post(
+          `${MONNIFY_BASE_URL}/api/v1/sub-accounts`,
+          [{
+              currencyCode,
+              bankCode,
+              accountNumber,
+              email,
+              defaultSplitPercentage
+          }],
+          { headers }
+      );
+      console.log('Sub-account created:', response.data.responseBody[0]);
+      return response.data.responseBody[0];
+  } catch (error) {
+      console.error('Error creating sub-account:', error.response?.data || error.message);
+  }
+};
+
+
+
+
 // Function to get user's wallet
 export const getWalletForUser = async (user_id: string) => {
   try {
@@ -161,51 +237,23 @@ export const getWalletForUser = async (user_id: string) => {
   }
 };
 
-const getMonnifyAuthToken = async () => {
+export const getUserWalletDetails = async (reference) => {
   try {
-    // Encode API Key and Secret Key
-    const credentials = Buffer.from(`${MONNIFY_API_KEY}:${MONNIFY_SECRET_KEY}`).toString('base64');
+    if (!reference) {
+      console.error("No reference provided for fetching wallet details");
+      return null;
+    }
 
-    const response = await axios.post(
-      `${MONNIFY_BASE_URL}/api/v1/auth/login`,
-      {}, // No need to send body content
-      {
-        headers: {
-          'Authorization': `Basic ${credentials}`,
-          'Content-Type': 'application/json',
-        },
-      }
-    );
-
-    const { accessToken } = response.data.responseBody;
-    console.log('Access token retrieved successfully:', accessToken);
-    return accessToken;
-  } catch (error) {
-    console.error('Error getting Monnify auth token:', error.response ? error.response.data : error.message);
-    throw error;
-  }
-};
-
-const createMonnifyWallet = async (user) => {
-  const { name, email } = user;
-
-  try {
-    // Get Monnify auth token
     const token = await getMonnifyAuthToken();
+    if (!token) {
+      console.error("Failed to get Monnify auth token");
+      return null;
+    }
 
-    // Call Monnify API to create a reserved account
-    const response = await axios.post(
-      `${MONNIFY_BASE_URL}/api/v2/bank-transfer/reserved-accounts`,
-      {
-        accountReference: `${user.$id}-wallet`,
-        accountName: name,
-        customerEmail: email,
-        customerName: name,
-        currencyCode: 'NGN',
-        contractCode: MONNIFY_CONTRACT_CODE,
-        incomeSplitConfig: [], // Optional income split configuration
-        getAllAvailableBanks: true, // Optional flag if required by Monnify
-      },
+    console.log("Fetching wallet details with reference:", reference);
+
+    const res = await axios.get(
+      `${MONNIFY_BASE_URL}/api/v2/bank-transfer/reserved-accounts/${reference}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -214,12 +262,41 @@ const createMonnifyWallet = async (user) => {
       }
     );
 
-    return response.data.responseBody; // Return reserved account details
+    console.log("Wallet details fetched successfully:", res.data);
+     return res.data.responseBody;
   } catch (error) {
-    console.error('Error creating Monnify reserved account:', error);
-    throw error;
+    console.error("Error in getUserWalletDetails:", error);
+    throw error; // Re-throwing for higher-level handling if needed
   }
 };
+
+
+const createMonnifyWallet = async (user) => {
+  const { name, email, $id: userId } = user;
+  try {
+      const headers = await monnifyHeaders();
+      const response = await axios.post(
+          `${MONNIFY_BASE_URL}/api/v2/bank-transfer/reserved-accounts`,
+          {
+              accountReference: `${userId}-wallet`,
+              accountName: name,
+              customerEmail: email,
+              customerName: name,
+              currencyCode: 'NGN',
+              contractCode: MONNIFY_CONTRACT_CODE,
+              incomeSplitConfig: [],
+              getAllAvailableBanks: true
+          },
+          { headers }
+      );
+      console.log('Monnify wallet created:', response.data.responseBody);
+      return response.data.responseBody;
+  } catch (error) {
+      console.error('Error creating Monnify wallet:', error.response?.data || error.message);
+      throw error;
+  }
+};
+
 
 export const logout = async () => {
   // await users.deleteSession('session');

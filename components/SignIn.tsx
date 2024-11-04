@@ -22,11 +22,10 @@ import GoogleIcon from "@mui/icons-material/Google";
 import { redirect, useRouter } from "next/navigation";
 // import { account, ID } from "./appwrite";
 
-import { setsession} from "../app/cong/action";
+import { setsession } from "../app/cong/action";
 import Cookies from "js-cookie";
 import { createUserClient } from "@/appwrite/config";
 // import { CreateUserClient } from "@/lib/actions/user.actions";
-
 
 const SignIn = () => {
   const [pwdVisible, setPwdVisible] = useState(false);
@@ -35,36 +34,36 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState(false);
-  const [session, setSession] = useState (null);
-  
-  const { handleMessage, handleSnack, snackBarOpen, setSnackBarOpen } =
-  useToast();
+  const [session, setSession] = useState(null);
 
+  const {
+    handleMessage,
+    handleSnack,
+    snackBarOpen,
+    setSnackBarOpen,
+  } = useToast();
 
-useEffect( ()=>{
-  const sessionCookie = Cookies.get('session');
-  if (sessionCookie){
-    setSession(sessionCookie)
-  }
-}, []);
+  useEffect(() => {
+    const sessionCookie = Cookies.get("session");
+    if (sessionCookie) {
+      setSession(sessionCookie);
+    }
+  }, []);
 
-  const handleLogin = async(e: React.MouseEvent) => {
+  const handleLogin = async (e: React.MouseEvent) => {
     e.preventDefault();
-    setName(true)
-     try {
-      const {account} = await createUserClient()
-      console.log(account)
-      const sesion = await account.createEmailPasswordSession(
-        email,
-        password
-       )
-      console.log(sesion)
-      console.log(email, password)
-      Cookies.set('session', sesion.secret, {
+    setName(true);
+    try {
+      const { account } = await createUserClient();
+      console.log(account);
+      const sesion = await account.createEmailPasswordSession(email, password);
+      console.log(sesion);
+      console.log(email, password);
+      Cookies.set("session", sesion.secret, {
         expires: new Date(sesion.expire),
       });
-      setSession(sesion)
-      
+      setSession(sesion);
+
       //  if(sesion){
       //   handleMessage(
       //     "success",
@@ -72,25 +71,21 @@ useEffect( ()=>{
       //   );
       //   return;
       //  }
-      handleMessage(
-        "success",
-        "You have sucessfully logged in"
-      );
-       router.push('/dashboard');
-       setName(false)   
+      handleMessage("success", "You have sucessfully logged in");
+      router.push("/dashboard");
+      setName(false);
       // return account;
-     } catch (error) {
-      console.error(error)
-      console.log('error')
-      setName(false)
+    } catch (error) {
+      console.error(error);
+      console.log("error");
+      setName(false);
       handleMessage(
         "error",
         "Invalid login details or check your network connection"
       );
-     }
-    
-  }
-  
+    }
+  };
+
   return (
     <>
       <Box
@@ -98,11 +93,10 @@ useEffect( ()=>{
         display="flex"
         alignItems="center"
         justifyContent="center"
-        width='100%'
-        
+        width="100%"
       >
         <Stack
-        mt='50px'
+          mt="50px"
           direction="column"
           spacing={{ md: 2, xs: 3 }}
           display="flex"
@@ -118,34 +112,6 @@ useEffect( ()=>{
           >
             Welcome Back!
           </Box>
-          
-          <Button
-            fullWidth
-            size="large"
-            sx={{
-              background: "none",
-              textTransform: "inherit",
-              fontSize: "18px",
-              "&:hover": { background: "none" },
-              border: "1px solid #d3d3d3",
-              borderRadius: "10px",
-              color: "#000929",
-            }}
-            // startIcon={
-            //   !googleLoading && (
-            //     <GoogleIcon sx={{ width: "20px", height: "20px" }} />
-            //   )
-            // }
-            // onClick={handleGoogleSignup}
-            // disabled={isLoading || googleLoading}
-          >
-            {/* {googleLoading ? (
-              <CircularProgress size={"20px"} />
-            ) : (
-              "    Sign in with google"
-            )} */}  Sign in with google
-          </Button>
-          <Divider sx={{ width: "100%", my: "2em" }}>Or</Divider>
 
           <Stack
             direction="column"
@@ -154,8 +120,7 @@ useEffect( ()=>{
             minHeight={400}
             alignItems="center"
             justifyContent="flex-start"
-            width={'100%'}
-
+            width={"100%"}
           >
             <TextField
               id="outlined-basic"
@@ -169,7 +134,7 @@ useEffect( ()=>{
               sx={{
                 height: "100%", // Custom height
                 // borderColor:' #5b3a3acc',
-                borderRadius: '8px',
+                borderRadius: "8px",
                 fontSize: "13px",
                 fontWeight: 200,
               }}
@@ -197,7 +162,7 @@ useEffect( ()=>{
               fullWidth
               sx={{
                 height: "100%", // Custom height
-                color:'black',
+                color: "black",
                 fontSize: "13px",
                 fontWeight: 200,
               }}
@@ -242,12 +207,12 @@ useEffect( ()=>{
               fontSize="15px"
               paddingTop="3px"
               paddingBottom="3px"
-              width={'100%'}
+              width={"100%"}
             >
-              <Box component="p" >Remember me</Box>
+              <Box component="p">Remember me</Box>
               <Link
                 href="/auth/recover-password"
-                color='#457B83'
+                color="#457B83"
                 underline="none"
               >
                 Forgot Password?
@@ -257,7 +222,6 @@ useEffect( ()=>{
               type="submit"
               // disabled={isLoading || googleLoading}
               fullWidth
-            
               sx={{
                 height: 45.7, // Custom height
 
@@ -267,18 +231,16 @@ useEffect( ()=>{
                 fontSize: "13px",
                 fontWeight: 200,
                 backgroundColor: "#2A4F55",
-                ":hover":{
+                ":hover": {
                   backgroundColor: "#457B83",
-                }
+                },
               }}
               variant="contained"
               // onClick={() => login(email, password)}
-              // onClick = {()=> 
+              // onClick = {()=>
               //   handleLogin(email, password)
               // }
-              onClick = { 
-                 handleLogin
-              }
+              onClick={handleLogin}
             >
               {/* {isLoading ? 'Loading...' : 'Login'} */}
               Login
@@ -288,7 +250,7 @@ useEffect( ()=>{
               <Box component="p" sx={{ fontSize: "15px", mt: 1 }}>
                 Don&apos;t have an account?
                 <Box component="span" p={1}>
-                  <Link href="/auth/sign-up" color='#457B83' underline="none">
+                  <Link href="/auth/sign-up" color="#457B83" underline="none">
                     Sign up
                   </Link>
                 </Box>
@@ -296,13 +258,13 @@ useEffect( ()=>{
             </Box>
           </Stack>
 
-           {name && <LoadingPage />}
+          {name && <LoadingPage />}
           <SnackbarComp
             snackBarOpen={snackBarOpen}
             setSnackBarOpen={setSnackBarOpen}
             alert={handleSnack.alert}
             message={handleSnack.message}
-          /> 
+          />
         </Stack>
       </Box>
     </>

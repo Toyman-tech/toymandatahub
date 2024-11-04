@@ -58,8 +58,8 @@ const Walletui = () => {
         //   localStorage.setItem("tee", userr?.$id);
         // }
         setUser(userr); // Store user in state
-        setName(user?.name);
-        setEmail(user?.email)
+        setName(userr?.name);
+        setEmail(userr?.email)
         console.log("User data:", userr);
       } catch (error) {
         console.error("Error fetching user:", error);
@@ -84,6 +84,7 @@ const Walletui = () => {
                                                                                                                                                                          
   // paymentt
   const handlePayment = (e: React.FormEvent) => {
+    console.log("monify-sdk", name, email)
     e.preventDefault();
     setIsLoading(true)
     console.log("hello world");
@@ -92,10 +93,10 @@ const Walletui = () => {
         amount: total,
         currency: 'NGN',
         reference: `${new Date().getTime()}`, // Generates a unique reference
-        customerFullName: name,
-        customerEmail: email,
-        apiKey: "MK_TEST_HDTP6X0F4C",
-        contractCode: '7713023602',
+        customerFullName: `${name}`,
+        customerEmail: `${email}`,
+        apiKey: `${process.env.NEXT_PUBLIC_MONNIFY_API_KEY}`,
+        contractCode: `${process.env.NEXT_PUBLIC_MONNIFY_CONTRACT_CODE}`,
         paymentDescription: 'Testing by toyman',
         metadata: {
           name: name,
